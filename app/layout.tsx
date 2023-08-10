@@ -1,8 +1,6 @@
 import "antd/dist/reset.css";
 import "@/styles/app.css";
 import type { Metadata } from "next";
-import Link from "next/link";
-import Head from "next/head";
 import { Inter } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -22,14 +20,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Head>
-        <Link rel="preconnect" href="https://fonts.googleapis.com" />
-        <Link rel="preconnect" href="https://fonts.gstatic.com" />
-        <Link
-          href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Ubuntu&display=swap&family=Edu+SA+Beginner:wght@600&family=Kanit:wght@300"
-          rel="stylesheet"
-        />
-      </Head>
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+      </head>
       <body className={inter.className}>
         <Header />
         {children}

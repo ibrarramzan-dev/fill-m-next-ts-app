@@ -1,0 +1,100 @@
+.Grid
+  width: 100%
+  display: flex
+  justify-content: center
+
+  .Grid-wrapper
+    display: flex
+    justify-content: right
+    width: 44.5rem
+
+    .Grid-box
+      width: 26.7rem
+      height: 26.8rem
+      background: #fff
+      border-radius: 1.2rem
+      margin-top: 3.25rem
+
+      .Grid-box-row
+        display: flex
+
+        &:first-of-type
+          .Cell
+            &:first-of-type
+              .Cell-box-wrapper
+                border-top-left-radius: 1.2rem
+
+            &:last-of-type
+              .Cell-box-wrapper
+                border-top-right-radius: 1.2rem
+
+        &:last-of-type
+          .Cell
+            &:first-of-type
+              .Cell-box-wrapper
+                border-bottom-left-radius: 1.2rem
+
+            &:last-of-type
+              .Cell-box-wrapper
+                border-bottom-right-radius: 1.2rem
+
+    .Grid-guess-wrapper
+      width: fit-content
+      font-size: 1.15rem
+      margin-top: 13rem
+      margin-left: 1.75rem
+      font-weight: 500
+      color: #555555
+
+      p
+        &:last-of-type
+          text-align: center
+          font-size: 4.4rem
+          font-weight: bold
+          margin-top: -1.3rem
+          color: #363636
+
+@media (min-width: 325px) and (max-width: 519px)
+  .Grid
+    .Grid-wrapper
+      width: 100% !important
+      flex-direction: column
+      margin-left: 12%
+      
+      .Grid-guess-wrapper
+        width: 100% !important
+        text-align: center !important
+        margin: 15% 0 -20% -10%
+
+    .Grid-box
+      width: 16.05rem !important
+      height: 16rem !important
+
+      .Grid-box-row
+        .Cell
+          .Cell-box-wrapper
+            width: 5.4rem
+            height: 5.4rem
+
+@media (min-width: 520px) and (max-width: 766px)
+  .Grid
+    .Grid-wrapper
+      width: 100% !important
+      flex-direction: column
+      margin-left: 10%
+      
+      .Grid-guess-wrapper
+        width: 100% !important
+        text-align: center !important
+        margin: 15% 0 -20% -10%
+
+    .Grid-box
+      width: 20.8rem !important
+      height: 20.8rem !important
+
+      .Grid-box-row
+        .Cell
+          .Cell-box-wrapper
+            width: 7rem
+            height: 7rem
+

@@ -1,0 +1,30 @@
+{
+  "name": "fill-m-next-ts-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "sass-dev": "sass --watch --update --style=expanded styles/app.sass:styles/app.css",
+    "sass-prod": "sass --no-source-map --style=compressed styles/app.sass:styles/app.css"
+  },
+  "dependencies": {
+    "@types/node": "20.4.9",
+    "@types/react": "18.2.20",
+    "@types/react-dom": "18.2.7",
+    "antd": "^5.8.2",
+    "classnames": "^2.3.2",
+    "eslint": "8.46.0",
+    "eslint-config-next": "13.4.13",
+    "next": "13.4.13",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-icons": "^4.10.1",
+    "typescript": "5.1.6"
+  },
+  "devDependencies": {
+    "sass": "^1.65.1"
+  }
+}

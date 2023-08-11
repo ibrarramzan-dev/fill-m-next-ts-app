@@ -4,6 +4,15 @@ body {
   background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(255, 221, 221) 100%, rgb(255, 255, 255) 100%);
 }
 
+/* Import Layouts */
+.Admin-logo {
+  width: 100%;
+  font-size: 2.5rem;
+  color: #ee0067;
+  text-align: center;
+  margin-left: -4%;
+}
+
 /* Import Components */
 header {
   text-align: center;

@@ -1,17 +1,18 @@
 "use client";
+import "@/public/admin/styles/root-style.css";
 import React, { useState } from "react";
 import Link from "next/link";
+import Script from "next/script";
 import { Indie_Flower } from "next/font/google";
 import cn from "classnames";
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
-  WalletOutlined,
+  UnorderedListOutlined,
   UserOutlined,
   BorderOuterOutlined,
 } from "@ant-design/icons";
-import { Layout, Menu, Button, theme } from "antd";
-const { Header, Sider, Content } = Layout;
+import Image from "next/image";
 
 const Indie_Flower_Font = Indie_Flower({
   subsets: ["latin"],
@@ -19,84 +20,84 @@ const Indie_Flower_Font = Indie_Flower({
 });
 
 const Admin = ({ children }) => {
-  const [collapsed, setCollapsed] = useState(false);
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
   return (
-    <Layout style={{ height: "100%" }}>
-      <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="demo-logo-vertical" />
-        <Menu
-          theme="dark"
-          mode="inline"
-          defaultSelectedKeys={["1"]}
-          items={[
-            {
-              key: "1",
-              icon: (
-                <Link href="/admin/new-puzzle">
-                  <BorderOuterOutlined />
-                </Link>
-              ),
-              label: "New Puzzle",
-            },
-            {
-              key: "2",
-              icon: (
-                <Link href="/admin/all-puzzles">
-                  <WalletOutlined />
-                </Link>
-              ),
-              label: "All Puzzles",
-            },
-            {
-              key: "3",
-              icon: (
-                <Link href="/admin/logout">
-                  <UserOutlined />
-                </Link>
-              ),
-              label: "Logout",
-            },
-          ]}
-        />
-      </Sider>
-      <Layout style={{ height: "fit-content" }}>
-        <Header
-          style={{
-            padding: 0,
-            background: colorBgContainer,
-            display: "flex",
-            justifyContent: "left",
-          }}
-        >
-          <Button
-            type="text"
-            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-            onClick={() => setCollapsed(!collapsed)}
-            style={{
-              fontSize: "16px",
-              width: 64,
-              height: 64,
-            }}
-          />
-          <p className={cn(Indie_Flower_Font.className, "Admin-logo")}>
+    <>
+      <header className="cd-main-header js-cd-main-header">
+        <div className="cd-logo-wrapper">
+          <a href="/" className="cd-logo">
             Fill-M
-          </p>
-        </Header>
-        <Content
-          style={{
-            margin: "-2.88rem 16px",
-            padding: 24,
-            height: "100%",
-            background: colorBgContainer,
-          }}
+          </a>
+        </div>
+        <div className="cd-search js-cd-search"></div>
+        <button
+          className="reset cd-nav-trigger js-cd-nav-trigger"
+          aria-label="Toggle menu"
         >
-          {children}
-        </Content>
-      </Layout>
-    </Layout>
+          <span />
+        </button>
+        <ul className="cd-nav__list js-cd-nav__list">
+          <li className="cd-nav__item">
+            <a href="#0">Support</a>
+          </li>
+          <li className="cd-nav__item cd-nav__item--has-children cd-nav__item--account js-cd-item--has-children">
+            <a href="#0">
+              <Image
+                src="admin/images/cd-avatar.svg"
+                alt="avatar"
+                width="22"
+                height="22"
+              />
+              <span>Ibrar</span>
+            </a>
+            <ul className="cd-nav__sub-list">
+              <li className="cd-nav__sub-item">
+                <a href="#0">Profile</a>
+              </li>
+              <li className="cd-nav__sub-item">
+                <a href="#0">Logout</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </header>
+      {/* .cd-main-header */}
+      <main className="cd-main-content">
+        <nav className="cd-side-nav js-cd-side-nav">
+          <ul className="cd-side__list js-cd-side__list">
+            <li className="cd-side__item cd-side__item--has-children cd-side__item--overview js-cd-item--has-children">
+              <a href="#0">New puzzle</a>
+            </li>
+            <li className="cd-side__item cd-side__item--has-children cd-side__item--overview js-cd-item--has-children">
+              <a href="#0">All puzzles</a>
+            </li>
+            <li className="cd-side__item cd-side__item--has-children cd-side__item--overview js-cd-item--has-children">
+              <a href="#0">Add new movie</a>
+            </li>
+          </ul>
+          <ul className="cd-side__list js-cd-side__list">
+            <li className="cd-side__btn">
+              <button className="reset" href="#0">
+                LOGOUT
+              </button>
+            </li>
+          </ul>
+        </nav>
+        <div className="cd-content-wrapper">
+          <div className="text-component">
+            <h1>Welcome to Dashboard, Fill-M</h1>
+            <ul>
+              <li>New puzzle</li>
+              <li>All puzzles (view, edit, delete)</li>
+              <li>Add new movie to the database</li>
+            </ul>
+          </div>
+        </div>
+        {/* .content-wrapper */}
+      </main>
+      <Script src="admin/scripts/util.js" />
+      <Script src="admin/scripts/menu-aim.js" />
+      <Script src="admin/scripts/main.js" />
+    </>
   );
 };
 

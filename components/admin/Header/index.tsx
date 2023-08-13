@@ -10,6 +10,7 @@ import tagOverlap from "./images/basf-logo.svg";
 import Image from "next/image";
 import cn from "classnames";
 import { Indie_Flower, Caveat } from "next/font/google";
+import Link from "next/link";
 
 const Indie_Flower_Font = Indie_Flower({
   subsets: ["latin"],
@@ -28,51 +29,39 @@ export default function Header() {
   const dispatch = useDispatch();
 
   const menu = (
-    <div className="Header-avatar-dropdown-menu">
+    <div className="AdminHeader-avatar-dropdown-menu">
       <Menu
         items={[
           {
             key: "1",
             label: (
-              <div className="Header-avatar-dropdown-list-item">
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://www.antgroup.com"
-                >
+              <div className="AdminHeader-avatar-dropdown-list-item">
+                <Link target="_blank" rel="noopener noreferrer" href="#">
                   <i className="fa-solid fa-gear Header-avatar-dropdown-icons" />
-                  Settings
-                </a>
+                  Profile
+                </Link>
               </div>
             ),
           },
           {
             key: "2",
             label: (
-              <div className="Header-avatar-dropdown-list-item">
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://www.aliyun.com"
-                >
+              <div className="AdminHeader-avatar-dropdown-list-item">
+                <Link target="_blank" rel="noopener noreferrer" href="#">
                   <i className="fa-solid fa-key Header-avatar-dropdown-icons" />
                   Change Password
-                </a>
+                </Link>
               </div>
             ),
           },
           {
             key: "3",
             label: (
-              <div className="Header-avatar-dropdown-list-item">
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://www.aliyun.com"
-                >
+              <div className="AdminHeader-avatar-dropdown-list-item">
+                <Link target="_blank" rel="noopener noreferrer" href="#">
                   <i className="fa-solid fa-arrow-right-from-bracket Header-avatar-dropdown-icons" />
                   Logout
-                </a>
+                </Link>
               </div>
             ),
           },
@@ -92,28 +81,29 @@ export default function Header() {
           <Image src={hamburger} alt="Menu" />
         </div>
 
-        <div className="AdminHeader-brand-logo">
-          <p
-            className={cn(
-              Indie_Flower_Font.className,
-              "Header-logo",
-              "AdminHeader-logo"
-            )}
-          >
-            Fill-M{" "}
-          </p>
-          <p
-            className={cn(
-              Caveat_Font.className,
-              "AdminHeader-logo-dashboard-text"
-            )}
-          >
-            Dashboard
-          </p>
-        </div>
-
+        <Link href="/admin">
+          <div className="AdminHeader-brand-logo">
+            <p
+              className={cn(
+                Indie_Flower_Font.className,
+                "Header-logo",
+                "AdminHeader-logo"
+              )}
+            >
+              Fill-M{" "}
+            </p>
+            <p
+              className={cn(
+                Caveat_Font.className,
+                "AdminHeader-logo-dashboard-text"
+              )}
+            >
+              Dashboard
+            </p>
+          </div>
+        </Link>
         <div className="AdminHeader-right-items">
-          <div className="AdminHeader-avatar-dropdown">
+          <div className="AdminHeader-right-items-avatar-dropdown">
             <Dropdown
               overlay={menu}
               trigger={["click"]}
@@ -121,9 +111,16 @@ export default function Header() {
               overlayStyle={{ width: "100%", padding: "11px" }}
             >
               <Avatar
-                className="AdminHeader-avatar-dropdown-avatar"
+                className="AdminHeader-right-items-avatar-dropdown-avatar"
                 size="large"
-                icon={<i className="fa-solid fa-user" />}
+                icon={
+                  <Image
+                    src="/admin/images/avatar.png"
+                    alt="Avatar"
+                    width={40}
+                    height={40}
+                  />
+                }
               />
             </Dropdown>
           </div>

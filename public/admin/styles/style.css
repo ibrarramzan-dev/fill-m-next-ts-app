@@ -39,6 +39,7 @@ a {
   }
   .AdminLayout-content {
     margin-left: 0 !important;
+    padding: 0.55rem 2rem 2rem 2rem;
   }
 }
 .AdminHeader-container {
@@ -84,12 +85,12 @@ a {
   height: 70px;
   justify-content: space-between !important;
   align-items: center;
-  right: 20px;
+  right: 22.5px;
 }
-.AdminHeader-container .AdminHeader-container-fixed .AdminHeader-right-items .AdminHeader-avatar-dropdown {
+.AdminHeader-container .AdminHeader-container-fixed .AdminHeader-right-items .AdminHeader-right-items-avatar-dropdown {
   cursor: pointer;
 }
-.AdminHeader-container .AdminHeader-container-fixed .AdminHeader-right-items .AdminHeader-avatar-dropdown .AdminHeader-avatar-dropdown-avatar {
+.AdminHeader-container .AdminHeader-container-fixed .AdminHeader-right-items .AdminHeader-right-items-avatar-dropdown .AdminHeader-right-items-avatar-dropdown-avatar {
   cursor: pointer;
   background: #808080;
   margin-left: 15px;
@@ -97,7 +98,7 @@ a {
 
 .AdminHeader-avatar-dropdown-menu {
   position: absolute;
-  right: 1%;
+  right: 0% !important;
   width: 26%;
 }
 

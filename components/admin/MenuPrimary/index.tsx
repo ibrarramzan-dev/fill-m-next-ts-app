@@ -73,13 +73,10 @@ export default function MenuPrimary() {
       menuListUlRef.current.style.border = "none";
 
       newPuzzleItemRef.current.style.display = "inline";
-      newPuzzleItemRef.current.style.marginRight = "55px";
 
       allPuzzlesItemRef.current.style.display = "inline";
-      allPuzzlesItemRef.current.style.marginRight = "55px";
 
       newMovieItemRef.current.style.display = "inline";
-      newMovieItemRef.current.style.marginRight = "55px";
     }
   } else if (
     !isSidebarOpened &&

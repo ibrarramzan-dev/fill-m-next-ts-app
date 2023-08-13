@@ -9,8 +9,8 @@
     "lint": "next lint",
     "sass-dev": "sass --watch --update --style=expanded public/app/styles/style.sass:public/app/styles/style.css",
     "sass-prod": "sass --no-source-map --style=compressed public/app/styles/style.sass:public/app/styles/style.css",
-    "sass-admin-dev": "sass --watch --update --style=expanded public/admin/styles/style.scss:public/admin/styles/style.css",
-    "sass-admin-prod": "sass --no-source-map --style=compressed public/admin/styles/style.scss:public/admin/styles/style.css"
+    "sass-admin-dev": "sass --watch --update --style=expanded public/admin/styles/style.sass:public/admin/styles/style.css",
+    "sass-admin-prod": "sass --no-source-map --style=compressed public/admin/styles/style.sass:public/admin/styles/style.css"
   },
   "dependencies": {
     "@types/node": "20.4.9",

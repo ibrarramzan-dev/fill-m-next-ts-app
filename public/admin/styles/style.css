@@ -1,0 +1,71 @@
+/* Import Base */
+body {
+  font-family: Calibri;
+  background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(255, 221, 221) 100%, rgb(255, 255, 255) 100%);
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Import Components */
+@keyframes visiblity-anim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.AdminHeader {
+  display: flex;
+  background: #3b3b3b;
+  height: 3.7rem;
+  color: #fff;
+}
+.AdminHeader .AdminHeader-logo-wrapper {
+  display: flex;
+  animation-name: visiblity-anim;
+  animation-duration: 1s;
+}
+.AdminHeader .AdminHeader-logo-wrapper .AdminHeader-logo {
+  padding: 0.2rem 1rem;
+  border-radius: 1.5rem;
+  background: #fff;
+}
+.AdminHeader .AdminHeader-logo-wrapper .AdminHeader-logo-dashboard-text {
+  color: #fff;
+  font-size: 1.3rem;
+  margin-top: 0.57rem;
+  margin-left: 0.7rem;
+}
+.AdminHeader .AdminHeader-right-items-wrapper {
+  display: flex;
+  font-size: 1rem;
+}
+.AdminHeader .AdminHeader-right-items-wrapper .AdminHeader-right-items-support-icon-wrapper {
+  margin-top: 0.6rem;
+}
+.AdminHeader .AdminHeader-right-items-wrapper .AdminHeader-right-items-support-icon-wrapper .AdminHeader-right-items-support-icon {
+  font-size: 1rem;
+  margin-top: 0.2rem;
+  margin-right: 0.6rem;
+  cursor: pointer;
+}
+.AdminHeader .AdminHeader-right-items-wrapper .AdminHeader-right-items-separator {
+  width: 1px;
+  height: 72%;
+  background: #bdbdbd;
+  margin: 0.4rem 0.7rem 0 0.7rem;
+}
+.AdminHeader .AdminHeader-right-items-wrapper .AdminHeader-right-items-avatar-drowdown {
+  cursor: default;
+  margin-right: 0.5rem;
+  animation-name: visiblity-anim;
+  animation-duration: 1s;
+}
+.AdminHeader .AdminHeader-right-items-wrapper .AdminHeader-right-items-avatar-drowdown img {
+  margin-top: -0.3rem;
+}
+
+/*# sourceMappingURL=style.css.map */

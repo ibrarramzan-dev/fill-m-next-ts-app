@@ -1,0 +1,28 @@
+@keyframes visibility-anim
+  from
+    opacity: 0
+
+  to
+    opacity: 1
+
+.AdminLayout
+  animation-name: visibility-anim
+  animation-duration: 1s
+
+  .AdminLayout-body-container
+    display: flex
+
+  .AdminLayout-no-secondary-menu-margin
+    margin-left: 7.5rem
+        
+  .AdminLayout-content
+    width: 100%
+    margin-left: 11rem
+    margin-top: 2rem
+
+@media (max-width: 1023px)
+  .AdminLayout-no-secondary-menu-margin   
+    display: none
+
+  .AdminLayout-content
+    margin-left: 0 !important

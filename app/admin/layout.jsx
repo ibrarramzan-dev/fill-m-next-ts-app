@@ -14,6 +14,7 @@ import {
 } from "@ant-design/icons";
 import Image from "next/image";
 import Header from "@/components/admin/Header";
+import MenuPrimary from "@/components/admin/MenuPrimary";
 
 const Indie_Flower_Font = Indie_Flower({
   subsets: ["latin"],
@@ -22,8 +23,16 @@ const Indie_Flower_Font = Indie_Flower({
 
 const AdminLayout = ({ children }) => {
   return (
-    <div>
+    <div className="AdminLayout">
       <Header />
+
+      <div className="AdminLayout-body-container">
+        <div className="AdminLayout-sidemenu">
+          <MenuPrimary />
+        </div>
+
+        <div className="AdminLayout-content">{children}</div>
+      </div>
     </div>
   );
 };

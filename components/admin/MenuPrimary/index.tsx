@@ -1,7 +1,9 @@
 "use client";
-import React, { useContext, useEffect, useRef, useState } from "react";
+
+import React, { useEffect, useRef, useState } from "react";
 import project from "./images/icon-dots.svg";
 import list from "./images/icon-list.svg";
+import { useSelector } from "react-redux";
 // import MenuBtnContext from "../../../context/menuBtnContext"
 import MenuPrimaryItem from "./MenuPrimaryItem";
 import {
@@ -19,15 +21,18 @@ export default function MenuPrimary() {
     setWidth(window.innerWidth);
   }, []);
 
-  // const { isOpen } = useContext(MenuBtnContext)
+  const isSidebarOpened = useSelector(
+    (state: any) => state.admin.dashboard.isSidebarOpened
+  );
+
+  console.log(isSidebarOpened);
 
   const menuPrimaryRef = useRef<HTMLDivElement>(null);
   const menuListUlRef = useRef<HTMLUListElement>(null);
 
-  const projectItemRef = useRef<HTMLSpanElement>(null);
-  const versioningItemRef = useRef<HTMLSpanElement>(null);
-  const usersItemRef = useRef<HTMLSpanElement>(null);
-  const tagsItemRef = useRef<HTMLSpanElement>(null);
+  const newPuzzleItemRef = useRef<HTMLSpanElement>(null);
+  const allPuzzlesItemRef = useRef<HTMLSpanElement>(null);
+  const newMovieItemRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     function handleResize() {
@@ -44,73 +49,67 @@ export default function MenuPrimary() {
     }
   }
 
-  // if (isOpen) {
-  //   if (
-  //     menuPrimaryRef.current &&
-  //     menuListUlRef.current &&
-  //     projectItemRef.current &&
-  //     versioningItemRef.current &&
-  //     usersItemRef.current &&
-  //     tagsItemRef.current
-  //   ) {
-  //     menuPrimaryRef.current.style.display = "flex";
-  //     menuPrimaryRef.current.style.justifyContent = "left";
-  //     menuPrimaryRef.current.style.paddingTop = "0";
-  //     menuPrimaryRef.current.style.width = "76vw";
-  //     menuPrimaryRef.current.style.top = "auto";
-  //     menuPrimaryRef.current.style.bottom = "0";
-  //     menuPrimaryRef.current.style.height = "4rem";
-  //     menuPrimaryRef.current.style.zIndex = "5000";
+  if (isSidebarOpened) {
+    if (
+      menuPrimaryRef.current &&
+      menuListUlRef.current &&
+      newPuzzleItemRef.current &&
+      allPuzzlesItemRef.current &&
+      newMovieItemRef.current
+    ) {
+      menuPrimaryRef.current.style.display = "flex";
+      menuPrimaryRef.current.style.justifyContent = "left";
+      menuPrimaryRef.current.style.paddingTop = "0";
+      menuPrimaryRef.current.style.width = "76vw";
+      menuPrimaryRef.current.style.top = "auto";
+      // menuPrimaryRef.current.style.bottom = "0";
+      menuPrimaryRef.current.style.zIndex = "5000";
 
-  //     menuListUlRef.current.style.display = "flex";
-  //     menuListUlRef.current.style.width = "100%";
-  //     menuListUlRef.current.style.flexDirection = "row";
-  //     menuListUlRef.current.style.overflow = "hidden";
-  //     menuListUlRef.current.style.overflowX = "auto";
-  //     menuListUlRef.current.style.border = "none";
+      menuListUlRef.current.style.display = "flex";
+      menuListUlRef.current.style.width = "100%";
+      // menuListUlRef.current.style.flexDirection = "row";
+      menuListUlRef.current.style.overflow = "hidden";
+      menuListUlRef.current.style.overflowX = "auto";
+      menuListUlRef.current.style.border = "none";
 
-  //     projectItemRef.current.style.display = "inline";
-  //     projectItemRef.current.style.marginRight = "55px";
+      newPuzzleItemRef.current.style.display = "inline";
+      newPuzzleItemRef.current.style.marginRight = "55px";
 
-  //     versioningItemRef.current.style.display = "inline";
-  //     versioningItemRef.current.style.marginRight = "55px";
+      allPuzzlesItemRef.current.style.display = "inline";
+      allPuzzlesItemRef.current.style.marginRight = "55px";
 
-  //     usersItemRef.current.style.display = "inline";
-  //     usersItemRef.current.style.marginRight = "55px";
-
-  //     tagsItemRef.current.style.display = "inline";
-  //     tagsItemRef.current.style.marginRight = "55px";
-  //   }
-  // } else if (
-  //   !isOpen &&
-  //   menuPrimaryRef.current &&
-  //   projectItemRef.current &&
-  //   versioningItemRef.current &&
-  //   usersItemRef.current &&
-  //   tagsItemRef.current
-  // ) {
-  //   menuPrimaryRef.current.style.display = "none";
-  // }
+      newMovieItemRef.current.style.display = "inline";
+      newMovieItemRef.current.style.marginRight = "55px";
+    }
+  } else if (
+    !isSidebarOpened &&
+    menuPrimaryRef.current &&
+    newPuzzleItemRef.current &&
+    allPuzzlesItemRef.current &&
+    newMovieItemRef.current
+  ) {
+    menuPrimaryRef.current.style.display = "none";
+  }
 
   return (
     <div ref={menuPrimaryRef} className="MenuPrimary-container">
       <ul ref={menuListUlRef} className="MenuPrimary-nav">
         <MenuPrimaryItem
-          ref={projectItemRef}
+          ref={newPuzzleItemRef}
           icon={<BorderOuterOutlined />}
           text="New puzzle"
           path="/admin/new-puzzle"
         />
 
         <MenuPrimaryItem
-          ref={versioningItemRef}
+          ref={allPuzzlesItemRef}
           icon={<UnorderedListOutlined />}
           text="All puzzles"
           path="/admin/puzzles"
         />
 
         <MenuPrimaryItem
-          ref={usersItemRef}
+          ref={newMovieItemRef}
           icon={<BorderOuterOutlined />}
           text="New movie"
           path="/admin/new-movie"

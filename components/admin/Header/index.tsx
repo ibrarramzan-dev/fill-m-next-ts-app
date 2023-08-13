@@ -1,5 +1,9 @@
+"use client";
+
 import React, { useContext } from "react";
 import { Avatar, Dropdown, Menu } from "antd";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleSidebar } from "@/app/AppState/Features/admin/adminSlice";
 import hamburger from "./images/menu_black_24dp.svg";
 import logo from "./images/body-shop-boost-logo.svg";
 import tagOverlap from "./images/basf-logo.svg";
@@ -18,6 +22,11 @@ const Caveat_Font = Caveat({
 });
 
 export default function Header() {
+  const isSidebarOpened = useSelector(
+    (state: any) => state.admin.dashboard.isSidebarOpened
+  );
+  const dispatch = useDispatch();
+
   const menu = (
     <div className="Header-avatar-dropdown-menu">
       <Menu
@@ -77,7 +86,7 @@ export default function Header() {
       <div className="AdminHeader-container-fixed">
         <div
           className="AdminHeader-drawer-hamburger-btn"
-          // onClick={toggleMenu}
+          onClick={() => dispatch(toggleSidebar(!isSidebarOpened))}
           aria-hidden="true"
         >
           <Image src={hamburger} alt="Menu" />

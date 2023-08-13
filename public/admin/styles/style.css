@@ -219,7 +219,7 @@ a {
   border-bottom-right-radius: 16px;
 }
 .MenuPrimary-container:hover {
-  width: 160px;
+  width: 270px;
   padding-left: 0;
   animation-name: visibility-anim;
   animation-duration: 1s;
@@ -303,14 +303,16 @@ a {
   .MenuPrimary-container {
     box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.15);
     font-weight: bold;
-    height: 4.85rem !important;
+    padding-left: 0;
+  }
+  .MenuPrimary-container:hover {
+    animation: none;
   }
   .MenuPrimary-nav {
     padding: 40px 0;
   }
   .MenuPrimary-nav-item-link {
     width: fit-content;
-    margin-left: -39px;
   }
   .MenuPrimary-nav-item-projects {
     margin-left: 38px !important;
@@ -355,7 +357,7 @@ a {
     transition: 0.6s !important;
   }
   .MenuPrimary-nav-item-link-text {
-    margin-left: 1rem !important;
+    margin-left: 0.5rem !important;
     display: none !important;
   }
 }

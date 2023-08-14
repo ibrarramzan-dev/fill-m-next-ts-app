@@ -1,10 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Grid from "@/components/admin/Grid";
 import { UploadOutlined } from "@ant-design/icons";
-import { Button, DatePicker, Input, Upload } from "antd";
-
+import { Button, Input, Upload } from "antd";
+import moment from "moment";
+import { updateDate } from "@/app/AppState/Features/admin/adminSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { DayPicker } from "react-day-picker";
+import "react-day-picker/dist/style.css";
 const props = {
   name: "file",
   action: "https://www.mocky.io/v2/5cc8019d300000980a055e76",
@@ -24,18 +28,28 @@ const props = {
 };
 
 function NewPuzzle() {
-  const [date, setDate] = useState(null);
+  const dispatch = useDispatch();
 
-  console.log(date);
+  const [selected, setSelected] = useState();
+
+  console.log(selected);
   return (
     <section className="NewPuzzle">
       <div className="NewPuzzle-left-col">
         <div className="NewPuzzle-left-col-inputs-section">
-          <p className="form-input-label">Select Date</p>
-          <DatePicker
-            className="form-input"
-            onChange={(date) => setDate(date)}
-          />
+          <div className="NewPuzzle-left-col-inputs-section-day-picker">
+            <DayPicker
+              mode="single"
+              selected={selected}
+              onSelect={(date) => {
+                const dateStr = `${date.getDate()}-${
+                  date.getMonth() + 1
+                }-${date.getFullYear()}`;
+                dispatch(updateDate(dateStr));
+                setSelected(date);
+              }}
+            />
+          </div>
         </div>
 
         <div className="NewPuzzle-left-col-inputs-section">

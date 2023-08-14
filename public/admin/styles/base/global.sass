@@ -1,6 +1,35 @@
 body
   font-family: Calibri
   background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,221,221,1) 100%, rgba(255,255,255,1) 100%)
+  scrollbar-width: thin
 
 a
   text-decoration: none
+
+.form-input-label
+  margin-bottom: 0.3rem
+  color: #2d2d2d
+  margin-left: 0.2rem
+
+.form-input
+  width: 24rem
+
+/********* Scrollbar *********/
+
+/* Works on Firefox */
+*
+  scrollbar-width: thin
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar
+  width: 8px
+
+*::-webkit-scrollbar-track
+  background: #f2f2f2
+
+*::-webkit-scrollbar-thumb
+  background-color: #878787
+  border-radius: 20px
+  border-right: 1px solid #f0f0f0
+
+/********* EOF Scrollbar *********/

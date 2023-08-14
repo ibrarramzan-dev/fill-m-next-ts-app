@@ -1,0 +1,57 @@
+.AdminCell
+  position: relative
+
+  .AdminCell-box-wrapper
+    width: 9rem
+    height: 9rem
+    border: 1px solid #dfdfdf
+    margin: -0.5px
+
+    &:hover
+      background: #e89090  
+      
+  p
+    position: absolute
+    width: 100%
+    height: 7.7rem
+    font-size: 1.89rem
+    text-align: center
+    display: flex
+    justify-content: center
+    align-items: flex-end
+    font-family: 'Kanit', sans-serif
+
+  .AdminCell-top-text
+    top: -9.45rem
+    text-transform: capitalize
+
+  .AdminCell-left-text
+    height: 100%
+    top: 0
+    left: -10rem
+    align-items: center
+
+@media (min-width: 325px) and (max-width: 519px)
+  .AdminCell
+    p
+      font-size: 1.05rem
+
+  .AdminCell-top-text
+    top: -9rem !important
+
+  .AdminCell-left-text
+    width: 3rem !important
+    left: -4rem !important
+
+
+@media (min-width: 520px) and (max-width: 766px)
+  .AdminCell
+    p
+      font-size: 1.4rem
+
+  .AdminCell-top-text
+    top: -9.3rem !important
+
+  .AdminCell-left-text
+    width: 0.3rem !important
+    left: -4rem !important

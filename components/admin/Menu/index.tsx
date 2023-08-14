@@ -7,10 +7,8 @@ import { useSelector } from "react-redux";
 // import MenuBtnContext from "../../../context/menuBtnContext"
 import MenuItem from "./MenuItem";
 import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
   UnorderedListOutlined,
-  UserOutlined,
+  PlusOutlined,
   BorderOuterOutlined,
 } from "@ant-design/icons";
 
@@ -105,7 +103,7 @@ export default function Menu() {
 
         <MenuItem
           ref={newMovieItemRef}
-          icon={<BorderOuterOutlined />}
+          icon={<PlusOutlined />}
           text="New movie"
           path="/admin/new-movie"
         />

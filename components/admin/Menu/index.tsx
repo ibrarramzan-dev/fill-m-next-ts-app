@@ -5,7 +5,7 @@ import project from "./images/icon-dots.svg";
 import list from "./images/icon-list.svg";
 import { useSelector } from "react-redux";
 // import MenuBtnContext from "../../../context/menuBtnContext"
-import MenuPrimaryItem from "./MenuPrimaryItem";
+import MenuItem from "./MenuItem";
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
@@ -14,7 +14,7 @@ import {
   BorderOuterOutlined,
 } from "@ant-design/icons";
 
-export default function MenuPrimary() {
+export default function Menu() {
   const [width, setWidth] = useState<number>(0);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export default function MenuPrimary() {
 
   console.log(isSidebarOpened);
 
-  const menuPrimaryRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
   const menuListUlRef = useRef<HTMLUListElement>(null);
 
   const newPuzzleItemRef = useRef<HTMLSpanElement>(null);
@@ -51,23 +51,21 @@ export default function MenuPrimary() {
 
   if (isSidebarOpened) {
     if (
-      menuPrimaryRef.current &&
+      menuRef.current &&
       menuListUlRef.current &&
       newPuzzleItemRef.current &&
       allPuzzlesItemRef.current &&
       newMovieItemRef.current
     ) {
-      menuPrimaryRef.current.style.display = "flex";
-      menuPrimaryRef.current.style.justifyContent = "left";
-      menuPrimaryRef.current.style.paddingTop = "0";
-      menuPrimaryRef.current.style.width = "76vw";
-      menuPrimaryRef.current.style.top = "auto";
-      // menuPrimaryRef.current.style.bottom = "0";
-      menuPrimaryRef.current.style.zIndex = "5000";
+      menuRef.current.style.display = "flex";
+      menuRef.current.style.justifyContent = "left";
+      menuRef.current.style.paddingTop = "0";
+      menuRef.current.style.width = "76vw";
+      menuRef.current.style.top = "auto";
+      menuRef.current.style.zIndex = "5000";
 
       menuListUlRef.current.style.display = "flex";
       menuListUlRef.current.style.width = "100%";
-      // menuListUlRef.current.style.flexDirection = "row";
       menuListUlRef.current.style.overflow = "hidden";
       menuListUlRef.current.style.overflowX = "auto";
       menuListUlRef.current.style.border = "none";
@@ -80,32 +78,32 @@ export default function MenuPrimary() {
     }
   } else if (
     !isSidebarOpened &&
-    menuPrimaryRef.current &&
+    menuRef.current &&
     newPuzzleItemRef.current &&
     allPuzzlesItemRef.current &&
     newMovieItemRef.current
   ) {
-    menuPrimaryRef.current.style.display = "none";
+    menuRef.current.style.display = "none";
   }
 
   return (
-    <div ref={menuPrimaryRef} className="MenuPrimary-container">
-      <ul ref={menuListUlRef} className="MenuPrimary-nav">
-        <MenuPrimaryItem
+    <div ref={menuRef} className="Menu-container">
+      <ul ref={menuListUlRef} className="Menu-nav">
+        <MenuItem
           ref={newPuzzleItemRef}
           icon={<BorderOuterOutlined />}
           text="New puzzle"
           path="/admin/new-puzzle"
         />
 
-        <MenuPrimaryItem
+        <MenuItem
           ref={allPuzzlesItemRef}
           icon={<UnorderedListOutlined />}
           text="All puzzles"
           path="/admin/puzzles"
         />
 
-        <MenuPrimaryItem
+        <MenuItem
           ref={newMovieItemRef}
           icon={<BorderOuterOutlined />}
           text="New movie"

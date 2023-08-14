@@ -4,34 +4,34 @@ import cn from "classnames";
 import Image from "next/image";
 import Link from "next/link";
 
-interface MenuPrimaryItemProps {
+interface MenuItemProps {
   icon: JSX.Element | null;
   text: string;
   path: string;
 }
 
-function MenuPrimaryItem(
-  { icon, text, path }: MenuPrimaryItemProps,
+function MenuItem(
+  { icon, text, path }: MenuItemProps,
   ref: React.LegacyRef<HTMLSpanElement> | undefined
 ) {
   // const { pathname } = useLocation();
 
   return (
     <li
-      className={cn("MenuPrimary-nav-item", {
-        "MenuPrimary-nav-item-projects": text === "Projects",
+      className={cn("Menu-nav-item", {
+        "Menu-nav-item-projects": text === "Projects",
       })}
     >
-      <Link href={path} className="MenuPrimary-nav-item-link">
+      <Link href={path} className="Menu-nav-item-link">
         <div
-          className={cn("MenuPrimary-nav-item-icon", {
-            "MenuPrimary-nav-item-icon-tag": text === "Tags",
+          className={cn("Menu-nav-item-icon", {
+            "Menu-nav-item-icon-tag": text === "Tags",
           })}
         >
           {icon}
         </div>
 
-        <span ref={ref} className="MenuPrimary-nav-item-link-text">
+        <span ref={ref} className="Menu-nav-item-link-text">
           {text}
         </span>
       </Link>
@@ -39,4 +39,4 @@ function MenuPrimaryItem(
   );
 }
 
-export default forwardRef(MenuPrimaryItem);
+export default forwardRef(MenuItem);

@@ -1,4 +1,4 @@
-// containes also MenuPrimaryItem component styling
+// containes also MenuItem component styling
 
 @keyframes visibility-anim
   from
@@ -7,7 +7,7 @@
   to
     opacity: 1
 
-.MenuPrimary-container
+.Menu-container
   display: none
   justify-content: left
   align-items: center
@@ -29,10 +29,10 @@
     animation-duration: 1s
 
   &:hover
-    .MenuPrimary-nav-item-link-text
+    .Menu-nav-item-link-text
       display: inline
 
-  .MenuPrimary-nav
+  .Menu-nav
     display: flex
     flex-direction: column
     align-items: center
@@ -47,16 +47,16 @@
       background: #fff !important
       margin-right: 8px
 
-  .MenuPrimary-nav-item
+  .Menu-nav-item
     width: 100%
 
-  .MenuPrimary-nav-item-link
+  .Menu-nav-item-link
     display: flex
     align-items: center
     height: 3.5rem
     transition: 0.6s
 
-    .MenuPrimary-nav-item-icon
+    .Menu-nav-item-icon
       width: 50px
       padding: 16px
       color: #6A7284
@@ -68,7 +68,7 @@
         margin-left: 1px
         padding-right: 10px
 
-    .MenuPrimary-nav-item-icon-active
+    .Menu-nav-item-icon-active
       display: flex
       background: #E5EEFA
       justify-content: center
@@ -88,24 +88,24 @@
         padding-top: 12%
 
     &:hover
-      .MenuPrimary-nav-item-icon
+      .Menu-nav-item-icon
         background: #ededed
         border-top-right-radius: 18px
         border-bottom-right-radius: 18px
 
-      .MenuPrimary-nav-item-link-text
+      .Menu-nav-item-link-text
         color: #194a96 !important
 
-    .MenuPrimary-nav-item-icon-tag
+    .Menu-nav-item-icon-tag
       margin-left: 2px
 
-  .MenuPrimary-nav-item-link-text
+  .Menu-nav-item-link-text
     margin-left: 1rem
     display: none
     color: #989da8 !important
 
 @media (max-width: 1023px)
-  .MenuPrimary-container
+  .Menu-container
     box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.15)
     font-weight: bold
     padding-left: 0
@@ -114,18 +114,18 @@
     &:hover
       animation: none
 
-  .MenuPrimary-nav
+  .Menu-nav
     padding: 40px 0
 
-  .MenuPrimary-nav-item-link
+  .Menu-nav-item-link
     width: fit-content
     // margin-left: -39px
 
-  .MenuPrimary-nav-item-projects
+  .Menu-nav-item-projects
     margin-left: 38px !important
 
 @media (min-width: 1024px)
-  .MenuPrimary-container
+  .Menu-container
     display: flex !important
     position: fixed !important
     top: 70px !important
@@ -142,10 +142,10 @@
       width: 170px !important
 
     &:hover
-      .MenuPrimary-nav-item-link-text
+      .Menu-nav-item-link-text
         display: inline !important
     
-  .MenuPrimary-nav
+  .Menu-nav
     display: flex !important
     justify-content: left !important
     align-items: center !important
@@ -154,23 +154,23 @@
     padding-left: 0 !important
     margin-top: 0 !important
 
-  .MenuPrimary-nav-item
+  .Menu-nav-item
     width: 100% !important
 
-  .MenuPrimary-nav-item-link
+  .Menu-nav-item-link
     display: flex !important
     align-items: center !important
     height: 3.5rem !important
     transition: 0.6s !important
 
-  .MenuPrimary-nav-item-link-text
+  .Menu-nav-item-link-text
     margin-left: 0.5rem !important
     display: none !important
 
-.MenuPrimary-nav-item-link-text-hover:hover
+.Menu-nav-item-link-text-hover:hover
   display: inline
   margin-left: 1.5rem
 
 @media (min-width: 325px) and (max-width: 371px)
-  .MenuPrimary-container
+  .Menu-container
     width: 90vw !important

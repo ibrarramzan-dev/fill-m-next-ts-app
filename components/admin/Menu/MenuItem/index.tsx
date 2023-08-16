@@ -1,5 +1,4 @@
 import React, { forwardRef } from "react";
-// import { Link, useLocation } from "react-router-dom"
 import cn from "classnames";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,8 +13,6 @@ function MenuItem(
   { icon, text, path }: MenuItemProps,
   ref: React.LegacyRef<HTMLSpanElement> | undefined
 ) {
-  // const { pathname } = useLocation();
-
   return (
     <li
       className={cn("Menu-nav-item", {

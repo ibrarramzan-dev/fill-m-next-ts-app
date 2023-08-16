@@ -1,10 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import project from "./images/icon-dots.svg";
-import list from "./images/icon-list.svg";
 import { useSelector } from "react-redux";
-// import MenuBtnContext from "../../../context/menuBtnContext"
 import MenuItem from "./MenuItem";
 import {
   UnorderedListOutlined,

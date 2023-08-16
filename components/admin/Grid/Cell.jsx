@@ -11,20 +11,31 @@ function Cell({ top, topImg, left, leftImg, onCellClick }) {
 
       {leftImg && (
         <div className="AdminCell-left-img-with-text-wrapper">
-          <p className="AdminCell-left-img-text">{left}</p>
           <Image src={leftImg} alt={left} width={70} height={70} />
+          <p className="AdminCell-left-img-text">{left}</p>
         </div>
       )}
 
       {topImg && (
         <div className="AdminCell-top-img-with-text-wrapper">
-          <p className="AdminCell-top-img-text">{top}</p>
-          <Image src={topImg} alt={top} width={70} height={70} />
+          <div>
+            <p className="AdminCell-top-img-text">{top}</p>
+            <Image src={topImg} alt={top} width={70} height={70} />
+          </div>
         </div>
       )}
-      {/* 
-      {!topImg && <p className="AdminCell-top-text">{top}</p>}
-      {!leftImg && <p className="AdminCell-left-text">{left}</p>} */}
+
+      {!leftImg && left && (
+        <div className="AdminCell-left-text-wrapper">
+          <p className="AdminCell-left-text">{left}</p>
+        </div>
+      )}
+
+      {!topImg && top && (
+        <div className="AdminCell-top-text-wrapper">
+          <p className="AdminCell-top-text">{top}</p>
+        </div>
+      )}
     </div>
   );
 }

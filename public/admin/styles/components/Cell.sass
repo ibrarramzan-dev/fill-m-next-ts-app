@@ -34,60 +34,71 @@
       left: -9rem
       text-align: center
       word-break: break-all
-      font-size: 1rem
+      font-size: 1.35rem
 
   .AdminCell-top-img-with-text-wrapper
     position: absolute
-    top: -7.4rem
+    top: -100%
     left: 0
     width: 100%
     height: 100%
-    max-height: 100%
-    display: flex
-    justify-content: center
-    align-items: center
-
-    img
-      position: relative
-
-    .AdminCell-top-img-text
-      width: 100%
-      height: 4rem
-      margin-top: -6.87rem
-      text-align: center
-      word-break: break-all
-      font-size: 1rem
-      padding: 0 0.6rem
-
-  .AdminCell-top-img-wrapper
-    width: 100%
-    position: absolute
-    display: flex
-    justify-content: center
-    top: -7rem
-    left: 0
-  
-  p
-    position: absolute
-    width: 100%
-    height: 7.7rem
-    font-size: 1.89rem
-    text-align: center
     display: flex
     justify-content: center
     align-items: flex-end
-    font-family: 'Kanit', sans-serif
 
-  .AdminCell-top-text
-    top: -9.45rem
-    text-transform: capitalize
+    img
+      margin-bottom: 0.55rem
 
-  .AdminCell-left-text
-    height: 100%
+    .AdminCell-top-img-text
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      height: 4rem
+      font-size: 1.3rem
+      display: flex
+      align-items: flex-end
+      justify-content: center
+      text-align: center
+      word-break: break-all
+      padding: 0 0.6rem 0.15rem 0.6rem 
+
+  .AdminCell-left-text-wrapper
+    position: absolute
+    left: -108.5%
     top: 0
-    left: -10rem
+    width: 100%
+    height: 100%
+    display: flex
+    justify-content: flex-end
     align-items: center
-    text-transform: capitalize
+    text-align: center
+    font-size: 1.65rem
+    word-break: break-all
+    padding: 0 0.6rem
+
+    .AdminCell-left-text
+      padding: 0
+      margin: 0
+
+  .AdminCell-top-text-wrapper
+    position: absolute
+    top: -111%
+    left: 0
+    width: 100%
+    height: 100%
+    display: flex
+    justify-content: center
+    align-items: flex-end
+    text-align: center
+    font-size: 1.65rem
+    word-break: break-all
+    padding: 0 0.6rem
+
+    .AdminCell-top-text
+      padding: 0
+      margin: 0
 
 @media (min-width: 325px) and (max-width: 519px)
   .AdminCell

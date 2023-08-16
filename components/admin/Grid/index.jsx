@@ -28,7 +28,6 @@ function Grid() {
                 topImg={y1.image}
                 left={x1.label}
                 leftImg={x1.image}
-                topLeft=""
                 onCellClick={onCellClick}
               />
               {/* x1y2 */}

@@ -588,7 +588,7 @@ a {
   align-items: flex-end;
   justify-content: center;
   text-align: center;
-  word-break: break-all;
+  word-break: keep-all;
   padding: 0 0.6rem 0.15rem 0.6rem;
 }
 .AdminCell .AdminCell-left-text-wrapper {
@@ -620,7 +620,7 @@ a {
   align-items: flex-end;
   text-align: center;
   font-size: 1.65rem;
-  word-break: break-all;
+  word-break: keep-all;
   padding: 0 0.6rem;
 }
 .AdminCell .AdminCell-top-text-wrapper .AdminCell-top-text {

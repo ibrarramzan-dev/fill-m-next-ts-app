@@ -104,7 +104,7 @@ export const adminSlice = createSlice({
       puzzle: { ...state.puzzle, date: action.payload },
     }),
     updateLabel: (state: Admin, action) => {
-      const { position, type, value } = action.payload;
+      const { position, val } = action.payload;
 
       if (position === "x1") {
         return {
@@ -113,7 +113,133 @@ export const adminSlice = createSlice({
             ...state.puzzle,
             labels: {
               ...state.puzzle.labels,
-              x1: { ...state.puzzle.labels.x1, [type]: value },
+              x1: { ...state.puzzle.labels.x1, label: val },
+            },
+          },
+        };
+      } else if (position === "x2") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            labels: {
+              ...state.puzzle.labels,
+              x2: { ...state.puzzle.labels.x2, label: val },
+            },
+          },
+        };
+      } else if (position === "x3") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            labels: {
+              ...state.puzzle.labels,
+              x3: { ...state.puzzle.labels.x3, label: val },
+            },
+          },
+        };
+      } else if (position === "y1") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            labels: {
+              ...state.puzzle.labels,
+              y1: { ...state.puzzle.labels.y1, label: val },
+            },
+          },
+        };
+      } else if (position === "y2") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            labels: {
+              ...state.puzzle.labels,
+              y2: { ...state.puzzle.labels.y2, label: val },
+            },
+          },
+        };
+      } else {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            labels: {
+              ...state.puzzle.labels,
+              y3: { ...state.puzzle.labels.y3, label: val },
+            },
+          },
+        };
+      }
+    },
+    updateImgUrl: (state: Admin, action) => {
+      const { position, val } = action.payload;
+
+      if (position === "x1") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            labels: {
+              ...state.puzzle.labels,
+              x1: { ...state.puzzle.labels.x1, image: val },
+            },
+          },
+        };
+      } else if (position === "x2") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            labels: {
+              ...state.puzzle.labels,
+              x2: { ...state.puzzle.labels.x2, image: val },
+            },
+          },
+        };
+      } else if (position === "x3") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            labels: {
+              ...state.puzzle.labels,
+              x3: { ...state.puzzle.labels.x3, image: val },
+            },
+          },
+        };
+      } else if (position === "y1") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            labels: {
+              ...state.puzzle.labels,
+              y1: { ...state.puzzle.labels.y1, image: val },
+            },
+          },
+        };
+      } else if (position === "y2") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            labels: {
+              ...state.puzzle.labels,
+              y2: { ...state.puzzle.labels.y2, image: val },
+            },
+          },
+        };
+      } else {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            labels: {
+              ...state.puzzle.labels,
+              y3: { ...state.puzzle.labels.y3, image: val },
             },
           },
         };
@@ -122,6 +248,7 @@ export const adminSlice = createSlice({
   },
 });
 
-export const { toggleSidebar, updateDate, updateLabel } = adminSlice.actions;
+export const { toggleSidebar, updateDate, updateLabel, updateImgUrl } =
+  adminSlice.actions;
 
 export default adminSlice.reducer;

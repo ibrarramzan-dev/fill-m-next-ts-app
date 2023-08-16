@@ -3,34 +3,27 @@
 import { useState, useEffect } from "react";
 import Grid from "@/components/admin/Grid";
 import { UploadOutlined } from "@ant-design/icons";
-import { Button, Input, Upload } from "antd";
+import { Button, Input } from "antd";
 import moment from "moment";
-import { updateDate } from "@/app/AppState/Features/admin/adminSlice";
+import {
+  updateDate,
+  updateLabel,
+  updateImgUrl,
+} from "@/app/AppState/Features/admin/adminSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
-const props = {
-  name: "file",
-  action: "https://www.mocky.io/v2/5cc8019d300000980a055e76",
-  headers: {
-    authorization: "authorization-text",
-  },
-  onChange(info) {
-    if (info.file.status !== "uploading") {
-      console.log(info.file, info.fileList);
-    }
-    if (info.file.status === "done") {
-      message.success(`${info.file.name} file uploaded successfully`);
-    } else if (info.file.status === "error") {
-      message.error(`${info.file.name} file upload failed.`);
-    }
-  },
-};
 
 function NewPuzzle() {
   const dispatch = useDispatch();
 
   const [selected, setSelected] = useState();
+
+  const onLabelChange = (position, val) =>
+    dispatch(updateLabel({ position, val }));
+
+  const onImgUrlChange = (position, val) =>
+    dispatch(updateImgUrl({ position, val }));
 
   console.log(selected);
   return (
@@ -54,14 +47,18 @@ function NewPuzzle() {
 
         <div className="NewPuzzle-left-col-inputs-section">
           <p className="form-input-label">Label (X₁)</p>
-          <Input className="form-input" placeholder="Enter the label" />
+          <Input
+            onChange={(e) => onLabelChange("x1", e.target.value)}
+            className="form-input"
+            placeholder="Enter the label"
+          />
 
           <p className="form-input-label">Image (X₁)</p>
-          <Upload {...props}>
-            <Button className="form-input" icon={<UploadOutlined />}>
-              Select Image
-            </Button>
-          </Upload>
+          <Input
+            onChange={(e) => onImgUrlChange("x1", e.target.value)}
+            className="form-input"
+            placeholder="Enter image url"
+          />
 
           <p className="form-input-label">Attribution link (X₁)</p>
           <Input className="form-input" placeholder="Enter link" />
@@ -69,14 +66,18 @@ function NewPuzzle() {
 
         <div className="NewPuzzle-left-col-inputs-section">
           <p className="form-input-label">Label (X₂)</p>
-          <Input className="form-input" placeholder="Enter the label" />
+          <Input
+            onChange={(e) => onLabelChange("x2", e.target.value)}
+            className="form-input"
+            placeholder="Enter the label"
+          />
 
           <p className="form-input-label">Image (X₂)</p>
-          <Upload {...props}>
-            <Button className="form-input" icon={<UploadOutlined />}>
-              Select Image
-            </Button>
-          </Upload>
+          <Input
+            onChange={(e) => onImgUrlChange("x2", e.target.value)}
+            className="form-input"
+            placeholder="Enter image url"
+          />
 
           <p className="form-input-label">Attribution link (X₂)</p>
           <Input className="form-input" placeholder="Enter link" />
@@ -84,14 +85,18 @@ function NewPuzzle() {
 
         <div className="NewPuzzle-left-col-inputs-section">
           <p className="form-input-label">Label (X₃)</p>
-          <Input className="form-input" placeholder="Enter the label" />
+          <Input
+            onChange={(e) => onLabelChange("x3", e.target.value)}
+            className="form-input"
+            placeholder="Enter the label"
+          />
 
           <p className="form-input-label">Image (X₃)</p>
-          <Upload {...props}>
-            <Button className="form-input" icon={<UploadOutlined />}>
-              Select Image
-            </Button>
-          </Upload>
+          <Input
+            onChange={(e) => onImgUrlChange("x3", e.target.value)}
+            className="form-input"
+            placeholder="Enter image url"
+          />
 
           <p className="form-input-label">Attribution link (X₃)</p>
           <Input className="form-input" placeholder="Enter link" />
@@ -99,14 +104,18 @@ function NewPuzzle() {
 
         <div className="NewPuzzle-left-col-inputs-section">
           <p className="form-input-label">Label (Y₁)</p>
-          <Input className="form-input" placeholder="Enter the label" />
+          <Input
+            onChange={(e) => onLabelChange("y1", e.target.value)}
+            className="form-input"
+            placeholder="Enter the label"
+          />
 
           <p className="form-input-label">Image (Y₁)</p>
-          <Upload {...props}>
-            <Button className="form-input" icon={<UploadOutlined />}>
-              Select Image
-            </Button>
-          </Upload>
+          <Input
+            onChange={(e) => onImgUrlChange("y1", e.target.value)}
+            className="form-input"
+            placeholder="Enter image url"
+          />
 
           <p className="form-input-label">Attribution link (Y₁)</p>
           <Input className="form-input" placeholder="Enter link" />
@@ -114,14 +123,18 @@ function NewPuzzle() {
 
         <div className="NewPuzzle-left-col-inputs-section">
           <p className="form-input-label">Label (Y₂)</p>
-          <Input className="form-input" placeholder="Enter the label" />
+          <Input
+            onChange={(e) => onLabelChange("y2", e.target.value)}
+            className="form-input"
+            placeholder="Enter the label"
+          />
 
           <p className="form-input-label">Image (Y₂)</p>
-          <Upload {...props}>
-            <Button className="form-input" icon={<UploadOutlined />}>
-              Select Image
-            </Button>
-          </Upload>
+          <Input
+            onChange={(e) => onImgUrlChange("y2", e.target.value)}
+            className="form-input"
+            placeholder="Enter image url"
+          />
 
           <p className="form-input-label">Attribution link (Y₂)</p>
           <Input className="form-input" placeholder="Enter link" />
@@ -129,14 +142,18 @@ function NewPuzzle() {
 
         <div className="NewPuzzle-left-col-inputs-section">
           <p className="form-input-label">Label (Y₃)</p>
-          <Input className="form-input" placeholder="Enter the label" />
+          <Input
+            onChange={(e) => onLabelChange("y3", e.target.value)}
+            className="form-input"
+            placeholder="Enter the label"
+          />
 
           <p className="form-input-label">Image (Y₃)</p>
-          <Upload {...props}>
-            <Button className="form-input" icon={<UploadOutlined />}>
-              Select Image
-            </Button>
-          </Upload>
+          <Input
+            onChange={(e) => onImgUrlChange("y3", e.target.value)}
+            className="form-input"
+            placeholder="Enter image url"
+          />
 
           <p className="form-input-label">Attribution link (Y₃)</p>
           <Input className="form-input" placeholder="Enter link" />

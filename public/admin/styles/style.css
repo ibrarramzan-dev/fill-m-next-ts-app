@@ -537,6 +537,63 @@ a {
 .AdminCell .AdminCell-box-wrapper:hover {
   background: #e89090;
 }
+.AdminCell .AdminCell-left-img-with-text-wrapper {
+  position: absolute;
+  top: 0;
+  left: -6rem;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  display: flex;
+  align-items: center;
+}
+.AdminCell .AdminCell-left-img-with-text-wrapper img {
+  position: relative;
+}
+.AdminCell .AdminCell-left-img-with-text-wrapper .AdminCell-left-img-text {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: -9rem;
+  text-align: center;
+  word-break: break-all;
+  font-size: 1rem;
+}
+.AdminCell .AdminCell-top-img-with-text-wrapper {
+  position: absolute;
+  top: -7.4rem;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.AdminCell .AdminCell-top-img-with-text-wrapper img {
+  position: relative;
+}
+.AdminCell .AdminCell-top-img-with-text-wrapper .AdminCell-top-img-text {
+  width: 100%;
+  height: 4rem;
+  margin-top: -6.87rem;
+  text-align: center;
+  word-break: break-all;
+  font-size: 1rem;
+  padding: 0 0.6rem;
+}
+.AdminCell .AdminCell-top-img-wrapper {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: -7rem;
+  left: 0;
+}
 .AdminCell p {
   position: absolute;
   width: 100%;
@@ -557,6 +614,7 @@ a {
   top: 0;
   left: -10rem;
   align-items: center;
+  text-transform: capitalize;
 }
 
 @media (min-width: 325px) and (max-width: 519px) {

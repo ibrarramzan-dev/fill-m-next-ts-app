@@ -245,10 +245,86 @@ export const adminSlice = createSlice({
         };
       }
     },
+    updateAttrLink: (state: Admin, action) => {
+      const { position, val } = action.payload;
+
+      if (position === "x1") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            labels: {
+              ...state.puzzle.labels,
+              x1: { ...state.puzzle.labels.x1, attributionLink: val },
+            },
+          },
+        };
+      } else if (position === "x2") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            labels: {
+              ...state.puzzle.labels,
+              x2: { ...state.puzzle.labels.x2, attributionLink: val },
+            },
+          },
+        };
+      } else if (position === "x3") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            labels: {
+              ...state.puzzle.labels,
+              x3: { ...state.puzzle.labels.x3, attributionLink: val },
+            },
+          },
+        };
+      } else if (position === "y1") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            labels: {
+              ...state.puzzle.labels,
+              y1: { ...state.puzzle.labels.y1, attributionLink: val },
+            },
+          },
+        };
+      } else if (position === "y2") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            labels: {
+              ...state.puzzle.labels,
+              y2: { ...state.puzzle.labels.y2, attributionLink: val },
+            },
+          },
+        };
+      } else {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            labels: {
+              ...state.puzzle.labels,
+              y3: { ...state.puzzle.labels.y3, attributionLink: val },
+            },
+          },
+        };
+      }
+    },
   },
 });
 
-export const { toggleSidebar, updateDate, updateLabel, updateImgUrl } =
-  adminSlice.actions;
+export const {
+  toggleSidebar,
+  updateDate,
+  updateLabel,
+  updateImgUrl,
+  updateAttrLink,
+} = adminSlice.actions;
 
 export default adminSlice.reducer;

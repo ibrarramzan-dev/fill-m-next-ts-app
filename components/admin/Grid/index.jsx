@@ -12,8 +12,6 @@ function Grid() {
     (state) => state.admin.puzzle.labels
   );
 
-  console.log("Labels: ", labels);
-
   const onCellClick = () => console.log("cell clicked");
 
   return (
@@ -26,20 +24,24 @@ function Grid() {
               <Cell
                 top={y1.label}
                 topImg={y1.image}
+                topAttrLink={y1.attributionLink}
                 left={x1.label}
                 leftImg={x1.image}
+                leftAttrLink={x1.attributionLink}
                 onCellClick={onCellClick}
               />
               {/* x1y2 */}
               <Cell
                 top={y2.label}
                 topImg={y2.image}
+                topAttrLink={y2.attributionLink}
                 onCellClick={onCellClick}
               />
               {/* x1y3 */}
               <Cell
                 top={y3.label}
                 topImg={y3.image}
+                topAttrLink={y3.attributionLink}
                 onCellClick={onCellClick}
               />
             </div>
@@ -48,6 +50,7 @@ function Grid() {
               <Cell
                 left={x2.label}
                 leftImg={x2.image}
+                leftAttrLink={x2.attributionLink}
                 onCellClick={onCellClick}
               />
               {/* x2y2 */}
@@ -60,6 +63,7 @@ function Grid() {
               <Cell
                 left={x3.label}
                 leftImg={x3.image}
+                leftAttrLink={x3.attributionLink}
                 onCellClick={onCellClick}
               />
               {/* x3y2 */}

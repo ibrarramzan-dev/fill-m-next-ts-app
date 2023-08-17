@@ -1,14 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Grid from "@/components/admin/Grid";
-import { UploadOutlined } from "@ant-design/icons";
-import { Button, Input } from "antd";
-import moment from "moment";
+import { Input } from "antd";
 import {
   updateDate,
   updateLabel,
   updateImgUrl,
+  updateAttrLink,
 } from "@/app/AppState/Features/admin/adminSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { DayPicker } from "react-day-picker";
@@ -24,6 +23,9 @@ function NewPuzzle() {
 
   const onImgUrlChange = (position, val) =>
     dispatch(updateImgUrl({ position, val }));
+
+  const onAttrLinkChange = (position, val) =>
+    dispatch(updateAttrLink({ position, val }));
 
   console.log(selected);
   return (
@@ -61,7 +63,11 @@ function NewPuzzle() {
           />
 
           <p className="form-input-label">Attribution link (X₁)</p>
-          <Input className="form-input" placeholder="Enter link" />
+          <Input
+            onChange={(e) => onAttrLinkChange("x1", e.target.value)}
+            className="form-input"
+            placeholder="Enter link"
+          />
         </div>
 
         <div className="NewPuzzle-left-col-inputs-section">
@@ -80,7 +86,11 @@ function NewPuzzle() {
           />
 
           <p className="form-input-label">Attribution link (X₂)</p>
-          <Input className="form-input" placeholder="Enter link" />
+          <Input
+            onChange={(e) => onAttrLinkChange("x2", e.target.value)}
+            className="form-input"
+            placeholder="Enter link"
+          />
         </div>
 
         <div className="NewPuzzle-left-col-inputs-section">
@@ -99,7 +109,11 @@ function NewPuzzle() {
           />
 
           <p className="form-input-label">Attribution link (X₃)</p>
-          <Input className="form-input" placeholder="Enter link" />
+          <Input
+            onChange={(e) => onAttrLinkChange("x3", e.target.value)}
+            className="form-input"
+            placeholder="Enter link"
+          />
         </div>
 
         <div className="NewPuzzle-left-col-inputs-section">
@@ -118,7 +132,11 @@ function NewPuzzle() {
           />
 
           <p className="form-input-label">Attribution link (Y₁)</p>
-          <Input className="form-input" placeholder="Enter link" />
+          <Input
+            onChange={(e) => onAttrLinkChange("y1", e.target.value)}
+            className="form-input"
+            placeholder="Enter link"
+          />
         </div>
 
         <div className="NewPuzzle-left-col-inputs-section">
@@ -137,7 +155,11 @@ function NewPuzzle() {
           />
 
           <p className="form-input-label">Attribution link (Y₂)</p>
-          <Input className="form-input" placeholder="Enter link" />
+          <Input
+            onChange={(e) => onAttrLinkChange("y2", e.target.value)}
+            className="form-input"
+            placeholder="Enter link"
+          />
         </div>
 
         <div className="NewPuzzle-left-col-inputs-section">
@@ -156,7 +178,11 @@ function NewPuzzle() {
           />
 
           <p className="form-input-label">Attribution link (Y₃)</p>
-          <Input className="form-input" placeholder="Enter link" />
+          <Input
+            onChange={(e) => onAttrLinkChange("y3", e.target.value)}
+            className="form-input"
+            placeholder="Enter link"
+          />
         </div>
       </div>
 

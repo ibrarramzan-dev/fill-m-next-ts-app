@@ -41,6 +41,17 @@ a {
 }
 
 /********* EOF Scrollbar *********/
+.Drawer-component {
+  width: 29.25rem !important;
+  padding-top: 5.5rem;
+  padding-left: 1.5rem;
+}
+
+.heading {
+  font-size: 2rem;
+  color: #333333;
+}
+
 /* Import Pages */
 .NewPuzzle {
   display: flex;
@@ -651,6 +662,12 @@ a {
     width: 0.3rem !important;
     left: -4rem !important;
   }
+}
+.FeedMovies .FeedMovies-select-movies-wrapper {
+  padding-right: 2rem;
+}
+.FeedMovies .FeedMovies-select-movies-wrapper .FeedMovies-select-movies {
+  width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -3,11 +3,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export interface MovieState {
-  list: string[];
+  movies: any[];
 }
 
 const initialState: MovieState = {
-  list: [],
+  movies: [],
 };
 
 export const moviesSlice = createSlice({

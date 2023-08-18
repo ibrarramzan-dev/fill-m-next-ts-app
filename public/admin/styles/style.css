@@ -697,11 +697,18 @@ a {
 }
 
 .Pill {
+  position: relative;
   background: #383838;
   color: #fff;
   width: fit-content;
-  padding: 0.37rem 1.26rem;
+  padding: 0.37rem 1.8rem 0.37rem 1rem;
   border-radius: 0.6rem;
+}
+.Pill .Pill-cross-icon {
+  position: absolute;
+  top: 0.47rem;
+  right: 0.4rem;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */

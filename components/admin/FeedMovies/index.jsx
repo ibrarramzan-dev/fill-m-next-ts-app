@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { Select, Space } from "antd";
 import Pill from "../Pill";
-import { updateAnswers } from "@/app/AppState/Features/admin/adminSlice";
+import { addAnswers } from "@/app/AppState/Features/admin/adminSlice";
 
 function FeedMovies({ cellLabel }) {
   const answers = useSelector((state) => state.admin.puzzle.answers[cellLabel]);
@@ -49,7 +49,7 @@ function FeedMovies({ cellLabel }) {
   const handleSelect = (selectedValue) => {
     if (!answers.includes(selectedValue)) {
       dispatch(
-        updateAnswers({
+        addAnswers({
           cellLabel,
           selectedMovies: [...answers, selectedValue],
         })
@@ -98,7 +98,7 @@ function FeedMovies({ cellLabel }) {
 
         <div className="FeedMovies-select-movies-pills-wrapper">
           {answers.map((movie) => (
-            <Pill key={movie} movie={movie} />
+            <Pill cellLabel={cellLabel} movie={movie} key={movie} />
           ))}
         </div>
       </div>

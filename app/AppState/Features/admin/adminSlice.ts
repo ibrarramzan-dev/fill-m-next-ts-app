@@ -316,7 +316,7 @@ export const adminSlice = createSlice({
         };
       }
     },
-    updateAnswers: (state: Admin, action) => {
+    addAnswers: (state: Admin, action) => {
       const { cellLabel, selectedMovies } = action.payload;
 
       if (cellLabel === "A") {
@@ -420,6 +420,128 @@ export const adminSlice = createSlice({
         };
       }
     },
+    deleteAnswers: (state: Admin, action) => {
+      const { cellLabel, movieToDelete } = action.payload;
+
+      if (cellLabel === "A") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            answers: {
+              ...state.puzzle.answers,
+              A: state.puzzle.answers.A.filter(
+                (movie) => movie !== movieToDelete
+              ),
+            },
+          },
+        };
+      } else if (cellLabel === "B") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            answers: {
+              ...state.puzzle.answers,
+              B: state.puzzle.answers.B.filter(
+                (movie) => movie !== movieToDelete
+              ),
+            },
+          },
+        };
+      } else if (cellLabel === "C") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            answers: {
+              ...state.puzzle.answers,
+              C: state.puzzle.answers.C.filter(
+                (movie) => movie !== movieToDelete
+              ),
+            },
+          },
+        };
+      } else if (cellLabel === "D") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            answers: {
+              ...state.puzzle.answers,
+              D: state.puzzle.answers.D.filter(
+                (movie) => movie !== movieToDelete
+              ),
+            },
+          },
+        };
+      } else if (cellLabel === "E") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            answers: {
+              ...state.puzzle.answers,
+              E: state.puzzle.answers.E.filter(
+                (movie) => movie !== movieToDelete
+              ),
+            },
+          },
+        };
+      } else if (cellLabel === "F") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            answers: {
+              ...state.puzzle.answers,
+              F: state.puzzle.answers.F.filter(
+                (movie) => movie !== movieToDelete
+              ),
+            },
+          },
+        };
+      } else if (cellLabel === "G") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            answers: {
+              ...state.puzzle.answers,
+              G: state.puzzle.answers.G.filter(
+                (movie) => movie !== movieToDelete
+              ),
+            },
+          },
+        };
+      } else if (cellLabel === "H") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            answers: {
+              ...state.puzzle.answers,
+              H: state.puzzle.answers.H.filter(
+                (movie) => movie !== movieToDelete
+              ),
+            },
+          },
+        };
+      } else {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            answers: {
+              ...state.puzzle.answers,
+              I: state.puzzle.answers.I.filter(
+                (movie) => movie !== movieToDelete
+              ),
+            },
+          },
+        };
+      }
+    },
   },
 });
 
@@ -429,7 +551,8 @@ export const {
   updateLabel,
   updateImgUrl,
   updateAttrLink,
-  updateAnswers,
+  addAnswers,
+  deleteAnswers,
 } = adminSlice.actions;
 
 export default adminSlice.reducer;

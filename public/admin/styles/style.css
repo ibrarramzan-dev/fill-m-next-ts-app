@@ -43,7 +43,7 @@ a {
 /********* EOF Scrollbar *********/
 .Drawer-component {
   width: 29.25rem !important;
-  padding-top: 5.5rem;
+  padding-top: 5.2rem;
   padding-left: 1.5rem;
 }
 
@@ -548,6 +548,14 @@ a {
 .AdminCell .AdminCell-box-wrapper:hover {
   background: #e89090;
 }
+.AdminCell .AdminCell-box-wrapper .AdminCell-box {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.65rem;
+  color: #626262;
+}
 .AdminCell .AdminCell-left-img-with-text-wrapper {
   position: absolute;
   top: 0;
@@ -663,11 +671,37 @@ a {
     left: -4rem !important;
   }
 }
+.FeedMovies .FeedMovies-heading {
+  display: flex;
+}
+.FeedMovies .FeedMovies-cell-label-text {
+  font-size: 1.2rem;
+  margin-top: 0.715rem;
+  margin-left: 1.4rem;
+  font-weight: bold;
+  color: #3cc641;
+}
 .FeedMovies .FeedMovies-select-movies-wrapper {
+  margin-top: -1.9rem;
   padding-right: 2rem;
 }
 .FeedMovies .FeedMovies-select-movies-wrapper .FeedMovies-select-movies {
   width: 100%;
+}
+.FeedMovies .FeedMovies-select-movies-wrapper .FeedMovies-select-movies-pills-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1rem;
+  row-gap: 0.7rem;
+  margin-top: 1.34rem;
+}
+
+.Pill {
+  background: #383838;
+  color: #fff;
+  width: fit-content;
+  padding: 0.37rem 1.26rem;
+  border-radius: 0.6rem;
 }
 
 /*# sourceMappingURL=style.css.map */

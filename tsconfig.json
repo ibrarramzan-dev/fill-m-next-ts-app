@@ -30,7 +30,8 @@
     ".next/types/**/*.ts",
     "app/layout.jsx",
     "app/admin/layout.jsx",
-    "app/page.jsx"
+    "app/page.jsx",
+    "components/admin/Pill/index.jsx"
   ],
   "exclude": ["node_modules"]
 }

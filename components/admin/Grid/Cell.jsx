@@ -14,6 +14,7 @@ function Cell({
   left,
   leftImg,
   leftAttrLink,
+  label,
   onCellClick,
 }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +24,9 @@ function Cell({
       {" "}
       <div className="AdminCell" onClick={() => setIsOpen(true)}>
         <div className="AdminCell-box-wrapper">
-          <div className="AdminCell-box" onClick={onCellClick} />
+          <div className="AdminCell-box" onClick={onCellClick}>
+            {label}
+          </div>
         </div>
 
         {leftImg && (
@@ -72,7 +75,7 @@ function Cell({
         direction="right"
         className="Drawer-component"
       >
-        <FeedMovies />
+        <FeedMovies cellLabel={label} />
       </Drawer>
     </>
   );

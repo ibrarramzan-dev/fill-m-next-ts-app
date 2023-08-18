@@ -1,17 +1,19 @@
 "use client";
 
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { Select, Space } from "antd";
 import Pill from "../Pill";
+import { updateAnswers } from "@/app/AppState/Features/admin/adminSlice";
 
 function FeedMovies({ cellLabel }) {
-  const movies = useSelector((state) => state.movies);
+  const answers = useSelector((state) => state.admin.puzzle.answers[cellLabel]);
 
   const [movieResults, setMovieResults] = useState([]);
-  const [selectedMovies, setSelectedMovies] = useState([]);
   const [value, setValue] = useState();
+
+  const dispatch = useDispatch();
 
   const fetchMovies = (search) => {
     axios
@@ -30,13 +32,12 @@ function FeedMovies({ cellLabel }) {
             ? (releaseYear = ` (${release_date.split("-")[0]})`)
             : null;
 
-          if (!selectedMovies.includes(`${record.title}${record.year}`)) {
+          if (!answers.includes(`${record.title}${record.year}`)) {
             finalResults.push(record);
           }
         });
 
         setMovieResults([...finalResults]);
-        // dispatch(feedMovies(moviesData));
       });
   };
 
@@ -46,12 +47,15 @@ function FeedMovies({ cellLabel }) {
   };
 
   const handleSelect = (selectedValue) => {
-    if (!selectedMovies.includes(selectedValue)) {
-      setSelectedMovies([...selectedMovies, selectedValue]);
+    if (!answers.includes(selectedValue)) {
+      dispatch(
+        updateAnswers({
+          cellLabel,
+          selectedMovies: [...answers, selectedValue],
+        })
+      );
     }
   };
-
-  console.log(selectedMovies);
 
   const handleChange = (newValue) => {
     console.log("handle change");
@@ -93,7 +97,7 @@ function FeedMovies({ cellLabel }) {
         />
 
         <div className="FeedMovies-select-movies-pills-wrapper">
-          {selectedMovies.map((movie) => (
+          {answers.map((movie) => (
             <Pill key={movie} movie={movie} />
           ))}
         </div>

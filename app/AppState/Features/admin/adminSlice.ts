@@ -19,15 +19,15 @@ interface LabelInterface {
 }
 
 interface AnswersInterface {
-  x1y1: string[];
-  x1y2: string[];
-  x1y3: string[];
-  x2y1: string[];
-  x2y2: string[];
-  x2y3: string[];
-  x3y1: string[];
-  x3y2: string[];
-  x3y3: string[];
+  A: string[];
+  B: string[];
+  C: string[];
+  D: string[];
+  E: string[];
+  F: string[];
+  G: string[];
+  H: string[];
+  I: string[];
 }
 
 interface PuzzleInterface {
@@ -76,15 +76,15 @@ const initialState: Admin = {
       },
     },
     answers: {
-      x1y1: [],
-      x1y2: [],
-      x1y3: [],
-      x2y1: [],
-      x2y2: [],
-      x2y3: [],
-      x3y1: [],
-      x3y2: [],
-      x3y3: [],
+      A: [],
+      B: [],
+      C: [],
+      D: [],
+      E: [],
+      F: [],
+      G: [],
+      H: [],
+      I: [],
     },
   },
 };
@@ -316,6 +316,110 @@ export const adminSlice = createSlice({
         };
       }
     },
+    updateAnswers: (state: Admin, action) => {
+      const { cellLabel, selectedMovies } = action.payload;
+
+      if (cellLabel === "A") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            answers: {
+              ...state.puzzle.answers,
+              A: selectedMovies,
+            },
+          },
+        };
+      } else if (cellLabel === "B") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            answers: {
+              ...state.puzzle.answers,
+              B: selectedMovies,
+            },
+          },
+        };
+      } else if (cellLabel === "C") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            answers: {
+              ...state.puzzle.answers,
+              C: selectedMovies,
+            },
+          },
+        };
+      } else if (cellLabel === "D") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            answers: {
+              ...state.puzzle.answers,
+              D: selectedMovies,
+            },
+          },
+        };
+      } else if (cellLabel === "E") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            answers: {
+              ...state.puzzle.answers,
+              E: selectedMovies,
+            },
+          },
+        };
+      } else if (cellLabel === "F") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            answers: {
+              ...state.puzzle.answers,
+              F: selectedMovies,
+            },
+          },
+        };
+      } else if (cellLabel === "G") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            answers: {
+              ...state.puzzle.answers,
+              G: selectedMovies,
+            },
+          },
+        };
+      } else if (cellLabel === "H") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            answers: {
+              ...state.puzzle.answers,
+              H: selectedMovies,
+            },
+          },
+        };
+      } else {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            answers: {
+              ...state.puzzle.answers,
+              I: selectedMovies,
+            },
+          },
+        };
+      }
+    },
   },
 });
 
@@ -325,6 +429,7 @@ export const {
   updateLabel,
   updateImgUrl,
   updateAttrLink,
+  updateAnswers,
 } = adminSlice.actions;
 
 export default adminSlice.reducer;

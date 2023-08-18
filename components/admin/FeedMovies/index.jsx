@@ -60,7 +60,6 @@ function FeedMovies({ cellLabel }) {
 
   const handleChange = (newValue) => {
     console.log("handle change");
-    // setValue(newValue);
   };
   return (
     <div className="FeedMovies">
@@ -96,18 +95,18 @@ function FeedMovies({ cellLabel }) {
             };
           })}
         />
+      </div>
 
-        <div className="FeedMovies-select-movies-pills-wrapper">
-          {answers.length > 0 ? (
-            answers.map((movie) => (
-              <Pill cellLabel={cellLabel} movie={movie} key={movie} />
-            ))
-          ) : (
-            <p className="FeedMovies-select-movies-pills-no-selection-text">
-              No movies selected
-            </p>
-          )}
-        </div>
+      <div className="FeedMovies-select-movies-pills-wrapper">
+        {answers.length > 0 ? (
+          answers.map((movie) => (
+            <Pill cellLabel={cellLabel} movie={movie} key={movie} />
+          ))
+        ) : (
+          <p className="FeedMovies-select-movies-pills-no-selection-text">
+            No movies selected
+          </p>
+        )}
       </div>
     </div>
   );

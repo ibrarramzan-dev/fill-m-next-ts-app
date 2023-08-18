@@ -44,7 +44,6 @@ a {
 .Drawer-component {
   width: 29.25rem !important;
   padding-top: 5.4rem;
-  padding-left: 1.5rem;
 }
 
 .heading {
@@ -672,30 +671,36 @@ a {
   }
 }
 .FeedMovies .FeedMovies-heading {
+  position: relative;
   display: flex;
+  justify-content: space-between;
+  padding-left: 1.5rem;
 }
 .FeedMovies .FeedMovies-cell-label-text {
-  font-size: 1.2rem;
-  margin-top: 0.715rem;
-  margin-left: 1.4rem;
+  position: absolute;
+  top: -0.6rem;
+  right: 1.57rem;
+  font-size: 3rem;
   font-weight: bold;
   color: #3cc641;
 }
 .FeedMovies .FeedMovies-select-movies-wrapper {
   margin-top: -1.9rem;
   padding-right: 2rem;
+  margin-left: 1.5rem;
 }
 .FeedMovies .FeedMovies-select-movies-wrapper .FeedMovies-select-movies {
   width: 100%;
 }
-.FeedMovies .FeedMovies-select-movies-wrapper .FeedMovies-select-movies-pills-wrapper {
+.FeedMovies .FeedMovies-select-movies-pills-wrapper {
   display: flex;
   flex-wrap: wrap;
   column-gap: 1rem;
   row-gap: 0.7rem;
   margin-top: 1.34rem;
+  padding-left: 1.5rem;
 }
-.FeedMovies .FeedMovies-select-movies-wrapper .FeedMovies-select-movies-pills-wrapper .FeedMovies-select-movies-pills-no-selection-text {
+.FeedMovies .FeedMovies-select-movies-pills-wrapper .FeedMovies-select-movies-pills-no-selection-text {
   width: 100%;
   text-align: center;
   color: #808080;

@@ -49,10 +49,19 @@ function FeedMovies() {
           onSearch={handleSearch}
           onChange={handleChange}
           notFoundContent={null}
-          options={(movieResults || []).map((m) => ({
-            value: m.title,
-            label: m.title,
-          }))}
+          options={(movieResults || []).map((m) => {
+            const { title, release_date } = m;
+            let releaseYear = "";
+
+            release_date
+              ? (releaseYear = ` (${release_date.split("-")[0]})`)
+              : null;
+
+            return {
+              value: `${title}${releaseYear}`,
+              label: `${title}${releaseYear}`,
+            };
+          })}
         />
       </div>
     </div>

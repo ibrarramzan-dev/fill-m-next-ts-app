@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { Select, Space } from "antd";
+import { FiSearch } from "react-icons/fi";
 import Pill from "../Pill";
 import { addAnswers } from "@/app/AppState/Features/admin/adminSlice";
 
@@ -75,7 +76,7 @@ function FeedMovies({ cellLabel }) {
           placeholder="Search movie"
           className="FeedMovies-select-movies"
           defaultActiveFirstOption={false}
-          suffixIcon={null}
+          suffixIcon={<FiSearch style={{ fontSize: "1.15rem" }} />}
           filterOption={false}
           onSearch={handleSearch}
           onSelect={handleSelect}
@@ -97,9 +98,15 @@ function FeedMovies({ cellLabel }) {
         />
 
         <div className="FeedMovies-select-movies-pills-wrapper">
-          {answers.map((movie) => (
-            <Pill cellLabel={cellLabel} movie={movie} key={movie} />
-          ))}
+          {answers.length > 0 ? (
+            answers.map((movie) => (
+              <Pill cellLabel={cellLabel} movie={movie} key={movie} />
+            ))
+          ) : (
+            <p className="FeedMovies-select-movies-pills-no-selection-text">
+              No movies selected
+            </p>
+          )}
         </div>
       </div>
     </div>

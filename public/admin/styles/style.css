@@ -695,6 +695,12 @@ a {
   row-gap: 0.7rem;
   margin-top: 1.34rem;
 }
+.FeedMovies .FeedMovies-select-movies-wrapper .FeedMovies-select-movies-pills-wrapper .FeedMovies-select-movies-pills-no-selection-text {
+  width: 100%;
+  text-align: center;
+  color: #808080;
+  margin-top: 6rem;
+}
 
 .Pill {
   position: relative;

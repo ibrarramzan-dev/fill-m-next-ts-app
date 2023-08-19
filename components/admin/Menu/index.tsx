@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { useSelector } from "react-redux";
-import MenuItem from "./MenuItem";
 import {
   UnorderedListOutlined,
   PlusOutlined,
   BorderOuterOutlined,
 } from "@ant-design/icons";
+import { useSelector } from "react-redux";
+import MenuItem from "./MenuItem";
 
 export default function Menu() {
   const [width, setWidth] = useState<number>(0);

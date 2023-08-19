@@ -1,8 +1,8 @@
 import { Indie_Flower } from "next/font/google";
-import cn from "classnames";
 import { BsTwitter } from "react-icons/bs";
 import { ImStatsBars } from "react-icons/im";
 import { BsQuestionLg } from "react-icons/bs";
+import cn from "classnames";
 
 const Indie_Flower_Font = Indie_Flower({
   subsets: ["latin"],

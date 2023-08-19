@@ -1,7 +1,6 @@
 "use client";
 
 import { createSlice } from "@reduxjs/toolkit";
-import moment, { Moment } from "moment";
 
 interface LabelItemInterface {
   label: string;
@@ -542,6 +541,10 @@ export const adminSlice = createSlice({
         };
       }
     },
+    resetPuzzle: (state: Admin) => ({
+      ...state,
+      puzzle: initialState.puzzle,
+    }),
   },
 });
 
@@ -553,6 +556,7 @@ export const {
   updateAttrLink,
   addAnswers,
   deleteAnswers,
+  resetPuzzle,
 } = adminSlice.actions;
 
 export default adminSlice.reducer;

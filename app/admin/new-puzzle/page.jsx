@@ -1,20 +1,26 @@
 "use client";
 
+import "react-day-picker/dist/style.css";
+import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
-import Grid from "@/components/admin/Grid";
-import { Input } from "antd";
+import { Button, Input } from "antd";
+import { ToastContainer, toast } from "react-toastify";
+import { useSelector, useDispatch } from "react-redux";
+import { DayPicker } from "react-day-picker";
+import axios from "axios";
 import {
   updateDate,
   updateLabel,
   updateImgUrl,
   updateAttrLink,
+  resetPuzzle,
 } from "@/app/AppState/Features/admin/adminSlice";
-import { useSelector, useDispatch } from "react-redux";
-import { DayPicker } from "react-day-picker";
-import "react-day-picker/dist/style.css";
+import Grid from "@/components/admin/Grid";
 
 function NewPuzzle() {
   const dispatch = useDispatch();
+
+  const puzzle = useSelector((state) => state.admin.puzzle);
 
   const [selected, setSelected] = useState();
 
@@ -26,6 +32,43 @@ function NewPuzzle() {
 
   const onAttrLinkChange = (position, val) =>
     dispatch(updateAttrLink({ position, val }));
+
+  const onPuzzleSave = () => {
+    axios
+      .post("http://localhost:3000/api/puzzles", puzzle)
+      .then((response) => {
+        if (response.data.success) {
+          dispatch(resetPuzzle());
+          toast.success("Puzzle created!");
+        }
+      })
+      .catch((error) => console.error(error));
+  };
+
+  const renderSaveButton = () => {
+    const { date, labels, answers } = puzzle;
+
+    return date !== "" &&
+      (labels.x1.label || (labels.x1.image && labels.x1.attributionLink)) &&
+      (labels.x2.label || (labels.x2.image && labels.x2.attributionLink)) &&
+      (labels.x3.label || (labels.x3.image && labels.x3.attributionLink)) &&
+      (labels.y1.label || (labels.y1.image && labels.y1.attributionLink)) &&
+      (labels.y2.label || (labels.y2.image && labels.y2.attributionLink)) &&
+      (labels.y3.label || (labels.y3.image && labels.y3.attributionLink)) &&
+      answers.A.length > 0 &&
+      answers.B.length > 0 &&
+      answers.C.length > 0 &&
+      answers.D.length > 0 &&
+      answers.E.length > 0 &&
+      answers.F.length > 0 &&
+      answers.G.length > 0 &&
+      answers.H.length > 0 &&
+      answers.I.length > 0 ? (
+      <Button onClick={onPuzzleSave} type="primary">
+        Save
+      </Button>
+    ) : null;
+  };
 
   console.log(selected);
   return (
@@ -189,6 +232,9 @@ function NewPuzzle() {
       <div className="NewPuzzle-right-col">
         <Grid />
       </div>
+
+      <div className="NewPuzzle-save-btn-wrapper">{renderSaveButton()}</div>
+      <ToastContainer />
     </section>
   );
 }

@@ -1,16 +1,14 @@
 "use client";
 
-import React, { useContext } from "react";
-import { Avatar, Dropdown, Menu } from "antd";
-import { useSelector, useDispatch } from "react-redux";
-import { toggleSidebar } from "@/app/AppState/Features/admin/adminSlice";
-import hamburger from "./images/menu_black_24dp.svg";
-import logo from "./images/body-shop-boost-logo.svg";
-import tagOverlap from "./images/basf-logo.svg";
-import Image from "next/image";
-import cn from "classnames";
+import React from "react";
 import { Indie_Flower, Caveat } from "next/font/google";
 import Link from "next/link";
+import Image from "next/image";
+import { Avatar, Dropdown, Menu } from "antd";
+import cn from "classnames";
+import { useSelector, useDispatch } from "react-redux";
+import hamburger from "./images/menu_black_24dp.svg";
+import { toggleSidebar } from "@/app/AppState/Features/admin/adminSlice";
 
 const Indie_Flower_Font = Indie_Flower({
   subsets: ["latin"],

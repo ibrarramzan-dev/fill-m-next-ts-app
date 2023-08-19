@@ -10,6 +10,14 @@ function Grid() {
 
   const onCellClick = () => console.log("cell clicked");
 
+  const borderTopRightStyling = {
+    borderTopRightRadius: "1.2rem",
+  };
+
+  const borderBottomRightStyling = {
+    borderBottomRightRadius: "1.2rem",
+  };
+
   return (
     <section className="AdminGrid">
       <div>
@@ -42,6 +50,7 @@ function Grid() {
                 topAttrLink={y3.attributionLink}
                 label="C"
                 onCellClick={onCellClick}
+                styling={borderTopRightStyling}
               />
             </div>
             <div className="AdminGrid-box-row">
@@ -70,7 +79,11 @@ function Grid() {
               {/* x3y2 */}
               <Cell label="H" onCellClick={onCellClick} />
               {/* x3y3 */}
-              <Cell label="I" onCellClick={onCellClick} />
+              <Cell
+                label="I"
+                onCellClick={onCellClick}
+                styling={borderBottomRightStyling}
+              />
             </div>
           </div>
         </div>

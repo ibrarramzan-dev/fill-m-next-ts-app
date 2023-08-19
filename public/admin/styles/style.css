@@ -483,14 +483,8 @@ a {
 .AdminGrid .AdminGrid-wrapper .AdminGrid-box .AdminGrid-box-row:first-of-type .AdminCell:first-of-type .AdminCell-box-wrapper {
   border-top-left-radius: 1.2rem;
 }
-.AdminGrid .AdminGrid-wrapper .AdminGrid-box .AdminGrid-box-row:first-of-type .AdminCell:last-of-type .AdminCell-box-wrapper {
-  border-top-right-radius: 1.2rem;
-}
 .AdminGrid .AdminGrid-wrapper .AdminGrid-box .AdminGrid-box-row:last-of-type .AdminCell:first-of-type .AdminCell-box-wrapper {
   border-bottom-left-radius: 1.2rem;
-}
-.AdminGrid .AdminGrid-wrapper .AdminGrid-box .AdminGrid-box-row:last-of-type .AdminCell:last-of-type .AdminCell-box-wrapper {
-  border-bottom-right-radius: 1.2rem;
 }
 .AdminGrid .AdminGrid-wrapper .AdminGrid-guess-wrapper {
   width: fit-content;

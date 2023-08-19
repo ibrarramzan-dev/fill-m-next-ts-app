@@ -21,7 +21,6 @@ function Cell({
 
   return (
     <>
-      {" "}
       <div className="AdminCell" onClick={() => setIsOpen(true)}>
         <div className="AdminCell-box-wrapper">
           <div className="AdminCell-box" onClick={onCellClick}>

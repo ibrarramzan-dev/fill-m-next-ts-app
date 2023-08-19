@@ -3,10 +3,10 @@
 import "react-day-picker/dist/style.css";
 import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
-import { Button, Input } from "antd";
-import { ToastContainer, toast } from "react-toastify";
+import { Form, Button, Input } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 import { DayPicker } from "react-day-picker";
+import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 import {
   updateDate,
@@ -18,9 +18,11 @@ import {
 import Grid from "@/components/admin/Grid";
 
 function NewPuzzle() {
+  const puzzle = useSelector((state) => state.admin.puzzle);
+
   const dispatch = useDispatch();
 
-  const puzzle = useSelector((state) => state.admin.puzzle);
+  const [form] = Form.useForm();
 
   const [selected, setSelected] = useState();
 
@@ -39,6 +41,7 @@ function NewPuzzle() {
       .then((response) => {
         if (response.data.success) {
           dispatch(resetPuzzle());
+          form.resetFields();
           toast.success("Puzzle created!");
         }
       })
@@ -90,143 +93,181 @@ function NewPuzzle() {
           </div>
         </div>
 
-        <div className="NewPuzzle-left-col-inputs-section">
-          <p className="form-input-label">Label (X₁)</p>
-          <Input
-            onChange={(e) => onLabelChange("x1", e.target.value)}
-            className="form-input"
-            placeholder="Enter the label"
-          />
+        <Form name="new-puzzle-form" form={form}>
+          <div className="NewPuzzle-left-col-inputs-section">
+            <p className="form-input-label">Label (X₁)</p>
+            <Form.Item name="labelX1">
+              <Input
+                onChange={(e) => onLabelChange("x1", e.target.value)}
+                className="form-input"
+                placeholder="Enter the label"
+              />
+            </Form.Item>
 
-          <p className="form-input-label">Image (X₁)</p>
-          <Input
-            onChange={(e) => onImgUrlChange("x1", e.target.value)}
-            className="form-input"
-            placeholder="Enter image url"
-          />
+            <p className="form-input-label">Image (X₁)</p>
+            <Form.Item name="imageX1">
+              <Input
+                onChange={(e) => onImgUrlChange("x1", e.target.value)}
+                className="form-input"
+                placeholder="Enter image url"
+              />
+            </Form.Item>
 
-          <p className="form-input-label">Attribution link (X₁)</p>
-          <Input
-            onChange={(e) => onAttrLinkChange("x1", e.target.value)}
-            className="form-input"
-            placeholder="Enter link"
-          />
-        </div>
+            <p className="form-input-label">Attribution link (X₁)</p>
+            <Form.Item name="attributionX1">
+              <Input
+                onChange={(e) => onAttrLinkChange("x1", e.target.value)}
+                className="form-input"
+                placeholder="Enter link"
+              />
+            </Form.Item>
+          </div>
 
-        <div className="NewPuzzle-left-col-inputs-section">
-          <p className="form-input-label">Label (X₂)</p>
-          <Input
-            onChange={(e) => onLabelChange("x2", e.target.value)}
-            className="form-input"
-            placeholder="Enter the label"
-          />
+          <div className="NewPuzzle-left-col-inputs-section">
+            <p className="form-input-label">Label (X₂)</p>
+            <Form.Item name="labelX2">
+              <Input
+                onChange={(e) => onLabelChange("x2", e.target.value)}
+                className="form-input"
+                placeholder="Enter the label"
+              />
+            </Form.Item>
 
-          <p className="form-input-label">Image (X₂)</p>
-          <Input
-            onChange={(e) => onImgUrlChange("x2", e.target.value)}
-            className="form-input"
-            placeholder="Enter image url"
-          />
+            <p className="form-input-label">Image (X₂)</p>
+            <Form.Item name="imageX2">
+              <Input
+                onChange={(e) => onImgUrlChange("x2", e.target.value)}
+                className="form-input"
+                placeholder="Enter image url"
+              />
+            </Form.Item>
 
-          <p className="form-input-label">Attribution link (X₂)</p>
-          <Input
-            onChange={(e) => onAttrLinkChange("x2", e.target.value)}
-            className="form-input"
-            placeholder="Enter link"
-          />
-        </div>
+            <p className="form-input-label">Attribution link (X₂)</p>
+            <Form.Item name="attributionX2">
+              <Input
+                onChange={(e) => onAttrLinkChange("x2", e.target.value)}
+                className="form-input"
+                placeholder="Enter link"
+              />
+            </Form.Item>
+          </div>
 
-        <div className="NewPuzzle-left-col-inputs-section">
-          <p className="form-input-label">Label (X₃)</p>
-          <Input
-            onChange={(e) => onLabelChange("x3", e.target.value)}
-            className="form-input"
-            placeholder="Enter the label"
-          />
+          <div className="NewPuzzle-left-col-inputs-section">
+            <p className="form-input-label">Label (X₃)</p>
+            <Form.Item name="labelX3">
+              <Input
+                onChange={(e) => onLabelChange("x3", e.target.value)}
+                className="form-input"
+                placeholder="Enter the label"
+              />
+            </Form.Item>
 
-          <p className="form-input-label">Image (X₃)</p>
-          <Input
-            onChange={(e) => onImgUrlChange("x3", e.target.value)}
-            className="form-input"
-            placeholder="Enter image url"
-          />
+            <p className="form-input-label">Image (X₃)</p>
+            <Form.Item name="imageX3">
+              <Input
+                onChange={(e) => onImgUrlChange("x3", e.target.value)}
+                className="form-input"
+                placeholder="Enter image url"
+              />
+            </Form.Item>
 
-          <p className="form-input-label">Attribution link (X₃)</p>
-          <Input
-            onChange={(e) => onAttrLinkChange("x3", e.target.value)}
-            className="form-input"
-            placeholder="Enter link"
-          />
-        </div>
+            <p className="form-input-label">Attribution link (X₃)</p>
+            <Form.Item name="attributionX3">
+              <Input
+                onChange={(e) => onAttrLinkChange("x3", e.target.value)}
+                className="form-input"
+                placeholder="Enter link"
+              />
+            </Form.Item>
+          </div>
 
-        <div className="NewPuzzle-left-col-inputs-section">
-          <p className="form-input-label">Label (Y₁)</p>
-          <Input
-            onChange={(e) => onLabelChange("y1", e.target.value)}
-            className="form-input"
-            placeholder="Enter the label"
-          />
+          <div className="NewPuzzle-left-col-inputs-section">
+            <p className="form-input-label">Label (Y₁)</p>
+            <Form.Item name="labelY1">
+              <Input
+                onChange={(e) => onLabelChange("y1", e.target.value)}
+                className="form-input"
+                placeholder="Enter the label"
+              />
+            </Form.Item>
 
-          <p className="form-input-label">Image (Y₁)</p>
-          <Input
-            onChange={(e) => onImgUrlChange("y1", e.target.value)}
-            className="form-input"
-            placeholder="Enter image url"
-          />
+            <p className="form-input-label">Image (Y₁)</p>
+            <Form.Item name="imageY1">
+              <Input
+                onChange={(e) => onImgUrlChange("y1", e.target.value)}
+                className="form-input"
+                placeholder="Enter image url"
+              />
+            </Form.Item>
 
-          <p className="form-input-label">Attribution link (Y₁)</p>
-          <Input
-            onChange={(e) => onAttrLinkChange("y1", e.target.value)}
-            className="form-input"
-            placeholder="Enter link"
-          />
-        </div>
+            <p className="form-input-label">Attribution link (Y₁)</p>
+            <Form.Item name="attributionY1">
+              <Input
+                onChange={(e) => onAttrLinkChange("y1", e.target.value)}
+                className="form-input"
+                placeholder="Enter link"
+              />
+            </Form.Item>
+          </div>
 
-        <div className="NewPuzzle-left-col-inputs-section">
-          <p className="form-input-label">Label (Y₂)</p>
-          <Input
-            onChange={(e) => onLabelChange("y2", e.target.value)}
-            className="form-input"
-            placeholder="Enter the label"
-          />
+          <div className="NewPuzzle-left-col-inputs-section">
+            <p className="form-input-label">Label (Y₂)</p>
+            <Form.Item name="labelY2">
+              <Input
+                onChange={(e) => onLabelChange("y2", e.target.value)}
+                className="form-input"
+                placeholder="Enter the label"
+              />
+            </Form.Item>
 
-          <p className="form-input-label">Image (Y₂)</p>
-          <Input
-            onChange={(e) => onImgUrlChange("y2", e.target.value)}
-            className="form-input"
-            placeholder="Enter image url"
-          />
+            <p className="form-input-label">Image (Y₂)</p>
+            <Form.Item name="imageY2">
+              <Input
+                onChange={(e) => onImgUrlChange("y2", e.target.value)}
+                className="form-input"
+                placeholder="Enter image url"
+              />
+            </Form.Item>
 
-          <p className="form-input-label">Attribution link (Y₂)</p>
-          <Input
-            onChange={(e) => onAttrLinkChange("y2", e.target.value)}
-            className="form-input"
-            placeholder="Enter link"
-          />
-        </div>
+            <p className="form-input-label">Attribution link (Y₂)</p>
+            <Form.Item name="attributionY2">
+              <Input
+                onChange={(e) => onAttrLinkChange("y2", e.target.value)}
+                className="form-input"
+                placeholder="Enter link"
+              />
+            </Form.Item>
+          </div>
 
-        <div className="NewPuzzle-left-col-inputs-section">
-          <p className="form-input-label">Label (Y₃)</p>
-          <Input
-            onChange={(e) => onLabelChange("y3", e.target.value)}
-            className="form-input"
-            placeholder="Enter the label"
-          />
+          <div className="NewPuzzle-left-col-inputs-section">
+            <p className="form-input-label">Label (Y₃)</p>
+            <Form.Item name="labelY3">
+              <Input
+                onChange={(e) => onLabelChange("y3", e.target.value)}
+                className="form-input"
+                placeholder="Enter the label"
+              />
+            </Form.Item>
 
-          <p className="form-input-label">Image (Y₃)</p>
-          <Input
-            onChange={(e) => onImgUrlChange("y3", e.target.value)}
-            className="form-input"
-            placeholder="Enter image url"
-          />
+            <p className="form-input-label">Image (Y₃)</p>
+            <Form.Item name="imageY3">
+              <Input
+                onChange={(e) => onImgUrlChange("y3", e.target.value)}
+                className="form-input"
+                placeholder="Enter image url"
+              />
+            </Form.Item>
 
-          <p className="form-input-label">Attribution link (Y₃)</p>
-          <Input
-            onChange={(e) => onAttrLinkChange("y3", e.target.value)}
-            className="form-input"
-            placeholder="Enter link"
-          />
-        </div>
+            <p className="form-input-label">Attribution link (Y₃)</p>
+            <Form.Item name="attributionY3">
+              <Input
+                onChange={(e) => onAttrLinkChange("y3", e.target.value)}
+                className="form-input"
+                placeholder="Enter link"
+              />
+            </Form.Item>
+          </div>
+        </Form>
       </div>
 
       <div className="NewPuzzle-right-col">

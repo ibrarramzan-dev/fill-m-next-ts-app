@@ -1,13 +1,20 @@
 "use client";
 
-import puzzles from "../db/puzzles.json";
 import Cell from "./Cell";
 
 function Grid() {
-  const puzzle = puzzles[0];
+  const puzzle = {
+    labels: {
+      x1: "Dennis Quaid",
+      x2: "Meryl Streep",
+      x3: "Amy Adams",
+      y1: "Jake Gyllenhaal",
+      y2: "Michael Douglas",
+      y3: "Julia Roberts",
+    },
+    data: {},
+  };
   const { labels } = puzzle;
-
-  console.log("Labels: ", labels);
 
   const onCellClick = () => console.log("cell clicked");
 

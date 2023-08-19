@@ -1,13 +1,9 @@
 "use client";
 
 import { useSelector } from "react-redux";
-import puzzles from "@/db/puzzles.json";
 import Cell from "./Cell";
 
 function Grid() {
-  const puzzle = puzzles[0];
-  const { labels } = puzzle;
-
   const { y1, y2, y3, x1, x2, x3 } = useSelector(
     (state) => state.admin.puzzle.labels
   );

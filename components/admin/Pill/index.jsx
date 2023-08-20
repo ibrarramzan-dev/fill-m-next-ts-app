@@ -5,6 +5,7 @@ import { Input } from "antd";
 import { RxCross2 } from "react-icons/rx";
 import { useSelector, useDispatch } from "react-redux";
 import Popup from "reactjs-popup";
+import cn from "classnames";
 import {
   deleteAnswers,
   addAnswerMovieAttrLink,
@@ -25,7 +26,12 @@ function Pill({ cellLabel, movie }) {
   };
 
   return (
-    <div className="Pill">
+    <div
+      className={cn("Pill", {
+        "Pill-linked":
+          attributionLink !== "" && attributionLink.slice(0, 4) === "http",
+      })}
+    >
       <Popup
         trigger={
           <div>

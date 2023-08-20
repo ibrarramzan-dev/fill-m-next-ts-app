@@ -37,7 +37,8 @@ function NewPuzzle() {
 
   const onPuzzleSave = () => {
     axios
-      .post("https://fill-m-next-ts-app.vercel.app/api/puzzles", puzzle)
+      // .post("https://fill-m-next-ts-app.vercel.app/api/puzzles", puzzle)
+      .post("http://localhost:3000/api/puzzles", puzzle)
       .then((response) => {
         if (response.data.success) {
           dispatch(resetPuzzle());

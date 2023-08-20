@@ -6,7 +6,7 @@ import axios from "axios";
 import { Select, Space } from "antd";
 import { FiSearch } from "react-icons/fi";
 import Pill from "../Pill";
-import { addAnswers } from "@/app/AppState/Features/admin/adminSlice";
+import { addAnswer } from "@/app/AppState/Features/admin/adminSlice";
 
 function FeedMovies({ cellLabel }) {
   const answers = useSelector((state) => state.admin.puzzle.answers[cellLabel]);
@@ -50,9 +50,9 @@ function FeedMovies({ cellLabel }) {
   const handleSelect = (selectedValue) => {
     if (!answers.includes(selectedValue)) {
       dispatch(
-        addAnswers({
+        addAnswer({
           cellLabel,
-          selectedMovies: [...answers, selectedValue],
+          selectedMovie: selectedValue,
         })
       );
     }
@@ -100,7 +100,7 @@ function FeedMovies({ cellLabel }) {
       <div className="FeedMovies-select-movies-pills-wrapper">
         {answers.length > 0 ? (
           answers.map((movie) => (
-            <Pill cellLabel={cellLabel} movie={movie} key={movie} />
+            <Pill cellLabel={cellLabel} movie={movie.movie} key={movie.movie} />
           ))
         ) : (
           <p className="FeedMovies-select-movies-pills-no-selection-text">

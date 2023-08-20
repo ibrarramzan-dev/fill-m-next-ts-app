@@ -17,16 +17,21 @@ interface LabelInterface {
   y3: LabelItemInterface;
 }
 
+interface AnswerInterface {
+  movie: "";
+  attributionLink: "";
+}
+
 interface AnswersInterface {
-  A: string[];
-  B: string[];
-  C: string[];
-  D: string[];
-  E: string[];
-  F: string[];
-  G: string[];
-  H: string[];
-  I: string[];
+  A: AnswerInterface[];
+  B: AnswerInterface[];
+  C: AnswerInterface[];
+  D: AnswerInterface[];
+  E: AnswerInterface[];
+  F: AnswerInterface[];
+  G: AnswerInterface[];
+  H: AnswerInterface[];
+  I: AnswerInterface[];
 }
 
 interface PuzzleInterface {
@@ -315,8 +320,8 @@ export const adminSlice = createSlice({
         };
       }
     },
-    addAnswers: (state: Admin, action) => {
-      const { cellLabel, selectedMovies } = action.payload;
+    addAnswer: (state: Admin, action) => {
+      const { cellLabel, selectedMovie } = action.payload;
 
       if (cellLabel === "A") {
         return {
@@ -325,7 +330,13 @@ export const adminSlice = createSlice({
             ...state.puzzle,
             answers: {
               ...state.puzzle.answers,
-              A: selectedMovies,
+              A: [
+                ...state.puzzle.answers.A,
+                {
+                  movie: selectedMovie,
+                  attributionLink: "",
+                },
+              ],
             },
           },
         };
@@ -336,7 +347,13 @@ export const adminSlice = createSlice({
             ...state.puzzle,
             answers: {
               ...state.puzzle.answers,
-              B: selectedMovies,
+              B: [
+                ...state.puzzle.answers.B,
+                {
+                  movie: selectedMovie,
+                  attributionLink: "",
+                },
+              ],
             },
           },
         };
@@ -347,7 +364,13 @@ export const adminSlice = createSlice({
             ...state.puzzle,
             answers: {
               ...state.puzzle.answers,
-              C: selectedMovies,
+              C: [
+                ...state.puzzle.answers.C,
+                {
+                  movie: selectedMovie,
+                  attributionLink: "",
+                },
+              ],
             },
           },
         };
@@ -358,7 +381,13 @@ export const adminSlice = createSlice({
             ...state.puzzle,
             answers: {
               ...state.puzzle.answers,
-              D: selectedMovies,
+              D: [
+                ...state.puzzle.answers.D,
+                {
+                  movie: selectedMovie,
+                  attributionLink: "",
+                },
+              ],
             },
           },
         };
@@ -369,7 +398,13 @@ export const adminSlice = createSlice({
             ...state.puzzle,
             answers: {
               ...state.puzzle.answers,
-              E: selectedMovies,
+              E: [
+                ...state.puzzle.answers.E,
+                {
+                  movie: selectedMovie,
+                  attributionLink: "",
+                },
+              ],
             },
           },
         };
@@ -380,7 +415,13 @@ export const adminSlice = createSlice({
             ...state.puzzle,
             answers: {
               ...state.puzzle.answers,
-              F: selectedMovies,
+              F: [
+                ...state.puzzle.answers.F,
+                {
+                  movie: selectedMovie,
+                  attributionLink: "",
+                },
+              ],
             },
           },
         };
@@ -391,7 +432,13 @@ export const adminSlice = createSlice({
             ...state.puzzle,
             answers: {
               ...state.puzzle.answers,
-              G: selectedMovies,
+              G: [
+                ...state.puzzle.answers.G,
+                {
+                  movie: selectedMovie,
+                  attributionLink: "",
+                },
+              ],
             },
           },
         };
@@ -402,7 +449,13 @@ export const adminSlice = createSlice({
             ...state.puzzle,
             answers: {
               ...state.puzzle.answers,
-              H: selectedMovies,
+              H: [
+                ...state.puzzle.answers.H,
+                {
+                  movie: selectedMovie,
+                  attributionLink: "",
+                },
+              ],
             },
           },
         };
@@ -413,7 +466,144 @@ export const adminSlice = createSlice({
             ...state.puzzle,
             answers: {
               ...state.puzzle.answers,
-              I: selectedMovies,
+              I: [
+                ...state.puzzle.answers.I,
+                {
+                  movie: selectedMovie,
+                  attributionLink: "",
+                },
+              ],
+            },
+          },
+        };
+      }
+    },
+    addAnswerImgAttrLink: (state: Admin, action) => {
+      const { cellLabel, movie, link } = action.payload;
+
+      if (cellLabel === "A") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            answers: {
+              ...state.puzzle.answers,
+              A: state.puzzle.answers.A.map((answer) => ({
+                movie: answer.movie,
+                attributionLink: answer.movie === movie ? link : "",
+              })),
+            },
+          },
+        };
+      } else if (cellLabel === "B") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            answers: {
+              ...state.puzzle.answers,
+              B: state.puzzle.answers.B.map((answer) => ({
+                movie: answer.movie,
+                attributionLink: answer.movie === movie ? link : "",
+              })),
+            },
+          },
+        };
+      } else if (cellLabel === "C") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            answers: {
+              ...state.puzzle.answers,
+              C: state.puzzle.answers.C.map((answer) => ({
+                movie: answer.movie,
+                attributionLink: answer.movie === movie ? link : "",
+              })),
+            },
+          },
+        };
+      } else if (cellLabel === "D") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            answers: {
+              ...state.puzzle.answers,
+              D: state.puzzle.answers.D.map((answer) => ({
+                movie: answer.movie,
+                attributionLink: answer.movie === movie ? link : "",
+              })),
+            },
+          },
+        };
+      } else if (cellLabel === "E") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            answers: {
+              ...state.puzzle.answers,
+              E: state.puzzle.answers.E.map((answer) => ({
+                movie: answer.movie,
+                attributionLink: answer.movie === movie ? link : "",
+              })),
+            },
+          },
+        };
+      } else if (cellLabel === "F") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            answers: {
+              ...state.puzzle.answers,
+              F: state.puzzle.answers.F.map((answer) => ({
+                movie: answer.movie,
+                attributionLink: answer.movie === movie ? link : "",
+              })),
+            },
+          },
+        };
+      } else if (cellLabel === "G") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            answers: {
+              ...state.puzzle.answers,
+              G: state.puzzle.answers.G.map((answer) => ({
+                movie: answer.movie,
+                attributionLink: answer.movie === movie ? link : "",
+              })),
+            },
+          },
+        };
+      } else if (cellLabel === "H") {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            answers: {
+              ...state.puzzle.answers,
+              H: state.puzzle.answers.H.map((answer) => ({
+                movie: answer.movie,
+                attributionLink: answer.movie === movie ? link : "",
+              })),
+            },
+          },
+        };
+      } else {
+        return {
+          ...state,
+          puzzle: {
+            ...state.puzzle,
+            answers: {
+              ...state.puzzle.answers,
+              I: state.puzzle.answers.I.map((answer) => ({
+                movie: answer.movie,
+                attributionLink: answer.movie === movie ? link : "",
+              })),
             },
           },
         };
@@ -430,7 +620,7 @@ export const adminSlice = createSlice({
             answers: {
               ...state.puzzle.answers,
               A: state.puzzle.answers.A.filter(
-                (movie) => movie !== movieToDelete
+                (movie) => movie.movie !== movieToDelete
               ),
             },
           },
@@ -443,7 +633,7 @@ export const adminSlice = createSlice({
             answers: {
               ...state.puzzle.answers,
               B: state.puzzle.answers.B.filter(
-                (movie) => movie !== movieToDelete
+                (movie) => movie.movie !== movieToDelete
               ),
             },
           },
@@ -456,7 +646,7 @@ export const adminSlice = createSlice({
             answers: {
               ...state.puzzle.answers,
               C: state.puzzle.answers.C.filter(
-                (movie) => movie !== movieToDelete
+                (movie) => movie.movie !== movieToDelete
               ),
             },
           },
@@ -469,7 +659,7 @@ export const adminSlice = createSlice({
             answers: {
               ...state.puzzle.answers,
               D: state.puzzle.answers.D.filter(
-                (movie) => movie !== movieToDelete
+                (movie) => movie.movie !== movieToDelete
               ),
             },
           },
@@ -482,7 +672,7 @@ export const adminSlice = createSlice({
             answers: {
               ...state.puzzle.answers,
               E: state.puzzle.answers.E.filter(
-                (movie) => movie !== movieToDelete
+                (movie) => movie.movie !== movieToDelete
               ),
             },
           },
@@ -495,7 +685,7 @@ export const adminSlice = createSlice({
             answers: {
               ...state.puzzle.answers,
               F: state.puzzle.answers.F.filter(
-                (movie) => movie !== movieToDelete
+                (movie) => movie.movie !== movieToDelete
               ),
             },
           },
@@ -508,7 +698,7 @@ export const adminSlice = createSlice({
             answers: {
               ...state.puzzle.answers,
               G: state.puzzle.answers.G.filter(
-                (movie) => movie !== movieToDelete
+                (movie) => movie.movie !== movieToDelete
               ),
             },
           },
@@ -521,7 +711,7 @@ export const adminSlice = createSlice({
             answers: {
               ...state.puzzle.answers,
               H: state.puzzle.answers.H.filter(
-                (movie) => movie !== movieToDelete
+                (movie) => movie.movie !== movieToDelete
               ),
             },
           },
@@ -534,7 +724,7 @@ export const adminSlice = createSlice({
             answers: {
               ...state.puzzle.answers,
               I: state.puzzle.answers.I.filter(
-                (movie) => movie !== movieToDelete
+                (movie) => movie.movie !== movieToDelete
               ),
             },
           },
@@ -554,7 +744,8 @@ export const {
   updateLabel,
   updateImgUrl,
   updateAttrLink,
-  addAnswers,
+  addAnswer,
+  addAnswerImgAttrLink,
   deleteAnswers,
   resetPuzzle,
 } = adminSlice.actions;

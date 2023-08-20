@@ -52,6 +52,26 @@ function NewPuzzle() {
   const renderSaveButton = () => {
     const { date, labels, answers } = puzzle;
 
+    const cellLabels = Object.keys(answers);
+
+    console.log("pzle answers: ", answers);
+    console.log("Cell Labels: ", cellLabels);
+
+    const recordsFound = [];
+
+    cellLabels.forEach((cellLabel) => {
+      if (answers[cellLabel].length > 0) {
+        const recordsFoundArr = answers[cellLabel].filter(
+          (answer) =>
+            answer.attributionLink === "" ||
+            (answer.attributionLink &&
+              answer.attributionLink.slice(0, 4) !== "http")
+        );
+
+        recordsFound.push(...recordsFoundArr);
+      }
+    });
+
     return date !== "" &&
       (labels.x1.label || (labels.x1.image && labels.x1.attributionLink)) &&
       (labels.x2.label || (labels.x2.image && labels.x2.attributionLink)) &&
@@ -59,15 +79,7 @@ function NewPuzzle() {
       (labels.y1.label || (labels.y1.image && labels.y1.attributionLink)) &&
       (labels.y2.label || (labels.y2.image && labels.y2.attributionLink)) &&
       (labels.y3.label || (labels.y3.image && labels.y3.attributionLink)) &&
-      answers.A.length > 0 &&
-      answers.B.length > 0 &&
-      answers.C.length > 0 &&
-      answers.D.length > 0 &&
-      answers.E.length > 0 &&
-      answers.F.length > 0 &&
-      answers.G.length > 0 &&
-      answers.H.length > 0 &&
-      answers.I.length > 0 ? (
+      recordsFound.length === 0 ? (
       <Button onClick={onPuzzleSave} type="primary">
         Save
       </Button>

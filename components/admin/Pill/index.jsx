@@ -3,18 +3,26 @@
 import "reactjs-popup/dist/index.css";
 import { Input } from "antd";
 import { RxCross2 } from "react-icons/rx";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Popup from "reactjs-popup";
 import {
   deleteAnswers,
-  addAttributionLink,
+  addAnswerMovieAttrLink,
 } from "@/app/AppState/Features/admin/adminSlice";
 
 function Pill({ cellLabel, movie }) {
+  const answers = useSelector((state) => state.admin.puzzle.answers[cellLabel]);
+
+  const { attributionLink } = answers.find((answer) => answer.movie === movie);
+
   const dispatch = useDispatch();
 
-  const onAttrLinkChange = (position, link) =>
-    dispatch(addAttributionLink(cellLabel, movie, link));
+  console.log(attributionLink);
+
+  const onAttrLinkChange = (link) => {
+    console.log("here is the link : ", link);
+    dispatch(addAnswerMovieAttrLink({ cellLabel, movie, link }));
+  };
 
   return (
     <div className="Pill">
@@ -33,9 +41,10 @@ function Pill({ cellLabel, movie }) {
         position="left center"
       >
         <Input
-          onChange={(e) => onAttrLinkChange(cellLabel, e.target.value)}
-          className="Pill-attribution-link-input"
+          onChange={(e) => onAttrLinkChange(e.target.value)}
+          value={attributionLink}
           placeholder="Enter attribution link"
+          className="Pill-attribution-link-input"
         />
       </Popup>
     </div>

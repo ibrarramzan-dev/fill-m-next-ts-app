@@ -478,8 +478,10 @@ export const adminSlice = createSlice({
         };
       }
     },
-    addAnswerImgAttrLink: (state: Admin, action) => {
+    addAnswerMovieAttrLink: (state: Admin, action) => {
       const { cellLabel, movie, link } = action.payload;
+
+      console.log("link: ", link);
 
       if (cellLabel === "A") {
         return {
@@ -489,8 +491,9 @@ export const adminSlice = createSlice({
             answers: {
               ...state.puzzle.answers,
               A: state.puzzle.answers.A.map((answer) => ({
-                movie: answer.movie,
-                attributionLink: answer.movie === movie ? link : "",
+                ...answer,
+                attributionLink:
+                  answer.movie === movie ? link : answer.attributionLink,
               })),
             },
           },
@@ -503,8 +506,9 @@ export const adminSlice = createSlice({
             answers: {
               ...state.puzzle.answers,
               B: state.puzzle.answers.B.map((answer) => ({
-                movie: answer.movie,
-                attributionLink: answer.movie === movie ? link : "",
+                ...answer,
+                attributionLink:
+                  answer.movie === movie ? link : answer.attributionLink,
               })),
             },
           },
@@ -517,8 +521,9 @@ export const adminSlice = createSlice({
             answers: {
               ...state.puzzle.answers,
               C: state.puzzle.answers.C.map((answer) => ({
-                movie: answer.movie,
-                attributionLink: answer.movie === movie ? link : "",
+                ...answer,
+                attributionLink:
+                  answer.movie === movie ? link : answer.attributionLink,
               })),
             },
           },
@@ -531,8 +536,9 @@ export const adminSlice = createSlice({
             answers: {
               ...state.puzzle.answers,
               D: state.puzzle.answers.D.map((answer) => ({
-                movie: answer.movie,
-                attributionLink: answer.movie === movie ? link : "",
+                ...answer,
+                attributionLink:
+                  answer.movie === movie ? link : answer.attributionLink,
               })),
             },
           },
@@ -545,8 +551,9 @@ export const adminSlice = createSlice({
             answers: {
               ...state.puzzle.answers,
               E: state.puzzle.answers.E.map((answer) => ({
-                movie: answer.movie,
-                attributionLink: answer.movie === movie ? link : "",
+                ...answer,
+                attributionLink:
+                  answer.movie === movie ? link : answer.attributionLink,
               })),
             },
           },
@@ -559,8 +566,9 @@ export const adminSlice = createSlice({
             answers: {
               ...state.puzzle.answers,
               F: state.puzzle.answers.F.map((answer) => ({
-                movie: answer.movie,
-                attributionLink: answer.movie === movie ? link : "",
+                ...answer,
+                attributionLink:
+                  answer.movie === movie ? link : answer.attributionLink,
               })),
             },
           },
@@ -573,8 +581,9 @@ export const adminSlice = createSlice({
             answers: {
               ...state.puzzle.answers,
               G: state.puzzle.answers.G.map((answer) => ({
-                movie: answer.movie,
-                attributionLink: answer.movie === movie ? link : "",
+                ...answer,
+                attributionLink:
+                  answer.movie === movie ? link : answer.attributionLink,
               })),
             },
           },
@@ -587,8 +596,9 @@ export const adminSlice = createSlice({
             answers: {
               ...state.puzzle.answers,
               H: state.puzzle.answers.H.map((answer) => ({
-                movie: answer.movie,
-                attributionLink: answer.movie === movie ? link : "",
+                ...answer,
+                attributionLink:
+                  answer.movie === movie ? link : answer.attributionLink,
               })),
             },
           },
@@ -601,8 +611,9 @@ export const adminSlice = createSlice({
             answers: {
               ...state.puzzle.answers,
               I: state.puzzle.answers.I.map((answer) => ({
-                movie: answer.movie,
-                attributionLink: answer.movie === movie ? link : "",
+                ...answer,
+                attributionLink:
+                  answer.movie === movie ? link : answer.attributionLink,
               })),
             },
           },
@@ -745,7 +756,7 @@ export const {
   updateImgUrl,
   updateAttrLink,
   addAnswer,
-  addAnswerImgAttrLink,
+  addAnswerMovieAttrLink,
   deleteAnswers,
   resetPuzzle,
 } = adminSlice.actions;

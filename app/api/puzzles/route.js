@@ -5,10 +5,6 @@ import Puzzle from "@/models/puzzle";
 export async function POST(request) {
   const { date, labels, answers } = await request.json();
 
-  console.log("Date: ", date);
-  console.log("Labels: ", labels);
-  console.log("Answers: ", answers);
-
   connectMongoDB();
 
   const puzzle = new Puzzle({
@@ -26,4 +22,16 @@ export async function POST(request) {
     },
     { status: 201 }
   );
+}
+
+export async function GET(request) {
+  connectMongoDB();
+
+  let date = new Date();
+  date = `${date.getMonth() + 1}-${date.getDate()}-${date.getFullYear()}`;
+
+  console.log("Date: ", date);
+  const puzzles = await Puzzle.find({ date });
+
+  return NextResponse.json(puzzles[0], { status: 200 });
 }

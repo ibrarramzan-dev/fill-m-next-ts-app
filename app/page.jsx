@@ -1,17 +1,19 @@
 "use client";
 
-import { useSelector, useDispatch } from "react-redux";
-import { feedMovies } from "./AppState/Features/movies/moviesSlice";
+import { useEffect } from "react";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { newPuzzle } from "./AppState/Features/puzzle/puzzleSlice";
 import AppLayout from "@/components/AppLayout";
 import Grid from "@/components/Grid";
-import { useEffect } from "react";
 
 function Home() {
-  const movies = useSelector((state) => state.movies.list);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(feedMovies(["movie 1", "movie 2"]));
+    axios
+      .get("http://localhost:3000/api/puzzles")
+      .then((response) => dispatch(newPuzzle(response.data)));
   }, []);
 
   return (

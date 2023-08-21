@@ -3,11 +3,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import adminReducer from "./Features/admin/adminSlice";
 import moviesReducer from "./Features/movies/moviesSlice";
+import puzzleReducer from "./Features/puzzle/puzzleSlice";
 
 export const store = configureStore({
   reducer: {
     admin: adminReducer,
-    movies: moviesReducer,
+    puzzle: puzzleReducer,
   },
 });
 

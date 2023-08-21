@@ -96,9 +96,9 @@ function NewPuzzle() {
               mode="single"
               selected={selected}
               onSelect={(date) => {
-                const dateStr = `${date.getDate()}-${
+                const dateStr = `${
                   date.getMonth() + 1
-                }-${date.getFullYear()}`;
+                }-${date.getDate()}-${date.getFullYear()}`;
                 dispatch(updateDate(dateStr));
                 setSelected(date);
               }}

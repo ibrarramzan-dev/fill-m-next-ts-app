@@ -1,20 +1,15 @@
 "use client";
 
+import { useSelector } from "react-redux";
 import Cell from "./Cell";
 
 function Grid() {
-  const puzzle = {
-    labels: {
-      x1: "Dennis Quaid",
-      x2: "Meryl Streep",
-      x3: "Amy Adams",
-      y1: "Jake Gyllenhaal",
-      y2: "Michael Douglas",
-      y3: "Julia Roberts",
-    },
-    data: {},
-  };
+  const puzzle = useSelector((state) => state.puzzle);
+
+  console.log(puzzle);
   const { labels } = puzzle;
+
+  const { x1, x2, x3, y1, y2, y3 } = labels;
 
   const onCellClick = () => console.log("cell clicked");
 
@@ -26,19 +21,37 @@ function Grid() {
             <div className="Grid-box-row">
               {/* x1y1 */}
               <Cell
-                top={labels.y1}
-                left={labels.x1}
-                topLeft=""
+                top={y1.label}
+                topImg={y1.image}
+                topAttrLink={y1.attributionLink}
+                left={x1.label}
+                leftImg={x1.image}
+                leftAttrLink={x1.attributionLink}
                 onCellClick={onCellClick}
               />
               {/* x1y2 */}
-              <Cell top={labels.y2} onCellClick={onCellClick} />
+              <Cell
+                top={y2.label}
+                topImg={y2.image}
+                topAttrLink={y2.attributionLink}
+                onCellClick={onCellClick}
+              />
               {/* x1y3 */}
-              <Cell top={labels.y3} onCellClick={onCellClick} />
+              <Cell
+                top={y3.label}
+                topImg={y3.image}
+                topAttrLink={y3.attributionLink}
+                onCellClick={onCellClick}
+              />
             </div>
             <div className="Grid-box-row">
               {/* x2y1 */}
-              <Cell left={labels.x2} onCellClick={onCellClick} />
+              <Cell
+                left={x2.label}
+                leftImg={x2.image}
+                leftAttrLink={x2.attributionLink}
+                onCellClick={onCellClick}
+              />
               {/* x2y2 */}
               <Cell onCellClick={onCellClick} />
               {/* x2y3 */}
@@ -46,7 +59,12 @@ function Grid() {
             </div>
             <div className="Grid-box-row">
               {/* x3y1 */}
-              <Cell left={labels.x3} onCellClick={onCellClick} />
+              <Cell
+                left={x3.label}
+                leftImg={x3.image}
+                leftAttrLink={x3.attributionLink}
+                onCellClick={onCellClick}
+              />
               {/* x3y2 */}
               <Cell onCellClick={onCellClick} />
               {/* x3y3 */}

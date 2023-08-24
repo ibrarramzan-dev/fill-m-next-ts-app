@@ -133,34 +133,39 @@ function Cell({
         onCancel={handleCancel}
         footer={false}
       >
-        <div className="Cell-modal-select-movies-wrapper">
-          <Select
-            showSearch
-            value={value}
-            placeholder="Search movie"
-            className="Cell-modal-select-movies"
-            defaultActiveFirstOption={false}
-            suffixIcon={<FiSearch style={{ fontSize: "1.15rem" }} />}
-            filterOption={false}
-            onSearch={handleSearch}
-            onSelect={handleSelect}
-            onChange={handleChange}
-            notFoundContent={null}
-            options={(movieResults || []).map((m) => {
-              const { title, release_date } = m;
-              let releaseYear = "";
+        <>
+          <p className="Cell-modal-info-text">
+            Select the movie to record your answer
+          </p>
+          <div className="Cell-modal-select-movies-wrapper">
+            <Select
+              showSearch
+              value={value}
+              placeholder="Search movie as exact as possible"
+              className="Cell-modal-select-movies"
+              defaultActiveFirstOption={false}
+              suffixIcon={<FiSearch style={{ fontSize: "1.15rem" }} />}
+              filterOption={false}
+              onSearch={handleSearch}
+              onSelect={handleSelect}
+              onChange={handleChange}
+              notFoundContent={null}
+              options={(movieResults || []).map((m) => {
+                const { title, release_date } = m;
+                let releaseYear = "";
 
-              release_date
-                ? (releaseYear = ` (${release_date.split("-")[0]})`)
-                : null;
+                release_date
+                  ? (releaseYear = ` (${release_date.split("-")[0]})`)
+                  : null;
 
-              return {
-                value: `${title}${releaseYear}`,
-                label: `${title}${releaseYear}`,
-              };
-            })}
-          />
-        </div>
+                return {
+                  value: `${title}${releaseYear}`,
+                  label: `${title}${releaseYear}`,
+                };
+              })}
+            />
+          </div>
+        </>
       </Modal>
     </>
   );

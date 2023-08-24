@@ -11,8 +11,6 @@ function Grid() {
 
   const { x1, x2, x3, y1, y2, y3 } = labels;
 
-  const onCellClick = () => console.log("cell clicked");
-
   return (
     <section className="Grid">
       <div>
@@ -27,21 +25,18 @@ function Grid() {
                 left={x1.label}
                 leftImg={x1.image}
                 leftAttrLink={x1.attributionLink}
-                onCellClick={onCellClick}
               />
               {/* x1y2 */}
               <Cell
                 top={y2.label}
                 topImg={y2.image}
                 topAttrLink={y2.attributionLink}
-                onCellClick={onCellClick}
               />
               {/* x1y3 */}
               <Cell
                 top={y3.label}
                 topImg={y3.image}
                 topAttrLink={y3.attributionLink}
-                onCellClick={onCellClick}
               />
             </div>
             <div className="Grid-box-row">
@@ -50,12 +45,11 @@ function Grid() {
                 left={x2.label}
                 leftImg={x2.image}
                 leftAttrLink={x2.attributionLink}
-                onCellClick={onCellClick}
               />
               {/* x2y2 */}
-              <Cell onCellClick={onCellClick} />
+              <Cell />
               {/* x2y3 */}
-              <Cell onCellClick={onCellClick} />
+              <Cell />
             </div>
             <div className="Grid-box-row">
               {/* x3y1 */}
@@ -63,12 +57,11 @@ function Grid() {
                 left={x3.label}
                 leftImg={x3.image}
                 leftAttrLink={x3.attributionLink}
-                onCellClick={onCellClick}
               />
               {/* x3y2 */}
-              <Cell onCellClick={onCellClick} />
+              <Cell />
               {/* x3y3 */}
-              <Cell onCellClick={onCellClick} />
+              <Cell />
             </div>
           </div>
           <div className="Grid-guess-wrapper">

@@ -2,6 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import { Modal, Select } from "antd";
+import axios from "axios";
+import { FiSearch } from "react-icons/fi";
 
 function Cell({
   top,
@@ -11,11 +15,72 @@ function Cell({
   leftImg,
   leftAttrLink,
   label,
-  onCellClick,
 }) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [value, setValue] = useState();
+  const [movieResults, setMovieResults] = useState([]);
+
+  const onCellClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
+  const fetchMovies = (search) => {
+    axios
+      .get(
+        `https://api.themoviedb.org/3/search/movie?api_key=33997e27d6abf922adb70f5dc0f0c135&query=${search}`
+      )
+      .then((res) => {
+        const { results } = res.data;
+
+        console.log(results);
+
+        const finalResults = [];
+        results.forEach((record) => {
+          const { release_date } = record;
+          let releaseYear = "";
+
+          release_date
+            ? (releaseYear = ` (${release_date.split("-")[0]})`)
+            : null;
+
+          finalResults.push(record);
+        });
+
+        setMovieResults([...finalResults]);
+      });
+  };
+
+  const handleSearch = (newValue) => {
+    fetchMovies(newValue);
+  };
+
+  const handleSelect = (selectedValue) => {
+    // if (!answers.includes(selectedValue)) {
+    //   dispatch(
+    //     addAnswer({
+    //       cellLabel,
+    //       selectedMovie: selectedValue,
+    //     })
+    //   );
+    // }
+  };
+
+  const handleChange = (newValue) => {
+    console.log("handle change");
+  };
+
+  console.log("Movie results: ", movieResults);
   return (
     <>
-      <div className="Cell">
+      <div onClick={onCellClick} className="Cell">
         <div className="Cell-box-wrapper">
           <div className="Cell-box">{label}</div>
         </div>
@@ -60,6 +125,43 @@ function Cell({
           </div>
         )}
       </div>
+
+      <Modal
+        title="Make a guess"
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        footer={false}
+      >
+        <div className="Cell-modal-select-movies-wrapper">
+          <Select
+            showSearch
+            value={value}
+            placeholder="Search movie"
+            className="Cell-modal-select-movies"
+            defaultActiveFirstOption={false}
+            suffixIcon={<FiSearch style={{ fontSize: "1.15rem" }} />}
+            filterOption={false}
+            onSearch={handleSearch}
+            onSelect={handleSelect}
+            onChange={handleChange}
+            notFoundContent={null}
+            options={(movieResults || []).map((m) => {
+              const { title, release_date } = m;
+              let releaseYear = "";
+
+              release_date
+                ? (releaseYear = ` (${release_date.split("-")[0]})`)
+                : null;
+
+              return {
+                value: `${title}${releaseYear}`,
+                label: `${title}${releaseYear}`,
+              };
+            })}
+          />
+        </div>
+      </Modal>
     </>
   );
 }

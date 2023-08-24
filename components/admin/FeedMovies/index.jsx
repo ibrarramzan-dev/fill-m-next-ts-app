@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Select } from "antd";
 import axios from "axios";
-import { Select, Space } from "antd";
 import { FiSearch } from "react-icons/fi";
 import Pill from "../Pill";
 import { addAnswer } from "@/app/AppState/Features/admin/adminSlice";
@@ -26,7 +26,7 @@ function FeedMovies({ cellLabel }) {
 
         const finalResults = [];
         results.forEach((record) => {
-          const { title, release_date } = record;
+          const { release_date } = record;
           let releaseYear = "";
 
           release_date
@@ -43,7 +43,6 @@ function FeedMovies({ cellLabel }) {
   };
 
   const handleSearch = (newValue) => {
-    console.log("handle search");
     fetchMovies(newValue);
   };
 

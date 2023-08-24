@@ -243,6 +243,13 @@ header .Header-right-items .Header-right-items-icon:nth-of-type(3) {
   margin: 0;
 }
 
+.Cell-modal-select-movies-wrapper {
+  margin-top: 0.95rem;
+}
+.Cell-modal-select-movies-wrapper .Cell-modal-select-movies {
+  width: 100%;
+}
+
 @media (min-width: 325px) and (max-width: 880px) {
   .Cell p {
     font-size: 1.05rem;

@@ -12,7 +12,8 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/api/puzzles")
+      .get("https://fill-m-next-ts-app.vercel.app/api/puzzles")
+      // .get("http://localhost:3000/api/puzzles")
       .then((response) => dispatch(newPuzzle(response.data)));
   }, []);
 

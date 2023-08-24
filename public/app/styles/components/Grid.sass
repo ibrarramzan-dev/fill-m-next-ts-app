@@ -2,6 +2,7 @@
   width: 100%
   display: flex
   justify-content: center
+  padding-top: 0.1rem
 
   .Grid-wrapper
     display: flex
@@ -54,12 +55,14 @@
           margin-top: -1.3rem
           color: #363636
 
-@media (min-width: 325px) and (max-width: 519px)
+@media (min-width: 325px) and (max-width: 880px)
   .Grid
+    justify-content: right
+    padding-top: 2rem
+
     .Grid-wrapper
       width: 100% !important
       flex-direction: column
-      margin-left: 12%
       
       .Grid-guess-wrapper
         width: 100% !important
@@ -76,25 +79,12 @@
             width: 5.4rem
             height: 5.4rem
 
-@media (min-width: 520px) and (max-width: 766px)
+@media (min-width: 381px) and (max-width: 880px)
   .Grid
-    .Grid-wrapper
-      width: 100% !important
-      flex-direction: column
-      margin-left: 10%
-      
-      .Grid-guess-wrapper
-        width: 100% !important
-        text-align: center !important
-        margin: 15% 0 -20% -10%
+    justify-content: center !important
+    margin-left: 8%
 
-    .Grid-box
-      width: 20.8rem !important
-      height: 20.8rem !important
-
-      .Grid-box-row
-        .Cell
-          .Cell-box-wrapper
-            width: 7rem
-            height: 7rem
-
+@media (min-width: 801px)
+  .Grid
+    justify-content: center !important
+    margin-left: 3%

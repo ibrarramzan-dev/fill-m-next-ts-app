@@ -5,7 +5,9 @@ import Link from "next/link";
 import { useState } from "react";
 import { Modal, Select } from "antd";
 import axios from "axios";
+import { useDispatch } from "react-redux";
 import { FiSearch } from "react-icons/fi";
+import { answerGuessed } from "@/app/AppState/Features/puzzle/puzzleSlice";
 
 function Cell({
   top,
@@ -19,6 +21,8 @@ function Cell({
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [value, setValue] = useState();
   const [movieResults, setMovieResults] = useState([]);
+
+  const dispatch = useDispatch();
 
   const onCellClick = () => {
     setIsModalOpen(true);
@@ -63,6 +67,7 @@ function Cell({
   };
 
   const handleSelect = (selectedValue) => {
+    dispatch(answerGuessed());
     // if (!answers.includes(selectedValue)) {
     //   dispatch(
     //     addAnswer({

@@ -38,6 +38,7 @@ interface PuzzleInterface {
   date: string;
   labels: LabelInterface;
   answers: AnswersInterface;
+  guesses: number;
 }
 
 const initLabelsKeys = {
@@ -79,16 +80,21 @@ const initialState: PuzzleInterface = {
     H: [],
     I: [],
   },
+  guesses: 0,
 };
 
 export const puzzleSlice = createSlice({
   name: "puzzle",
   initialState,
   reducers: {
-    newPuzzle: (state, action) => action.payload,
+    newPuzzle: (state, action) => ({ ...action.payload, guesses: 9 }),
+    answerGuessed: (state) => ({
+      ...state,
+      guesses: state.guesses - 1,
+    }),
   },
 });
 
-export const { newPuzzle } = puzzleSlice.actions;
+export const { newPuzzle, answerGuessed } = puzzleSlice.actions;
 
 export default puzzleSlice.reducer;

@@ -93,7 +93,7 @@ function Grid() {
       </div>
 
       <Modal
-        title="Make a guess"
+        title="Result!"
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}

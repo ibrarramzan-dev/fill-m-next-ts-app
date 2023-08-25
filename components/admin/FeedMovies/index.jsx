@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Select } from "antd";
 import axios from "axios";
 import { FiSearch } from "react-icons/fi";
+import _ from "lodash";
 import Pill from "../Pill";
 import { addAnswer } from "@/app/AppState/Features/admin/adminSlice";
 
@@ -47,11 +48,18 @@ function FeedMovies({ cellLabel }) {
   };
 
   const handleSelect = (selectedValue) => {
-    if (!answers.includes(selectedValue)) {
+    const [id, title, releaseYear] = selectedValue.split("~!~");
+
+    const found = _.find(answers, { id });
+
+    console.log(found);
+
+    if (found === undefined) {
       dispatch(
         addAnswer({
           cellLabel,
-          selectedMovie: selectedValue,
+          tmdbId: id,
+          selectedMovie: `${title}${releaseYear}`,
         })
       );
     }
@@ -60,6 +68,7 @@ function FeedMovies({ cellLabel }) {
   const handleChange = (newValue) => {
     console.log("handle change");
   };
+
   return (
     <div className="FeedMovies">
       <p className="FeedMovies-heading heading">
@@ -81,15 +90,19 @@ function FeedMovies({ cellLabel }) {
           onChange={handleChange}
           notFoundContent={null}
           options={(movieResults || []).map((m) => {
-            const { title, release_date } = m;
+            const { id, title, poster_path, release_date } = m;
+
+            console.log(m);
             let releaseYear = "";
 
             release_date
               ? (releaseYear = ` (${release_date.split("-")[0]})`)
               : null;
 
+            console.log("release year: ", releaseYear);
+
             return {
-              value: `${title}${releaseYear}`,
+              value: `${id}~!~${title}~!~${releaseYear}`,
               label: `${title}${releaseYear}`,
             };
           })}
@@ -99,7 +112,13 @@ function FeedMovies({ cellLabel }) {
       <div className="FeedMovies-select-movies-pills-wrapper">
         {answers.length > 0 ? (
           answers.map((movie) => (
-            <Pill cellLabel={cellLabel} movie={movie.movie} key={movie.movie} />
+            <Pill
+              cellLabel={cellLabel}
+              movie={`${movie.movie}${
+                movie.release_date ? ` (${release_date.split("-")[0]})` : ""
+              }`}
+              key={movie.movie}
+            />
           ))
         ) : (
           <p className="FeedMovies-select-movies-pills-no-selection-text">

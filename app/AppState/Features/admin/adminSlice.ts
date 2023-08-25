@@ -18,8 +18,9 @@ interface LabelInterface {
 }
 
 interface AnswerInterface {
-  movie: "";
-  attributionLink: "";
+  id: number;
+  movie: string;
+  attributionLink: string;
 }
 
 interface AnswersInterface {
@@ -321,7 +322,7 @@ export const adminSlice = createSlice({
       }
     },
     addAnswer: (state: Admin, action) => {
-      const { cellLabel, selectedMovie } = action.payload;
+      const { cellLabel, tmdbId, selectedMovie } = action.payload;
 
       if (cellLabel === "A") {
         return {
@@ -333,6 +334,7 @@ export const adminSlice = createSlice({
               A: [
                 ...state.puzzle.answers.A,
                 {
+                  id: tmdbId,
                   movie: selectedMovie,
                   attributionLink: "",
                 },
@@ -350,6 +352,7 @@ export const adminSlice = createSlice({
               B: [
                 ...state.puzzle.answers.B,
                 {
+                  id: tmdbId,
                   movie: selectedMovie,
                   attributionLink: "",
                 },
@@ -367,6 +370,7 @@ export const adminSlice = createSlice({
               C: [
                 ...state.puzzle.answers.C,
                 {
+                  id: tmdbId,
                   movie: selectedMovie,
                   attributionLink: "",
                 },
@@ -384,6 +388,7 @@ export const adminSlice = createSlice({
               D: [
                 ...state.puzzle.answers.D,
                 {
+                  id: tmdbId,
                   movie: selectedMovie,
                   attributionLink: "",
                 },
@@ -401,6 +406,7 @@ export const adminSlice = createSlice({
               E: [
                 ...state.puzzle.answers.E,
                 {
+                  id: tmdbId,
                   movie: selectedMovie,
                   attributionLink: "",
                 },
@@ -418,6 +424,7 @@ export const adminSlice = createSlice({
               F: [
                 ...state.puzzle.answers.F,
                 {
+                  id: tmdbId,
                   movie: selectedMovie,
                   attributionLink: "",
                 },
@@ -435,6 +442,7 @@ export const adminSlice = createSlice({
               G: [
                 ...state.puzzle.answers.G,
                 {
+                  id: tmdbId,
                   movie: selectedMovie,
                   attributionLink: "",
                 },
@@ -452,6 +460,7 @@ export const adminSlice = createSlice({
               H: [
                 ...state.puzzle.answers.H,
                 {
+                  id: tmdbId,
                   movie: selectedMovie,
                   attributionLink: "",
                 },
@@ -469,6 +478,7 @@ export const adminSlice = createSlice({
               I: [
                 ...state.puzzle.answers.I,
                 {
+                  id: tmdbId,
                   movie: selectedMovie,
                   attributionLink: "",
                 },

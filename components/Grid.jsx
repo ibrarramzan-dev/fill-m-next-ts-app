@@ -7,7 +7,7 @@ function Grid() {
   const puzzle = useSelector((state) => state.puzzle);
 
   console.log(puzzle);
-  const { labels } = puzzle;
+  const { labels, guesses } = puzzle;
 
   const { x1, x2, x3, y1, y2, y3 } = labels;
 
@@ -66,7 +66,7 @@ function Grid() {
           </div>
           <div className="Grid-guess-wrapper">
             <p>Guesses Left</p>
-            <p>9</p>
+            <p>{guesses}</p>
           </div>
         </div>
       </div>

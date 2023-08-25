@@ -14,7 +14,15 @@ function Home() {
     axios
       .get("https://fill-m-next-ts-app.vercel.app/api/puzzles")
       // .get("http://localhost:3000/api/puzzles")
-      .then((response) => dispatch(newPuzzle(response.data)));
+      .then((response) => {
+        delete response.data.createdAt;
+        delete response.data.updatedAt;
+        delete response.data.date;
+        delete response.data._id;
+        delete response.data.__v;
+
+        dispatch(newPuzzle(response.data));
+      });
   }, []);
 
   return (

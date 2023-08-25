@@ -2,12 +2,35 @@
 body {
   font-family: Calibri;
   background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(255, 221, 221) 100%, rgb(255, 255, 255) 100%);
+  overflow-x: hidden;
 }
 
 a {
   text-decoration: none;
 }
 
+/********* Scrollbar *********/
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #f2f2f2;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #878787;
+  border-radius: 20px;
+  border-right: 1px solid #f0f0f0;
+}
+
+/********* EOF Scrollbar *********/
 /* Import Layouts */
 .Admin-logo {
   width: 100%;

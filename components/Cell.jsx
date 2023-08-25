@@ -5,7 +5,9 @@ import Link from "next/link";
 import { useState } from "react";
 import { Modal, Select } from "antd";
 import axios from "axios";
+import { useDispatch } from "react-redux";
 import { FiSearch } from "react-icons/fi";
+import { answerGuessed } from "@/app/AppState/Features/puzzle/puzzleSlice";
 
 function Cell({
   top,
@@ -19,6 +21,8 @@ function Cell({
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [value, setValue] = useState();
   const [movieResults, setMovieResults] = useState([]);
+
+  const dispatch = useDispatch();
 
   const onCellClick = () => {
     setIsModalOpen(true);
@@ -63,14 +67,7 @@ function Cell({
   };
 
   const handleSelect = (selectedValue) => {
-    // if (!answers.includes(selectedValue)) {
-    //   dispatch(
-    //     addAnswer({
-    //       cellLabel,
-    //       selectedMovie: selectedValue,
-    //     })
-    //   );
-    // }
+    dispatch(answerGuessed());
   };
 
   const handleChange = (newValue) => {
@@ -135,7 +132,7 @@ function Cell({
       >
         <>
           <p className="Cell-modal-info-text">
-            Select the movie to record your answer
+            Select a movie to record your answer
           </p>
           <div className="Cell-modal-select-movies-wrapper">
             <Select

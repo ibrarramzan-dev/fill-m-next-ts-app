@@ -1,7 +1,27 @@
 body
   font-family: Calibri
   background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,221,221,1) 100%, rgba(255,255,255,1) 100%)
+  overflow-x: hidden
 
 a
   text-decoration: none
 
+/********* Scrollbar *********/
+
+/* Works on Firefox */
+*
+  scrollbar-width: thin
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar
+  width: 8px
+
+*::-webkit-scrollbar-track
+  background: #f2f2f2
+
+*::-webkit-scrollbar-thumb
+  background-color: #878787
+  border-radius: 20px
+  border-right: 1px solid #f0f0f0
+
+/********* EOF Scrollbar *********/

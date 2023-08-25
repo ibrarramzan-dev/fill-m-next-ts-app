@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Modal, Select } from "antd";
 import axios from "axios";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { FiSearch } from "react-icons/fi";
 import { answerGuessed } from "@/app/AppState/Features/puzzle/puzzleSlice";
 
@@ -18,6 +18,8 @@ function Cell({
   leftAttrLink,
   label,
 }) {
+  const cellsImages = useSelector((state) => state.puzzle.cellsImages);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [value, setValue] = useState();
   const [movieResults, setMovieResults] = useState([]);
@@ -67,19 +69,30 @@ function Cell({
   };
 
   const handleSelect = (selectedValue) => {
-    dispatch(answerGuessed());
+    const [id, title, releaseYear, poster_path] = selectedValue.split("~!~");
+    dispatch(answerGuessed({ label, id, poster_path }));
   };
 
   const handleChange = (newValue) => {
     console.log("handle change");
   };
 
-  console.log("Movie results: ", movieResults);
+  console.log("yahoo... ", cellsImages[label].image);
+
   return (
     <>
       <div onClick={onCellClick} className="Cell">
         <div className="Cell-box-wrapper">
-          <div className="Cell-box">{label}</div>
+          <div className="Cell-box">
+            {cellsImages[label].image !== "" ? (
+              <Image
+                src={`https://image.tmdb.org/t/p/original/${cellsImages[label].image}`}
+                width={142}
+                height={142}
+                alt="fdsf"
+              />
+            ) : null}
+          </div>
         </div>
 
         {leftImg && (
@@ -148,7 +161,7 @@ function Cell({
               onChange={handleChange}
               notFoundContent={null}
               options={(movieResults || []).map((m) => {
-                const { title, release_date } = m;
+                const { id, title, release_date, poster_path } = m;
                 let releaseYear = "";
 
                 release_date
@@ -156,7 +169,7 @@ function Cell({
                   : null;
 
                 return {
-                  value: `${title}${releaseYear}`,
+                  value: `${id}~!~${title}~!~${releaseYear}~!~${poster_path}`,
                   label: `${title}${releaseYear}`,
                 };
               })}

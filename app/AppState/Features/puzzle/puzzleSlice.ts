@@ -1,6 +1,7 @@
 "use client";
 
 import { createSlice } from "@reduxjs/toolkit";
+import _ from "lodash";
 
 interface LabelItemInterface {
   label: string;
@@ -34,10 +35,28 @@ interface AnswersInterface {
   I: AnswerInterface[];
 }
 
+interface CellImagesKeyInterface {
+  image: string;
+  attributionLink: string;
+}
+
+interface CellImagesInterface {
+  A: CellImagesKeyInterface;
+  B: CellImagesKeyInterface;
+  C: CellImagesKeyInterface;
+  D: CellImagesKeyInterface;
+  E: CellImagesKeyInterface;
+  F: CellImagesKeyInterface;
+  G: CellImagesKeyInterface;
+  H: CellImagesKeyInterface;
+  I: CellImagesKeyInterface;
+}
+
 interface PuzzleInterface {
   date: string;
   labels: LabelInterface;
   answers: AnswersInterface;
+  cellsImages: CellImagesInterface;
   guesses: number;
 }
 
@@ -80,6 +99,44 @@ const initialState: PuzzleInterface = {
     H: [],
     I: [],
   },
+  cellsImages: {
+    A: {
+      image: "",
+      attributionLink: "",
+    },
+    B: {
+      image: "",
+      attributionLink: "",
+    },
+    C: {
+      image: "",
+      attributionLink: "",
+    },
+    D: {
+      image: "",
+      attributionLink: "",
+    },
+    E: {
+      image: "",
+      attributionLink: "",
+    },
+    F: {
+      image: "",
+      attributionLink: "",
+    },
+    G: {
+      image: "",
+      attributionLink: "",
+    },
+    H: {
+      image: "",
+      attributionLink: "",
+    },
+    I: {
+      image: "",
+      attributionLink: "",
+    },
+  },
   guesses: 0,
 };
 
@@ -87,11 +144,37 @@ export const puzzleSlice = createSlice({
   name: "puzzle",
   initialState,
   reducers: {
-    newPuzzle: (state, action) => ({ ...action.payload, guesses: 9 }),
-    answerGuessed: (state) => ({
-      ...state,
-      guesses: state.guesses - 1,
+    newPuzzle: (state, action) => ({
+      ...action.payload,
+      cellsImages: initialState.cellsImages,
+      guesses: 9,
     }),
+    answerGuessed: (state, action) => {
+      const { label, id, poster_path } = action.payload;
+
+      const answers: any = state.answers;
+
+      const foundMovie = _.find(answers[label], { id });
+
+      if (foundMovie) {
+        return {
+          ...state,
+          cellsImages: {
+            ...state.cellsImages,
+            [label]: {
+              image: poster_path,
+              attributionLink: foundMovie.attributionLink,
+            },
+          },
+          guesses: state.guesses - 1,
+        };
+      } else {
+        return {
+          ...state,
+          guesses: state.guesses - 1,
+        };
+      }
+    },
   },
 });
 

@@ -25,18 +25,21 @@ function Grid() {
                 left={x1.label}
                 leftImg={x1.image}
                 leftAttrLink={x1.attributionLink}
+                label="A"
               />
               {/* x1y2 */}
               <Cell
                 top={y2.label}
                 topImg={y2.image}
                 topAttrLink={y2.attributionLink}
+                label="B"
               />
               {/* x1y3 */}
               <Cell
                 top={y3.label}
                 topImg={y3.image}
                 topAttrLink={y3.attributionLink}
+                label="C"
               />
             </div>
             <div className="Grid-box-row">
@@ -45,11 +48,12 @@ function Grid() {
                 left={x2.label}
                 leftImg={x2.image}
                 leftAttrLink={x2.attributionLink}
+                label="D"
               />
               {/* x2y2 */}
-              <Cell />
+              <Cell label="E" />
               {/* x2y3 */}
-              <Cell />
+              <Cell label="F" />
             </div>
             <div className="Grid-box-row">
               {/* x3y1 */}
@@ -57,11 +61,12 @@ function Grid() {
                 left={x3.label}
                 leftImg={x3.image}
                 leftAttrLink={x3.attributionLink}
+                label="G"
               />
               {/* x3y2 */}
-              <Cell />
+              <Cell label="H" />
               {/* x3y3 */}
-              <Cell />
+              <Cell label="I" />
             </div>
           </div>
           <div className="Grid-guess-wrapper">

@@ -58,6 +58,7 @@ interface PuzzleInterface {
   answers: AnswersInterface;
   cellsImages: CellImagesInterface;
   guesses: number;
+  puzzleFinished: boolean;
 }
 
 const initLabelsKeys = {
@@ -138,6 +139,7 @@ const initialState: PuzzleInterface = {
     },
   },
   guesses: 0,
+  puzzleFinished: false,
 };
 
 export const puzzleSlice = createSlice({
@@ -148,6 +150,7 @@ export const puzzleSlice = createSlice({
       ...action.payload,
       cellsImages: initialState.cellsImages,
       guesses: 9,
+      puzzleFinished: false,
     }),
     answerGuessed: (state, action) => {
       const { label, id, poster_path } = action.payload;
@@ -167,11 +170,13 @@ export const puzzleSlice = createSlice({
             },
           },
           guesses: state.guesses - 1,
+          puzzleFinished: state.guesses - 1 === 0 ? true : false,
         };
       } else {
         return {
           ...state,
           guesses: state.guesses - 1,
+          puzzleFinished: state.guesses - 1 === 0 ? true : false,
         };
       }
     },

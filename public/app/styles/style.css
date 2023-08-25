@@ -175,6 +175,22 @@ header .Header-right-items .Header-right-items-icon:nth-of-type(3) {
 .Cell .Cell-box-wrapper:hover {
   background: #e89090;
 }
+.Cell .Cell-box-wrapper .Cell-box img {
+  width: 100%;
+  height: 8.9rem;
+}
+.Cell .Cell-box-wrapper .Cell-box-A img {
+  border-top-left-radius: 1.2rem;
+}
+.Cell .Cell-box-wrapper .Cell-box-C img {
+  border-top-right-radius: 1.2rem;
+}
+.Cell .Cell-box-wrapper .Cell-box-G img {
+  border-bottom-left-radius: 1.2rem;
+}
+.Cell .Cell-box-wrapper .Cell-box-I img {
+  border-bottom-right-radius: 1.2rem;
+}
 .Cell .Cell-left-img-with-text-wrapper {
   position: absolute;
   top: 0;
@@ -280,6 +296,22 @@ header .Header-right-items .Header-right-items-icon:nth-of-type(3) {
 }
 
 @media (min-width: 325px) and (max-width: 880px) {
+  .Cell .Cell-box img {
+    width: 100%;
+    height: 5.3rem;
+  }
+  .Cell .Cell-box-A img {
+    border-top-left-radius: 1.2rem;
+  }
+  .Cell .Cell-box-C img {
+    border-top-right-radius: 1.2rem;
+  }
+  .Cell .Cell-box-G img {
+    border-bottom-left-radius: 1.2rem;
+  }
+  .Cell .Cell-box-I img {
+    border-bottom-right-radius: 1.2rem;
+  }
   .Cell p {
     font-size: 1.05rem;
   }

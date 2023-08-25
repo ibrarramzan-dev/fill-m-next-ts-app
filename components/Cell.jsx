@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Modal, Select } from "antd";
+import cn from "classnames";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { FiSearch } from "react-icons/fi";
@@ -18,13 +19,27 @@ function Cell({
   leftAttrLink,
   label,
 }) {
-  const cellsImages = useSelector((state) => state.puzzle.cellsImages);
+  const { cellsImages, guesses } = useSelector((state) => state.puzzle);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [value, setValue] = useState();
   const [movieResults, setMovieResults] = useState([]);
 
   const dispatch = useDispatch();
+
+  const imageLink = cellsImages[label].image;
+
+  useEffect(() => {
+    if (imageLink !== "") {
+      setIsModalOpen(false);
+    }
+  }, [imageLink]);
+
+  useEffect(() => {
+    if (guesses === 0) {
+      isModalOpen && setIsModalOpen(false);
+    }
+  }, [guesses]);
 
   const onCellClick = () => {
     setIsModalOpen(true);
@@ -77,16 +92,21 @@ function Cell({
     console.log("handle change");
   };
 
-  console.log("yahoo... ", cellsImages[label].image);
-
   return (
     <>
       <div onClick={onCellClick} className="Cell">
         <div className="Cell-box-wrapper">
-          <div className="Cell-box">
-            {cellsImages[label].image !== "" ? (
+          <div
+            className={cn("Cell-box", {
+              "Cell-box-A": label === "A",
+              "Cell-box-C": label === "C",
+              "Cell-box-G": label === "G",
+              "Cell-box-I": label === "I",
+            })}
+          >
+            {imageLink !== "" ? (
               <Image
-                src={`https://image.tmdb.org/t/p/original/${cellsImages[label].image}`}
+                src={`https://image.tmdb.org/t/p/original/${imageLink}`}
                 width={142}
                 height={142}
                 alt="fdsf"

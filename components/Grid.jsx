@@ -1,15 +1,31 @@
 "use client";
 
+import { useState, useEffect } from "react";
+import { Modal } from "antd";
 import { useSelector } from "react-redux";
 import Cell from "./Cell";
 
 function Grid() {
   const puzzle = useSelector((state) => state.puzzle);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  console.log(puzzle);
-  const { labels, guesses } = puzzle;
+  const { labels, guesses, puzzleFinished } = puzzle;
 
   const { x1, x2, x3, y1, y2, y3 } = labels;
+
+  useEffect(() => {
+    if (puzzleFinished === true) {
+      setIsModalOpen(true);
+    }
+  }, [puzzleFinished]);
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <section className="Grid">
@@ -75,6 +91,18 @@ function Grid() {
           </div>
         </div>
       </div>
+
+      <Modal
+        title="Make a guess"
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        footer={false}
+      >
+        <>
+          <p>Here is the report:</p>
+        </>
+      </Modal>
     </section>
   );
 }

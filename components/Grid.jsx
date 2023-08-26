@@ -86,6 +86,14 @@ function Grid() {
             </div>
           </div>
           <div className="Grid-guess-wrapper">
+            {puzzleFinished && (
+              <p
+                onClick={() => setIsModalOpen(true)}
+                className="Grid-view-result-text"
+              >
+                View Result
+              </p>
+            )}
             <p>Guesses Left</p>
             <p>{guesses}</p>
           </div>

@@ -43,7 +43,7 @@ function Cell({
   }, [guesses]);
 
   const onCellClick = () => {
-    imageLink === "" && setIsModalOpen(true);
+    imageLink === "" && guesses > 0 && setIsModalOpen(true);
   };
 
   const handleOk = () => {

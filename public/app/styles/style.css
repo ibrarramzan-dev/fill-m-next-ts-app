@@ -120,6 +120,13 @@ header .Header-right-items .Header-right-items-icon:nth-of-type(3) {
   font-weight: 500;
   color: #555555;
 }
+.Grid .Grid-wrapper .Grid-guess-wrapper .Grid-view-result-text {
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: underline;
+  cursor: pointer;
+  color: #fd860e;
+}
 .Grid .Grid-wrapper .Grid-guess-wrapper p:last-of-type {
   text-align: center;
   font-size: 4.4rem;

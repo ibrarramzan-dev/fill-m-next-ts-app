@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Indie_Flower } from "next/font/google";
 import { BsTwitter } from "react-icons/bs";
 import { ImStatsBars } from "react-icons/im";
@@ -12,9 +13,11 @@ const Indie_Flower_Font = Indie_Flower({
 function Header() {
   return (
     <header>
-      <div className={cn(Indie_Flower_Font.className, "Header-logo")}>
-        Fill-M
-      </div>
+      <Link href="/">
+        <div className={cn(Indie_Flower_Font.className, "Header-logo")}>
+          Fill-M
+        </div>
+      </Link>
       <div className="Header-right-items">
         <BsTwitter className="Header-right-items-icon" />
         <ImStatsBars className="Header-right-items-icon" />

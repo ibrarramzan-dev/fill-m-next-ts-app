@@ -28,6 +28,7 @@ function Cell({
   const dispatch = useDispatch();
 
   const imageLink = cellsImages[label].image;
+  const attributionLink = cellsImages[label].attributionLink;
 
   useEffect(() => {
     if (imageLink !== "") {
@@ -42,7 +43,7 @@ function Cell({
   }, [guesses]);
 
   const onCellClick = () => {
-    setIsModalOpen(true);
+    imageLink === "" && setIsModalOpen(true);
   };
 
   const handleOk = () => {
@@ -84,7 +85,7 @@ function Cell({
   };
 
   const handleSelect = (selectedValue) => {
-    const [id, title, releaseYear, poster_path] = selectedValue.split("~!~");
+    const [id, poster_path] = selectedValue.split("~!~");
     dispatch(answerGuessed({ label, id, poster_path }));
   };
 
@@ -105,12 +106,14 @@ function Cell({
             })}
           >
             {imageLink !== "" ? (
-              <Image
-                src={`https://image.tmdb.org/t/p/original/${imageLink}`}
-                width={142}
-                height={142}
-                alt="fdsf"
-              />
+              <Link href={attributionLink} target="_blank">
+                <Image
+                  src={`https://image.tmdb.org/t/p/original/${imageLink}`}
+                  width={142}
+                  height={142}
+                  alt="fdsf"
+                />
+              </Link>
             ) : null}
           </div>
         </div>

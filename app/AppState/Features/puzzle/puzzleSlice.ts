@@ -159,6 +159,8 @@ export const puzzleSlice = createSlice({
 
       const foundMovie = _.find(answers[label], { id });
 
+      console.log(foundMovie);
+
       if (foundMovie) {
         return {
           ...state,

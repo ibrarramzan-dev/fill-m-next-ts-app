@@ -93,6 +93,8 @@ function Cell({
     console.log("handle change");
   };
 
+  console.log(imageLink);
+
   return (
     <>
       <div onClick={onCellClick} className="Cell">
@@ -192,7 +194,7 @@ function Cell({
                   : null;
 
                 return {
-                  value: `${id}~!~${title}~!~${releaseYear}~!~${poster_path}`,
+                  value: `${id}~!~${poster_path}`,
                   label: `${title}${releaseYear}`,
                 };
               })}

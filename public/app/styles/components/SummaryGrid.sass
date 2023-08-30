@@ -1,0 +1,40 @@
+.SummaryGrid
+  width: 100%
+  display: flex
+  justify-content: center
+  padding-top: 0.1rem
+
+  .SummaryGrid-wrapper
+    display: flex
+    justify-content: center
+    width: 100%
+
+    .SummaryGrid-box
+      width: 100%
+      height: 100%
+      background: #fff
+      border-radius: 1.2rem
+
+      .SummaryGrid-box-row
+        display: flex
+
+        &:first-of-type
+          .SummaryCell
+            &:first-of-type
+              .SummaryCell-box-wrapper
+                border-top-left-radius: 1.2rem
+
+            &:last-of-type
+              .SummaryCell-box-wrapper
+                border-top-right-radius: 1.2rem
+
+        &:last-of-type
+          .SummaryCell
+            &:first-of-type
+              .SummaryCell-box-wrapper
+                border-bottom-left-radius: 1.2rem
+
+            &:last-of-type
+              .SummaryCell-box-wrapper
+                border-bottom-right-radius: 1.2rem
+

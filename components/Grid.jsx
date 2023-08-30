@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Modal } from "antd";
 import { useSelector } from "react-redux";
 import Cell from "./Cell";
+import Summary from "./Summary";
 
 function Grid() {
   const puzzle = useSelector((state) => state.puzzle);
@@ -101,14 +102,14 @@ function Grid() {
       </div>
 
       <Modal
-        title="Result!"
-        open={isModalOpen}
+        title={<p style={{ textAlign: "center" }}>SUMMARY</p>}
+        open={true}
         onOk={handleOk}
         onCancel={handleCancel}
         footer={false}
       >
         <>
-          <p>Here is the report:</p>
+          <Summary />
         </>
       </Modal>
     </section>

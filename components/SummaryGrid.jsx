@@ -1,6 +1,13 @@
+"use client";
+
+import { useSelector } from "react-redux";
 import SummaryCell from "./SummaryCell";
 
 function SummaryGrid() {
+  const cellsImages = useSelector((state) => state.puzzle.cellsImages);
+
+  const { A, B, C, D, E, F, G, H, I } = cellsImages;
+
   return (
     <section className="SummaryGrid">
       <div>
@@ -8,27 +15,27 @@ function SummaryGrid() {
           <div className="SummaryGrid-box">
             <div className="SummaryGrid-box-row">
               {/* x1y1 */}
-              <SummaryCell />
+              <SummaryCell imagePoster={A.image} />
               {/* x1y2 */}
-              <SummaryCell />
+              <SummaryCell imagePoster={B.image} />
               {/* x1y3 */}
-              <SummaryCell />
+              <SummaryCell imagePoster={C.image} />
             </div>
             <div className="SummaryGrid-box-row">
               {/* x2y1 */}
-              <SummaryCell />
+              <SummaryCell imagePoster={D.image} />
               {/* x2y2 */}
-              <SummaryCell />
+              <SummaryCell imagePoster={E.image} />
               {/* x2y3 */}
-              <SummaryCell />
+              <SummaryCell imagePoster={F.image} />
             </div>
             <div className="SummaryGrid-box-row">
               {/* x3y1 */}
-              <SummaryCell />
+              <SummaryCell imagePoster={G.image} />
               {/* x3y2 */}
-              <SummaryCell />
+              <SummaryCell imagePoster={H.image} />
               {/* x3y3 */}
-              <SummaryCell />
+              <SummaryCell imagePoster={I.image} />
             </div>
           </div>
         </div>

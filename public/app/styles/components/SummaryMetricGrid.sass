@@ -1,0 +1,131 @@
+.SummaryMetricGrid
+  width: 100%
+  display: flex
+  justify-content: center
+  padding-top: 0.1rem
+  margin-left: 10% !important
+
+  .SummaryMetricGrid-wrapper
+    display: flex
+    justify-content: center
+    width: 100%
+
+    .SummaryMetricGrid-box
+      width: 100%
+      height: 100%
+      background: #fff
+      border-radius: 1.2rem
+      margin-top: 3.25rem
+
+      .SummaryMetricGrid-box-row
+        display: flex
+
+        &:first-of-type
+          .SummaryMetricCell
+            &:first-of-type
+              .SummaryMetricCell-box-wrapper
+                border-top-left-radius: 1.2rem
+
+            &:last-of-type
+              .SummaryMetricCell-box-wrapper
+                border-top-right-radius: 1.2rem
+
+        &:last-of-type
+          .SummaryMetricCell
+            &:first-of-type
+              .SummaryMetricCell-box-wrapper
+                border-bottom-left-radius: 1.2rem
+
+            &:last-of-type
+              .SummaryMetricCell-box-wrapper
+                border-bottom-right-radius: 1.2rem
+
+    .SummaryMetricGrid-guess-wrapper
+      width: fit-content
+      font-size: 1.15rem
+      margin-top: 13rem
+      margin-left: 1.75rem
+      font-weight: 500
+      color: #555555
+
+      .SummaryMetricGrid-view-result-text
+        font-size: 1rem
+        text-align: center
+        text-decoration: underline
+        cursor: pointer
+        color: #fd860e
+
+      p
+        &:last-of-type
+          text-align: center
+          font-size: 4.4rem
+          font-weight: bold
+          margin-top: -1.3rem
+          color: #363636
+
+.SummaryMetricGrid-top-text-detected
+  margin-top: -4.5rem !important
+  padding-left: 4rem !important
+
+@media (min-width: 325px) and (max-width: 380px)
+  .SummaryMetricGrid
+    margin-left: 5%
+
+  .SummaryMetricGrid-top-img-with-text-detected
+    margin-top: -1.8rem
+
+  .SummaryMetricGrid-top-text-detected
+    margin-top: -5.2rem !important
+    margin-left: -0.4rem !important
+
+@media (min-width: 381px) and (max-width: 880px)
+  .SummaryMetricGrid
+    justify-content: right
+    padding-top: 2rem
+    margin-left: 0 !important
+
+    .SummaryMetricGrid-wrapper
+      width: 100% !important
+      flex-direction: column
+      
+    .SummaryMetricGrid-box
+      width: 16.05rem !important
+      height: 16rem !important
+
+      .SummaryMetricGrid-box-row
+        .Cell
+          .Cell-box-wrapper
+            width: 5.4rem
+            height: 5.4rem
+
+  .SummaryMetricGrid-left-img-detected
+    margin-left: 2.7rem !important
+    
+  .SummaryMetricGrid-top-text-detected
+    margin-top: -6.5rem !important
+
+  .SummaryMetricGrid-left-img-with-text-detected
+    padding-left: 15.5%
+
+  .SummaryMetricGrid-left-text-detected
+    margin-top: -4.3rem
+
+  .SummaryMetricGrid-only-img-detected
+    margin-top: 1.5rem
+
+  .SummaryMetricGrid-top-text-detected
+    margin-left: -0.4rem !important
+
+
+@media (min-width: 381px) and (max-width: 880px)
+  .SummaryMetricGrid
+    justify-content: center !important
+    margin-left: 8%
+
+@media (min-width: 801px)
+  .SummaryMetricGrid
+    justify-content: center !important
+    margin-left: 3%
+
+  .SummaryMetricGrid-top-text-detected
+    margin-left: -0.2rem !important

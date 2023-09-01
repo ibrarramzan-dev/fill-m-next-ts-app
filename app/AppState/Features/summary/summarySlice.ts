@@ -3,12 +3,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import _ from "lodash";
 
-// const initLabelsKeys = {
-//   label: "",
-//   image: "",
-//   attributionLink: "",
-// };
-
 interface SummaryResultInterface {
   A: boolean;
   B: boolean;

@@ -1,9 +1,13 @@
 import SummaryGrid from "./SummaryGrid";
+import TodaysMovieGridStats from "./TodaysMovieGridStats";
+import PossibleAnswers from "./PossibleAnswers";
 
 function Summary() {
   return (
-    <div>
+    <div className="Summary">
       <SummaryGrid />
+      <TodaysMovieGridStats />
+      <PossibleAnswers />
     </div>
   );
 }

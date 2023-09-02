@@ -105,7 +105,7 @@ function Grid() {
         title={
           <p style={{ textAlign: "center", fontWeight: "bold" }}>SUMMARY</p>
         }
-        open={isModalOpen}
+        open={true}
         onOk={handleOk}
         onCancel={handleCancel}
         footer={false}

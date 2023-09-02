@@ -431,10 +431,6 @@ header .Header-right-items .Header-right-items-icon:nth-of-type(3) {
   font-size: 2rem;
 }
 
-.PossibleAnswers .PossibleAnswers-tap-show-info-text {
-  text-align: center;
-}
-
 .SummaryMetricGrid {
   width: 100%;
   display: flex;
@@ -790,6 +786,31 @@ header .Header-right-items .Header-right-items-icon:nth-of-type(3) {
     height: 4.3rem;
   }
 }
+.PossibleAnswers .PossibleAnswers-tap-show-info-text {
+  text-align: center;
+}
+
+.MostPopular {
+  margin-top: 2rem;
+}
+.MostPopular .MostPopular-tap-a-movie-info-text {
+  text-align: center;
+}
+
+.Accuracy {
+  margin-top: 2rem;
+}
+.Accuracy .Accuracy-tap-show-info-text {
+  text-align: center;
+}
+
+.PlayerScores {
+  margin-top: 2rem;
+}
+.PlayerScores .PlayerScores-heading {
+  margin-bottom: 1.05rem;
+}
+
 footer {
   background: #fff;
   text-align: center;

@@ -185,7 +185,6 @@ header .Header-right-items .Header-right-items-icon:nth-of-type(3) {
 .Cell .Cell-box-wrapper .Cell-box img {
   width: 100%;
   height: 8.9rem;
-  border-radius: 0.85rem;
 }
 .Cell .Cell-box-wrapper .Cell-box-A img {
   border-top-left-radius: 1.2rem;
@@ -210,7 +209,7 @@ header .Header-right-items .Header-right-items-icon:nth-of-type(3) {
   align-items: center;
 }
 .Cell .Cell-left-img-with-text-wrapper img {
-  position: relative;
+  border-radius: 0.85rem;
 }
 .Cell .Cell-left-img-with-text-wrapper .Cell-left-img-text {
   width: 100%;
@@ -237,6 +236,7 @@ header .Header-right-items .Header-right-items-icon:nth-of-type(3) {
 }
 .Cell .Cell-top-img-with-text-wrapper img {
   margin-bottom: 0.55rem;
+  border-radius: 0.85rem;
 }
 .Cell .Cell-top-img-with-text-wrapper .Cell-top-img-text {
   position: absolute;

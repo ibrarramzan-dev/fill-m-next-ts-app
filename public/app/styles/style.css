@@ -692,7 +692,7 @@ header .Header-right-items .Header-right-items-icon:nth-of-type(3) {
     font-size: 0.8rem;
   }
   .SummaryMetricCell-left-img-with-text-wrapper {
-    top: 0rem !important;
+    top: 14.5% !important;
     left: -4.45rem !important;
     align-items: flex-start !important;
   }

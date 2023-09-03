@@ -901,6 +901,8 @@ header .Header-right-items .Header-right-items-icon:nth-of-type(3) {
 }
 
 .PlayerScores {
+  width: 100%;
+  overflow: hidden;
   margin-top: 2rem;
 }
 .PlayerScores .PlayerScores-heading {

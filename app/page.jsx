@@ -18,7 +18,6 @@ function Home() {
         delete response.data.createdAt;
         delete response.data.updatedAt;
         delete response.data.date;
-        delete response.data._id;
         delete response.data.__v;
 
         dispatch(newPuzzle(response.data));

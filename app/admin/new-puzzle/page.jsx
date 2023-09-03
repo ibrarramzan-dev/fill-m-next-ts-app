@@ -38,7 +38,23 @@ function NewPuzzle() {
   const onPuzzleSave = () => {
     axios
       // .post("https://fill-m-next-ts-app.vercel.app/api/puzzles", puzzle)
-      .post("http://localhost:3000/api/puzzles", puzzle)
+      .post("http://localhost:3000/api/puzzles", {
+        ...puzzle,
+        stats: {
+          score: {
+            0: 0,
+            1: 0,
+            2: 0,
+            3: 0,
+            4: 0,
+            5: 0,
+            6: 0,
+            7: 0,
+            8: 0,
+            9: 0,
+          },
+        },
+      })
       .then((response) => {
         if (response.data.success) {
           dispatch(resetPuzzle());
@@ -53,9 +69,6 @@ function NewPuzzle() {
     const { date, labels, answers } = puzzle;
 
     const cellLabels = Object.keys(answers);
-
-    console.log("pzle answers: ", answers);
-    console.log("Cell Labels: ", cellLabels);
 
     const recordsFound = [];
 

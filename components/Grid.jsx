@@ -5,18 +5,42 @@ import { Modal } from "antd";
 import { useSelector } from "react-redux";
 import Cell from "./Cell";
 import Summary from "./Summary";
+import _ from "lodash";
+import axios from "axios";
 
 function Grid() {
   const puzzle = useSelector((state) => state.puzzle);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const { labels, guesses, puzzleFinished } = puzzle;
+  const { _id, labels, guesses, cellsImages, puzzleFinished } = puzzle;
 
   const { x1, x2, x3, y1, y2, y3 } = labels;
 
   useEffect(() => {
     if (puzzleFinished === true) {
       setIsModalOpen(true);
+
+      const cellLabels = Object.keys(cellsImages);
+
+      const foundRecords = [];
+
+      cellLabels.forEach((label) => {
+        if (cellsImages[label].image !== "") {
+          foundRecords.push(1);
+        }
+      });
+
+      const score = _.sum(foundRecords);
+
+      axios
+        .put("https://fill-m-next-ts-app.vercel.app/api/puzzles", {
+          id: _id,
+          score,
+        })
+        // .put("http://localhost:3000/api/puzzles", { id: _id, score })
+        .then((response) => {
+          console.log(response);
+        });
     }
   }, [puzzleFinished]);
 

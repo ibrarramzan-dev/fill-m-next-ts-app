@@ -5,6 +5,7 @@ const puzzleSchema = new Schema(
     date: String,
     labels: Object,
     answers: Object,
+    stats: Object,
   },
   { timestamps: true }
 );

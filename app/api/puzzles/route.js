@@ -3,14 +3,17 @@ import connectMongoDB from "@/libs/mongodb";
 import Puzzle from "@/models/puzzle";
 
 export async function POST(request) {
-  const { date, labels, answers } = await request.json();
+  const { date, labels, answers, stats } = await request.json();
 
   connectMongoDB();
+
+  console.log("Stats ", stats);
 
   const puzzle = new Puzzle({
     date,
     labels,
     answers,
+    stats,
   });
 
   await puzzle.save();
@@ -21,6 +24,23 @@ export async function POST(request) {
       success: true,
     },
     { status: 201 }
+  );
+}
+
+export async function PUT(request) {
+  const { id, score } = await request.json();
+
+  connectMongoDB();
+
+  const key = `stats.score.${score}`;
+
+  await Puzzle.findOneAndUpdate({ _id: id }, { $inc: { [key]: 1 } });
+  return NextResponse.json(
+    {
+      success: true,
+      message: "puzzle stats updated",
+    },
+    { status: 200 }
   );
 }
 

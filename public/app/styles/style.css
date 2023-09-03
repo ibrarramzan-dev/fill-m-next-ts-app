@@ -884,6 +884,12 @@ header .Header-right-items .Header-right-items-icon:nth-of-type(3) {
 .Accuracy .Accuracy-tap-show-info-text {
   text-align: center;
 }
+.Accuracy .Accuracy-cell-wrapper .Accuracy-cell-percentage {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.05rem;
+  margin-top: 30.78%;
+}
 
 .PlayerScores {
   margin-top: 2rem;

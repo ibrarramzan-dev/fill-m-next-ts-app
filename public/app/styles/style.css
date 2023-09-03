@@ -705,14 +705,23 @@ header .Header-right-items .Header-right-items-icon:nth-of-type(3) {
   .SummaryMetricCell .SummaryMetricCell-top-text-wrapper {
     font-size: 0.8rem;
   }
+  .SummaryMetricCell .SummaryMetricCell-box-G .MostPopular-cell-wrapper img {
+    height: 4.1rem !important;
+  }
   .SummaryMetricCell .SummaryMetricCell-box-G .MostPopular-cell-wrapper .MostPopular-cell-movie-title {
-    bottom: -0.4rem !important;
+    bottom: -0.49rem !important;
+  }
+  .SummaryMetricCell .SummaryMetricCell-box-H .MostPopular-cell-wrapper img {
+    height: 4.1rem !important;
   }
   .SummaryMetricCell .SummaryMetricCell-box-H .MostPopular-cell-wrapper .MostPopular-cell-movie-title {
-    bottom: -0.4rem !important;
+    bottom: -0.49rem !important;
+  }
+  .SummaryMetricCell .SummaryMetricCell-box-I .MostPopular-cell-wrapper img {
+    height: 4.1rem !important;
   }
   .SummaryMetricCell .SummaryMetricCell-box-I .MostPopular-cell-wrapper .MostPopular-cell-movie-title {
-    bottom: -0.4rem !important;
+    bottom: -0.49rem !important;
   }
   .SummaryMetricCell-left-img-with-text-wrapper {
     top: 18% !important;
@@ -842,8 +851,8 @@ header .Header-right-items .Header-right-items-icon:nth-of-type(3) {
   position: relative;
 }
 .MostPopular .MostPopular-cell-wrapper img {
-  width: 4.1rem !important;
-  height: 4.1rem !important;
+  width: 100% !important;
+  height: 5rem !important;
 }
 .MostPopular .MostPopular-cell-wrapper .MostPopular-cell-percentage {
   position: absolute;
@@ -875,7 +884,7 @@ header .Header-right-items .Header-right-items-icon:nth-of-type(3) {
 @media (min-width: 325px) and (max-width: 380px) {
   .MostPopular-cell-movie-title {
     line-height: 0.7rem;
-    bottom: -0.35rem !important;
+    bottom: 0.5rem !important;
   }
 }
 .Accuracy {

@@ -510,7 +510,7 @@ header .Header-right-items .Header-right-items-icon:nth-of-type(3) {
   .SummaryMetricGrid {
     justify-content: right;
     padding-top: 2rem;
-    margin-left: 0 !important;
+    margin-left: 5% !important;
   }
   .SummaryMetricGrid .SummaryMetricGrid-wrapper {
     width: 100% !important;
@@ -570,7 +570,6 @@ header .Header-right-items .Header-right-items-icon:nth-of-type(3) {
 .SummaryMetricCell .SummaryMetricCell-box-wrapper .SummaryMetricCell-box img {
   width: 100%;
   height: 8.9rem;
-  border-radius: 0.85rem;
 }
 .SummaryMetricCell .SummaryMetricCell-box-wrapper .SummaryMetricCell-box-A img {
   border-top-left-radius: 1.2rem;
@@ -578,10 +577,24 @@ header .Header-right-items .Header-right-items-icon:nth-of-type(3) {
 .SummaryMetricCell .SummaryMetricCell-box-wrapper .SummaryMetricCell-box-C img {
   border-top-right-radius: 1.2rem;
 }
+.SummaryMetricCell .SummaryMetricCell-box-wrapper .SummaryMetricCell-box-C .MostPopular-cell-wrapper .MostPopular-cell-percentage {
+  border-top-right-radius: 1.2rem;
+}
 .SummaryMetricCell .SummaryMetricCell-box-wrapper .SummaryMetricCell-box-G img {
   border-bottom-left-radius: 1.2rem;
 }
+.SummaryMetricCell .SummaryMetricCell-box-wrapper .SummaryMetricCell-box-G .MostPopular-cell-wrapper .MostPopular-cell-movie-title {
+  bottom: -0.57rem;
+  border-bottom-left-radius: 1.2rem;
+}
+.SummaryMetricCell .SummaryMetricCell-box-wrapper .SummaryMetricCell-box-H .MostPopular-cell-wrapper .MostPopular-cell-movie-title {
+  bottom: -0.57rem;
+}
 .SummaryMetricCell .SummaryMetricCell-box-wrapper .SummaryMetricCell-box-I img {
+  border-bottom-right-radius: 1.2rem;
+}
+.SummaryMetricCell .SummaryMetricCell-box-wrapper .SummaryMetricCell-box-I .MostPopular-cell-wrapper .MostPopular-cell-movie-title {
+  bottom: -0.57rem;
   border-bottom-right-radius: 1.2rem;
 }
 .SummaryMetricCell .SummaryMetricCell-left-img-with-text-wrapper {
@@ -692,6 +705,15 @@ header .Header-right-items .Header-right-items-icon:nth-of-type(3) {
   .SummaryMetricCell .SummaryMetricCell-top-text-wrapper {
     font-size: 0.8rem;
   }
+  .SummaryMetricCell .SummaryMetricCell-box-G .MostPopular-cell-wrapper .MostPopular-cell-movie-title {
+    bottom: -0.51rem !important;
+  }
+  .SummaryMetricCell .SummaryMetricCell-box-H .MostPopular-cell-wrapper .MostPopular-cell-movie-title {
+    bottom: -0.51rem !important;
+  }
+  .SummaryMetricCell .SummaryMetricCell-box-I .MostPopular-cell-wrapper .MostPopular-cell-movie-title {
+    bottom: -0.51rem !important;
+  }
   .SummaryMetricCell-left-img-with-text-wrapper {
     top: 18% !important;
     left: -4.45rem !important;
@@ -790,6 +812,25 @@ header .Header-right-items .Header-right-items-icon:nth-of-type(3) {
 .PossibleAnswers .PossibleAnswers-tap-show-info-text {
   text-align: center;
 }
+.PossibleAnswers .PossibleAnswers-cell-wrapper {
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+.PossibleAnswers .PossibleAnswers-cell-wrapper p {
+  text-align: center;
+}
+.PossibleAnswers .PossibleAnswers-cell-wrapper p:first-of-type {
+  margin-top: 1.07rem;
+  font-weight: bold;
+}
+.PossibleAnswers .PossibleAnswers-cell-wrapper p:last-of-type {
+  margin-top: -1rem;
+  font-size: 0.72rem;
+  text-decoration: underline;
+  color: blue;
+  cursor: pointer;
+}
 
 .MostPopular {
   margin-top: 2rem;
@@ -797,7 +838,46 @@ header .Header-right-items .Header-right-items-icon:nth-of-type(3) {
 .MostPopular .MostPopular-tap-a-movie-info-text {
   text-align: center;
 }
+.MostPopular .MostPopular-cell-wrapper {
+  position: relative;
+}
+.MostPopular .MostPopular-cell-wrapper img {
+  width: 100% !important;
+  height: 5rem !important;
+}
+.MostPopular .MostPopular-cell-wrapper .MostPopular-cell-percentage {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2.56rem;
+  background: #1d1d1d;
+  color: #fff;
+  opacity: 0.925;
+  font-size: 0.7rem;
+  text-align: right;
+  padding: 0.05rem 0.3rem 0.05rem 0;
+  border-bottom-left-radius: 1.2rem;
+}
+.MostPopular .MostPopular-cell-wrapper .MostPopular-cell-movie-title {
+  position: absolute;
+  bottom: -0.5rem;
+  width: 100%;
+  background: #1d1d1d;
+  color: #fff;
+  opacity: 0.925;
+  font-size: 0.55rem;
+  padding: 0.1rem 0.2rem;
+  text-align: center;
+  border-top-left-radius: 1.2rem;
+  border-top-right-radius: 1.2rem;
+}
 
+@media (min-width: 325px) and (max-width: 380px) {
+  .MostPopular-cell-movie-title {
+    line-height: 0.7rem;
+    bottom: 0.55rem !important;
+  }
+}
 .Accuracy {
   margin-top: 2rem;
 }

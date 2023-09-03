@@ -3,3 +3,42 @@
 
   .MostPopular-tap-a-movie-info-text
     text-align: center
+
+  .MostPopular-cell-wrapper
+    position: relative
+
+    img
+      width: 100% !important
+      height: 5rem !important
+
+    .MostPopular-cell-percentage
+      position: absolute
+      top: 0
+      right: 0
+      width: 2.56rem
+      background: #1d1d1d
+      color: #fff
+      opacity: 0.925
+      font-size: 0.7rem
+      text-align: right
+      padding: 0.05rem 0.3rem 0.05rem 0
+      border-bottom-left-radius: 1.2rem
+
+    .MostPopular-cell-movie-title
+      position: absolute
+      bottom: -0.5rem
+      width: 100%
+      background: #1d1d1d
+      color: #fff
+      opacity: 0.925
+      font-size: 0.55rem
+      padding: 0.1rem 0.2rem
+      text-align: center
+      border-top-left-radius: 1.2rem
+      border-top-right-radius: 1.2rem
+
+
+@media (min-width: 325px) and (max-width: 380px)
+  .MostPopular-cell-movie-title
+    line-height: 0.7rem
+    bottom: 0.55rem !important

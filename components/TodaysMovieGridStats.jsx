@@ -1,7 +1,7 @@
 function TodaysMovieGridStats() {
   return (
     <div className="TodaysMovieGridStats">
-      <h3>TODAY&apos;S MOVIE GRID STATS</h3>
+      <h3>Today’s Fill-M Stats</h3>
       <div className="TodaysMovieGridStats-wrapper">
         <div>
           <p>GAMES</p>

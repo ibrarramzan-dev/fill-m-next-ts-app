@@ -13,6 +13,7 @@ function SummaryMetricCell({
   leftImg,
   leftAttrLink,
   label,
+  cellJSX,
 }) {
   return (
     <>
@@ -23,9 +24,12 @@ function SummaryMetricCell({
               "SummaryMetricCell-box-A": label === "A",
               "SummaryMetricCell-box-C": label === "C",
               "SummaryMetricCell-box-G": label === "G",
+              "SummaryMetricCell-box-H": label === "H",
               "SummaryMetricCell-box-I": label === "I",
             })}
-          ></div>
+          >
+            {cellJSX}
+          </div>
         </div>
 
         {leftImg && (

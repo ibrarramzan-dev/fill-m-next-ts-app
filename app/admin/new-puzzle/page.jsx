@@ -35,26 +35,31 @@ function NewPuzzle() {
   const onAttrLinkChange = (position, val) =>
     dispatch(updateAttrLink({ position, val }));
 
+  const statsInitialState = {
+    score: {
+      0: 0,
+      1: 0,
+      2: 0,
+      3: 0,
+      4: 0,
+      5: 0,
+      6: 0,
+      7: 0,
+      8: 0,
+      9: 0,
+    },
+  };
+
   const onPuzzleSave = () => {
     axios
-      // .post("https://fill-m-next-ts-app.vercel.app/api/puzzles", puzzle)
-      .post("http://localhost:3000/api/puzzles", {
+      .post("https://fill-m-next-ts-app.vercel.app/api/puzzles", {
         ...puzzle,
-        stats: {
-          score: {
-            0: 0,
-            1: 0,
-            2: 0,
-            3: 0,
-            4: 0,
-            5: 0,
-            6: 0,
-            7: 0,
-            8: 0,
-            9: 0,
-          },
-        },
+        stats: statsInitialState,
       })
+      // .post("http://localhost:3000/api/puzzles", {
+      //   ...puzzle,
+      //   stats: statsInitialState,
+      // })
       .then((response) => {
         if (response.data.success) {
           dispatch(resetPuzzle());

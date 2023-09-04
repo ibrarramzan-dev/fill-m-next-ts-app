@@ -52,6 +52,21 @@ interface CellImagesInterface {
   I: CellImagesKeyInterface;
 }
 
+interface StatsInterface {
+  score: {
+    0: number;
+    1: number;
+    2: number;
+    3: number;
+    4: number;
+    5: number;
+    6: number;
+    7: number;
+    8: number;
+    9: number;
+  };
+}
+
 interface PuzzleInterface {
   date: string;
   labels: LabelInterface;
@@ -59,6 +74,7 @@ interface PuzzleInterface {
   cellsImages: CellImagesInterface;
   guesses: number;
   puzzleFinished: boolean;
+  stats: StatsInterface;
 }
 
 const initLabelsKeys = {
@@ -140,6 +156,20 @@ const initialState: PuzzleInterface = {
   },
   guesses: 0,
   puzzleFinished: false,
+  stats: {
+    score: {
+      0: 0,
+      1: 0,
+      2: 0,
+      3: 0,
+      4: 0,
+      5: 0,
+      6: 0,
+      7: 0,
+      8: 0,
+      9: 0,
+    },
+  },
 };
 
 export const puzzleSlice = createSlice({

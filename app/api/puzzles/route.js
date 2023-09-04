@@ -52,8 +52,5 @@ export async function GET(request) {
 
   const puzzles = await Puzzle.find({ date });
 
-  return NextResponse.json(
-    { data: puzzles[0], date: new Date() },
-    { status: 200 }
-  );
+  return NextResponse.json(puzzles[0], { status: 200 });
 }

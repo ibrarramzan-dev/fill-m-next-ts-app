@@ -1,4 +1,5 @@
 import "antd/dist/reset.css";
+import "reactjs-popup/dist/index.css";
 import "@/public/app/styles/style.css";
 import { Providers } from "./AppState/provider";
 

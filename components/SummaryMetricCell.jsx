@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import cn from "classnames";
 
 function SummaryMetricCell({
@@ -14,7 +14,10 @@ function SummaryMetricCell({
   leftAttrLink,
   label,
   cellJSX,
+  fromSection,
 }) {
+  const answers = useSelector((state) => state.puzzle.answers);
+
   return (
     <>
       <div className="SummaryMetricCell">
@@ -28,7 +31,9 @@ function SummaryMetricCell({
               "SummaryMetricCell-box-I": label === "I",
             })}
           >
-            {cellJSX}
+            {fromSection === "possible-answers"
+              ? cellJSX(answers[label])
+              : cellJSX}
           </div>
         </div>
 

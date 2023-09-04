@@ -1,6 +1,5 @@
 "use client";
 
-import "reactjs-popup/dist/index.css";
 import { Input } from "antd";
 import { RxCross2 } from "react-icons/rx";
 import { useSelector, useDispatch } from "react-redux";
@@ -17,8 +16,6 @@ function Pill({ cellLabel, movie }) {
   const { attributionLink } = answers.find((answer) => answer.movie === movie);
 
   const dispatch = useDispatch();
-
-  console.log(attributionLink);
 
   const onAttrLinkChange = (link) => {
     console.log("here is the link : ", link);

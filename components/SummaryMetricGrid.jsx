@@ -4,7 +4,7 @@ import cn from "classnames";
 import { useSelector } from "react-redux";
 import SummaryMetricCell from "./SummaryMetricCell";
 
-function SummaryMetricGrid({ cellJSX }) {
+function SummaryMetricGrid({ cellJSX, fromSection }) {
   const { labels } = useSelector((state) => state.puzzle);
 
   const { x1, x2, x3, y1, y2, y3 } = labels;
@@ -74,6 +74,7 @@ function SummaryMetricGrid({ cellJSX }) {
                 leftAttrLink={x1.attributionLink}
                 label="A"
                 cellJSX={cellJSX}
+                fromSection={fromSection}
               />
               {/* x1y2 */}
               <SummaryMetricCell
@@ -82,6 +83,7 @@ function SummaryMetricGrid({ cellJSX }) {
                 topAttrLink={y2.attributionLink}
                 label="B"
                 cellJSX={cellJSX}
+                fromSection={fromSection}
               />
               {/* x1y3 */}
               <SummaryMetricCell
@@ -90,6 +92,7 @@ function SummaryMetricGrid({ cellJSX }) {
                 topAttrLink={y3.attributionLink}
                 label="C"
                 cellJSX={cellJSX}
+                fromSection={fromSection}
               />
             </div>
             <div className="SummaryMetricGrid-box-row">
@@ -100,11 +103,20 @@ function SummaryMetricGrid({ cellJSX }) {
                 leftAttrLink={x2.attributionLink}
                 label="D"
                 cellJSX={cellJSX}
+                fromSection={fromSection}
               />
               {/* x2y2 */}
-              <SummaryMetricCell label="E" cellJSX={cellJSX} />
+              <SummaryMetricCell
+                label="E"
+                cellJSX={cellJSX}
+                fromSection={fromSection}
+              />
               {/* x2y3 */}
-              <SummaryMetricCell label="F" cellJSX={cellJSX} />
+              <SummaryMetricCell
+                label="F"
+                cellJSX={cellJSX}
+                fromSection={fromSection}
+              />
             </div>
             <div className="SummaryMetricGrid-box-row">
               {/* x3y1 */}
@@ -114,11 +126,20 @@ function SummaryMetricGrid({ cellJSX }) {
                 leftAttrLink={x3.attributionLink}
                 label="G"
                 cellJSX={cellJSX}
+                fromSection={fromSection}
               />
               {/* x3y2 */}
-              <SummaryMetricCell label="H" cellJSX={cellJSX} />
+              <SummaryMetricCell
+                label="H"
+                cellJSX={cellJSX}
+                fromSection={fromSection}
+              />
               {/* x3y3 */}
-              <SummaryMetricCell label="I" cellJSX={cellJSX} />
+              <SummaryMetricCell
+                label="I"
+                cellJSX={cellJSX}
+                fromSection={fromSection}
+              />
             </div>
           </div>
         </div>

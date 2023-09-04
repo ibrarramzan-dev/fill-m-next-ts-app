@@ -1,15 +1,35 @@
+import Link from "next/link";
+import Popup from "reactjs-popup";
 import SummaryMetricGrid from "./SummaryMetricGrid";
 
-function PossibleAnswers() {
-  const cellJSX = (
-    <div className="PossibleAnswers-cell-wrapper">
-      <div>
-        <p>200</p>
-        <p>(Show)</p>
-      </div>
+const cellJSX = (movies) => (
+  <div className="PossibleAnswers-cell-wrapper">
+    <div>
+      <p className="PossibleAnswers-cell-answers-count">200</p>
+      <Popup
+        className="PossibleAnswers-cell-show-answers-popup"
+        trigger={<p className="PossibleAnswers-cell-show-text">(Show)</p>}
+        position="top center"
+      >
+        <div className="PossibleAnswers-cell-answers-popup-items-wrapper">
+          {movies.map((movie) => (
+            <Link
+              href={movie.attributionLink}
+              target="_blank"
+              key={movie.movie}
+            >
+              <div className="PossibleAnswers-cell-answers-popup-item-pill">
+                {movie.movie}
+              </div>
+            </Link>
+          ))}
+        </div>
+      </Popup>
     </div>
-  );
+  </div>
+);
 
+function PossibleAnswers() {
   return (
     <div className="PossibleAnswers">
       <h3>Possible Answers</h3>
@@ -18,7 +38,7 @@ function PossibleAnswers() {
         Tap &apos;Show&apos; to see a list of possible answers.
       </p>
 
-      <SummaryMetricGrid cellJSX={cellJSX} />
+      <SummaryMetricGrid cellJSX={cellJSX} fromSection="possible-answers" />
     </div>
   );
 }

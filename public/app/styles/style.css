@@ -829,16 +829,33 @@ header .Header-right-items .Header-right-items-icon:nth-of-type(3) {
 .PossibleAnswers .PossibleAnswers-cell-wrapper p {
   text-align: center;
 }
-.PossibleAnswers .PossibleAnswers-cell-wrapper p:first-of-type {
+.PossibleAnswers .PossibleAnswers-cell-wrapper .PossibleAnswers-cell-answers-count {
   margin-top: 1.07rem;
   font-weight: bold;
 }
-.PossibleAnswers .PossibleAnswers-cell-wrapper p:last-of-type {
+.PossibleAnswers .PossibleAnswers-cell-wrapper .PossibleAnswers-cell-show-text {
   margin-top: -1rem;
   font-size: 0.72rem;
   text-decoration: underline;
   color: blue;
   cursor: pointer;
+}
+
+.PossibleAnswers-cell-show-answers-popup-content {
+  z-index: 10000 !important;
+}
+.PossibleAnswers-cell-show-answers-popup-content .PossibleAnswers-cell-answers-popup-items-wrapper {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 0.2rem;
+  row-gap: 0.2rem;
+  flex-wrap: wrap;
+}
+.PossibleAnswers-cell-show-answers-popup-content .PossibleAnswers-cell-answers-popup-items-wrapper .PossibleAnswers-cell-answers-popup-item-pill {
+  background: #1a1a1a;
+  color: #fff;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.4rem;
 }
 
 .MostPopular {

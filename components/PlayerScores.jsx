@@ -1,25 +1,71 @@
-import { Chart } from "react-google-charts";
+import { useSelector } from "react-redux";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+import { Bar } from "react-chartjs-2";
 
-const data = [
-  ["SCORE", "PLAYERS"],
-  ["0", 4199],
-  ["1", 9543],
-  ["2", 12633],
-  ["3", 10341],
-  ["4", 9349],
-  ["5", 8483],
-  ["6", 7359],
-  ["7", 7068],
-  ["8", 6321],
-  ["9", 12159],
-];
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
+export const options = {
+  responsive: true,
+  plugins: {
+    legend: {
+      position: "top",
+    },
+  },
+  scales: {
+    x: {
+      grid: {
+        display: false,
+      },
+    },
+    y: {
+      grid: {
+        display: false,
+      },
+    },
+  },
+};
+
+const labels = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
+const data = {
+  labels,
+  datasets: [
+    {
+      label: "PLAYERS",
+      data: [],
+      backgroundColor: "#fd328adc",
+    },
+  ],
+};
 
 function PlayerScores() {
+  const scores = useSelector((state) => state.puzzle.stats.score);
+
+  Object.keys(scores).forEach((score) => {
+    console.log(score, ": ", scores[score]);
+    data.datasets[0].data.push(scores[score]);
+  });
+
   return (
     <div className="PlayerScores">
       <h3 className="PlayerScores-heading">Player Scores</h3>
 
-      <Chart chartType="Bar" width="100%" height="400px" data={data} />
+      <Bar options={options} data={data} />
     </div>
   );
 }

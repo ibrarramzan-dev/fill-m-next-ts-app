@@ -50,8 +50,10 @@ export async function GET(request) {
   let date = new Date();
   date = `${date.getMonth() + 1}-${date.getDate()}-${date.getFullYear()}`;
 
-  console.log("Date: ", date);
   const puzzles = await Puzzle.find({ date });
 
-  return NextResponse.json(puzzles[0], { status: 200 });
+  return NextResponse.json(
+    { data: puzzles[0], date: new Date() },
+    { status: 200 }
+  );
 }

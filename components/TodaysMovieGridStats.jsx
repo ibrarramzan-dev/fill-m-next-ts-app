@@ -24,7 +24,7 @@ function TodaysMovieGridStats() {
 
         <div>
           <p>AVERAGE SCORE</p>
-          <p>{avgScore}</p>
+          <p>{avgScore.toFixed(1)}</p>
         </div>
       </div>
     </div>

@@ -5,7 +5,7 @@ import SummaryMetricGrid from "./SummaryMetricGrid";
 const cellJSX = (movies) => (
   <div className="PossibleAnswers-cell-wrapper">
     <div>
-      <p className="PossibleAnswers-cell-answers-count">200</p>
+      <p className="PossibleAnswers-cell-answers-count">{movies.length}</p>
       <Popup
         className="PossibleAnswers-cell-show-answers-popup"
         trigger={<p className="PossibleAnswers-cell-show-text">(Show)</p>}

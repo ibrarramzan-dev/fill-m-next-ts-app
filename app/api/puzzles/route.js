@@ -38,21 +38,21 @@ export async function PUT(request) {
 
   Object.keys(cellsImages).forEach((label) => {
     if (cellsImages[label].id !== 0) {
-      guessesUpdateQuery[
-        `stats.guesses.${label}.${cellsImages[label].id}.count`
-      ] = 1;
+      const key = `stats.guesses.${label}.${cellsImages[label].id}.count`;
+      guessesUpdateQuery[key] = 1;
     } else {
-      guessesUpdateQuery[`stats.guesses.${label}.notGuessed`] = -1;
+      const key = `stats.guesses.${label}.notGuessed`;
+      notGuessedUpdateQuery[key] = -1;
     }
   });
 
   console.log(guessesUpdateQuery);
+  console.log(notGuessedUpdateQuery);
+
   await Puzzle.findOneAndUpdate(
     { _id: id },
     {
-      $inc: { [key]: 1 },
-      ...guessesUpdateQuery,
-      ...notGuessedUpdateQuery,
+      $inc: { [key]: 1, ...guessesUpdateQuery, ...notGuessedUpdateQuery },
     }
   );
   return NextResponse.json(

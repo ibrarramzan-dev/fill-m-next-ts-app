@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useSelector } from "react-redux";
 import cn from "classnames";
+import _ from "lodash";
 
 function SummaryMetricCell({
   top,
@@ -16,7 +17,17 @@ function SummaryMetricCell({
   cellJSX,
   fromSection,
 }) {
-  const answers = useSelector((state) => state.puzzle.answers);
+  const { stats, answers } = useSelector((state) => state.puzzle);
+  const guesses = stats.guesses;
+
+  const movies = _.omit(guesses[label], ["notGuessed"]);
+
+  const movieRecords = Object.values(movies);
+
+  console.log(movieRecords);
+  const maxCountMovie = _.max(movieRecords, _.property("count"));
+
+  console.log(label, ": ", maxCountMovie);
 
   return (
     <>
@@ -33,7 +44,9 @@ function SummaryMetricCell({
           >
             {fromSection === "possible-answers"
               ? cellJSX(answers[label])
-              : cellJSX}
+              : fromSection === "possible-answers"
+              ? cellJSX(maxCountMovie)
+              : null}
           </div>
         </div>
 

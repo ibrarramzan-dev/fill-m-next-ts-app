@@ -1,19 +1,24 @@
+import { useSelector } from "react-redux";
 import Image from "next/image";
 import SummaryMetricGrid from "./SummaryMetricGrid";
 
+const cellJSX = (movie) => (
+  <div className="MostPopular-cell-wrapper">
+    <Image
+      src={`https://image.tmdb.org/t/p/original/${movie.image}`}
+      alt="Most Popular"
+      width="50"
+      height="50"
+    />
+    <p className="MostPopular-cell-percentage">100%</p>
+    <p className="MostPopular-cell-movie-title">{movie.movie}</p>
+  </div>
+);
+
 function MostPopular() {
-  const cellJSX = (
-    <div className="MostPopular-cell-wrapper">
-      <Image
-        src="https://image.tmdb.org/t/p/original/nb1MLEOXVFBKTM4J9GLoksqgDBk.jpg"
-        alt="Most Popular"
-        width="50"
-        height="50"
-      />
-      <p className="MostPopular-cell-percentage">100%</p>
-      <p className="MostPopular-cell-movie-title">Elemetal (2023)</p>
-    </div>
-  );
+  const guesses = useSelector((state) => state.puzzle.stats.guesses);
+
+  console.log("Guesses: ", guesses);
 
   return (
     <div className="MostPopular">
@@ -23,7 +28,7 @@ function MostPopular() {
         Tap a movie to see their Movie Reference page.
       </p>
 
-      <SummaryMetricGrid cellJSX={cellJSX} />
+      <SummaryMetricGrid cellJSX={cellJSX} fromSection="most-popular" />
     </div>
   );
 }

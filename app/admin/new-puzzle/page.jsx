@@ -50,10 +50,11 @@ function NewPuzzle() {
   const puzzleAnswers = puzzle.answers;
   Object.keys(puzzleAnswers).forEach((label) => {
     puzzleAnswers[label].forEach((answer) => {
-      const { id, movie, attributionLink } = answer;
+      const { id, movie, poster_path, attributionLink } = answer;
 
       const record = {
         movie,
+        image: poster_path,
         attributionLink,
         count: 0,
       };
@@ -83,14 +84,14 @@ function NewPuzzle() {
 
   const onPuzzleSave = () => {
     axios
-      // .post("https://fill-m-next-ts-app.vercel.app/api/puzzles", {
-      //   ...puzzle,
-      //   stats: statsInitialState,
-      // })
-      .post("http://localhost:3000/api/puzzles", {
+      .post("https://fill-m-next-ts-app.vercel.app/api/puzzles", {
         ...puzzle,
         stats: statsInitialState,
       })
+      // .post("http://localhost:3000/api/puzzles", {
+      //   ...puzzle,
+      //   stats: statsInitialState,
+      // })
       .then((response) => {
         if (response.data.success) {
           dispatch(resetPuzzle());

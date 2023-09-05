@@ -35,6 +35,34 @@ function NewPuzzle() {
   const onAttrLinkChange = (position, val) =>
     dispatch(updateAttrLink({ position, val }));
 
+  const guesses = {
+    A: {},
+    B: {},
+    C: {},
+    D: {},
+    E: {},
+    F: {},
+    G: {},
+    H: {},
+    I: {},
+  };
+
+  const puzzleAnswers = puzzle.answers;
+  Object.keys(puzzleAnswers).forEach((label) => {
+    puzzleAnswers[label].forEach((answer) => {
+      const { id, movie, attributionLink } = answer;
+
+      const record = {
+        movie,
+        attributionLink,
+        count: 0,
+      };
+
+      guesses[label][id] = record;
+    });
+    guesses[label].notGuessed = 0;
+  });
+
   const statsInitialState = {
     score: {
       0: 0,
@@ -48,18 +76,21 @@ function NewPuzzle() {
       8: 0,
       9: 0,
     },
+    guesses,
   };
+
+  console.log("Stats initial state: ", statsInitialState);
 
   const onPuzzleSave = () => {
     axios
-      .post("https://fill-m-next-ts-app.vercel.app/api/puzzles", {
-        ...puzzle,
-        stats: statsInitialState,
-      })
-      // .post("http://localhost:3000/api/puzzles", {
+      // .post("https://fill-m-next-ts-app.vercel.app/api/puzzles", {
       //   ...puzzle,
       //   stats: statsInitialState,
       // })
+      .post("http://localhost:3000/api/puzzles", {
+        ...puzzle,
+        stats: statsInitialState,
+      })
       .then((response) => {
         if (response.data.success) {
           dispatch(resetPuzzle());

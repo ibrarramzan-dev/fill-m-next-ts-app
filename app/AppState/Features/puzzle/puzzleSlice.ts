@@ -36,6 +36,7 @@ interface AnswersInterface {
 }
 
 interface CellImagesKeyInterface {
+  id: number;
   image: string;
   attributionLink: string;
 }
@@ -118,38 +119,47 @@ const initialState: PuzzleInterface = {
   },
   cellsImages: {
     A: {
+      id: 0,
       image: "",
       attributionLink: "",
     },
     B: {
+      id: 0,
       image: "",
       attributionLink: "",
     },
     C: {
+      id: 0,
       image: "",
       attributionLink: "",
     },
     D: {
+      id: 0,
       image: "",
       attributionLink: "",
     },
     E: {
+      id: 0,
       image: "",
       attributionLink: "",
     },
     F: {
+      id: 0,
       image: "",
       attributionLink: "",
     },
     G: {
+      id: 0,
       image: "",
       attributionLink: "",
     },
     H: {
+      id: 0,
       image: "",
       attributionLink: "",
     },
     I: {
+      id: 0,
       image: "",
       attributionLink: "",
     },
@@ -195,6 +205,7 @@ export const puzzleSlice = createSlice({
           cellsImages: {
             ...state.cellsImages,
             [label]: {
+              id,
               image: poster_path,
               attributionLink: foundMovie.attributionLink,
             },

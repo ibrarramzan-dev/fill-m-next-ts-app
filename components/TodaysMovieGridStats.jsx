@@ -6,6 +6,8 @@ function TodaysMovieGridStats() {
   let totalGames = 0;
   let totalScoreByAllPlayers = 0;
 
+  console.log(scores);
+
   Object.keys(scores).forEach((score) => {
     totalScoreByAllPlayers += score * scores[score];
     totalGames += scores[score];
@@ -24,7 +26,7 @@ function TodaysMovieGridStats() {
 
         <div>
           <p>AVERAGE SCORE</p>
-          <p>{avgScore.toFixed(1)}</p>
+          <p>{isNaN(avgScore) ? 0 : avgScore.toFixed(1)}</p>
         </div>
       </div>
     </div>

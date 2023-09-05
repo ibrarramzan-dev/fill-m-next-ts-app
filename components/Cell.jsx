@@ -27,6 +27,7 @@ function Cell({
 
   const dispatch = useDispatch();
 
+  const id = cellsImages[label].id;
   const imageLink = cellsImages[label].image;
   const attributionLink = cellsImages[label].attributionLink;
 

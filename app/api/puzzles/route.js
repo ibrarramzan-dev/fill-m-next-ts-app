@@ -28,13 +28,33 @@ export async function POST(request) {
 }
 
 export async function PUT(request) {
-  const { id, score } = await request.json();
+  const { id, score, cellsImages } = await request.json();
 
   connectMongoDB();
 
   const key = `stats.score.${score}`;
+  const guessesUpdateQuery = {};
+  const notGuessedUpdateQuery = {};
 
-  await Puzzle.findOneAndUpdate({ _id: id }, { $inc: { [key]: 1 } });
+  Object.keys(cellsImages).forEach((label) => {
+    if (cellsImages[label].id !== 0) {
+      guessesUpdateQuery[
+        `stats.guesses.${label}.${cellsImages[label].id}.count`
+      ] = 1;
+    } else {
+      guessesUpdateQuery[`stats.guesses.${label}.notGuessed`] = -1;
+    }
+  });
+
+  console.log(guessesUpdateQuery);
+  await Puzzle.findOneAndUpdate(
+    { _id: id },
+    {
+      $inc: { [key]: 1 },
+      ...guessesUpdateQuery,
+      ...notGuessedUpdateQuery,
+    }
+  );
   return NextResponse.json(
     {
       success: true,

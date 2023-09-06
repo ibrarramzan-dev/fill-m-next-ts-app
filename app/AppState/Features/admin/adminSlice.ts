@@ -20,6 +20,7 @@ interface LabelInterface {
 interface AnswerInterface {
   id: number;
   movie: string;
+  image: string;
   attributionLink: string;
 }
 
@@ -322,7 +323,7 @@ export const adminSlice = createSlice({
       }
     },
     addAnswer: (state: Admin, action) => {
-      const { cellLabel, tmdbId, selectedMovie } = action.payload;
+      const { cellLabel, tmdbId, selectedMovie, poster_path } = action.payload;
 
       if (cellLabel === "A") {
         return {
@@ -336,6 +337,7 @@ export const adminSlice = createSlice({
                 {
                   id: tmdbId,
                   movie: selectedMovie,
+                  image: poster_path,
                   attributionLink: "",
                 },
               ],
@@ -354,6 +356,7 @@ export const adminSlice = createSlice({
                 {
                   id: tmdbId,
                   movie: selectedMovie,
+                  image: poster_path,
                   attributionLink: "",
                 },
               ],
@@ -372,6 +375,7 @@ export const adminSlice = createSlice({
                 {
                   id: tmdbId,
                   movie: selectedMovie,
+                  image: poster_path,
                   attributionLink: "",
                 },
               ],
@@ -390,6 +394,7 @@ export const adminSlice = createSlice({
                 {
                   id: tmdbId,
                   movie: selectedMovie,
+                  image: poster_path,
                   attributionLink: "",
                 },
               ],
@@ -408,6 +413,7 @@ export const adminSlice = createSlice({
                 {
                   id: tmdbId,
                   movie: selectedMovie,
+                  image: poster_path,
                   attributionLink: "",
                 },
               ],
@@ -426,6 +432,7 @@ export const adminSlice = createSlice({
                 {
                   id: tmdbId,
                   movie: selectedMovie,
+                  image: poster_path,
                   attributionLink: "",
                 },
               ],
@@ -444,6 +451,7 @@ export const adminSlice = createSlice({
                 {
                   id: tmdbId,
                   movie: selectedMovie,
+                  image: poster_path,
                   attributionLink: "",
                 },
               ],
@@ -462,6 +470,7 @@ export const adminSlice = createSlice({
                 {
                   id: tmdbId,
                   movie: selectedMovie,
+                  image: poster_path,
                   attributionLink: "",
                 },
               ],
@@ -480,6 +489,7 @@ export const adminSlice = createSlice({
                 {
                   id: tmdbId,
                   movie: selectedMovie,
+                  image: poster_path,
                   attributionLink: "",
                 },
               ],

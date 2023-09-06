@@ -50,11 +50,11 @@ function NewPuzzle() {
   const puzzleAnswers = puzzle.answers;
   Object.keys(puzzleAnswers).forEach((label) => {
     puzzleAnswers[label].forEach((answer) => {
-      const { id, movie, poster_path, attributionLink } = answer;
+      const { id, movie, image, attributionLink } = answer;
 
       const record = {
         movie,
-        image: poster_path,
+        image,
         attributionLink,
         count: 0,
       };

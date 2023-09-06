@@ -48,11 +48,9 @@ function FeedMovies({ cellLabel }) {
   };
 
   const handleSelect = (selectedValue) => {
-    const [id, title, releaseYear] = selectedValue.split("~!~");
+    const [id, title, releaseYear, poster_path] = selectedValue.split("~!~");
 
     const found = _.find(answers, { id });
-
-    console.log(found);
 
     if (found === undefined) {
       dispatch(
@@ -60,6 +58,7 @@ function FeedMovies({ cellLabel }) {
           cellLabel,
           tmdbId: id,
           selectedMovie: `${title}${releaseYear}`,
+          poster_path,
         })
       );
     }
@@ -92,17 +91,14 @@ function FeedMovies({ cellLabel }) {
           options={(movieResults || []).map((m) => {
             const { id, title, poster_path, release_date } = m;
 
-            console.log(m);
             let releaseYear = "";
 
             release_date
               ? (releaseYear = ` (${release_date.split("-")[0]})`)
               : null;
 
-            console.log("release year: ", releaseYear);
-
             return {
-              value: `${id}~!~${title}~!~${releaseYear}`,
+              value: `${id}~!~${title}~!~${releaseYear}~!~${poster_path}`,
               label: `${title}${releaseYear}`,
             };
           })}

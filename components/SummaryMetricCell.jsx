@@ -25,9 +25,10 @@ function SummaryMetricCell({
   const movieRecords = Object.values(movies);
 
   console.log(movieRecords);
-  const maxCountMovie = _.max(movieRecords, _.property("count"));
+  const maxCountMovie = _.maxBy(movieRecords, "count");
+  const totalAnswered = _.sumBy(movieRecords, "count");
 
-  console.log(label, ": ", maxCountMovie);
+  const mostPopularPercent = (maxCountMovie.count / totalAnswered) * 100;
 
   return (
     <>
@@ -44,8 +45,8 @@ function SummaryMetricCell({
           >
             {fromSection === "possible-answers"
               ? cellJSX(answers[label])
-              : fromSection === "possible-answers"
-              ? cellJSX(maxCountMovie)
+              : fromSection === "most-popular"
+              ? cellJSX({ ...maxCountMovie, percent: mostPopularPercent })
               : null}
           </div>
         </div>

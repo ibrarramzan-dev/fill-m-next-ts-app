@@ -2,18 +2,30 @@ import { useSelector } from "react-redux";
 import Image from "next/image";
 import SummaryMetricGrid from "./SummaryMetricGrid";
 
-const cellJSX = (movie) => (
-  <div className="MostPopular-cell-wrapper">
-    <Image
-      src={`https://image.tmdb.org/t/p/original/${movie.image}`}
-      alt="Most Popular"
-      width="50"
-      height="50"
-    />
-    <p className="MostPopular-cell-percentage">100%</p>
-    <p className="MostPopular-cell-movie-title">{movie.movie}</p>
-  </div>
-);
+const cellJSX = (movie) => {
+  console.log("Movie for cell JSX: ", movie);
+
+  return (
+    <div className="MostPopular-cell-wrapper">
+      {isNaN(movie.percent) ? (
+        <p className="MostPopular-not-yet-answered">Not yet answered</p>
+      ) : (
+        <>
+          <Image
+            src={`https://image.tmdb.org/t/p/original/${movie.image}`}
+            alt="Most Popular"
+            width="50"
+            height="50"
+          />
+          <p className="MostPopular-cell-percentage">
+            {Math.round(movie.percent)}%
+          </p>
+          <p className="MostPopular-cell-movie-title">{movie.movie}</p>
+        </>
+      )}
+    </div>
+  );
+};
 
 function MostPopular() {
   const guesses = useSelector((state) => state.puzzle.stats.guesses);

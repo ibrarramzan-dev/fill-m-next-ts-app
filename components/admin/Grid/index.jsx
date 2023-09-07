@@ -31,7 +31,6 @@ function Grid() {
                 leftImg={x1.image}
                 leftAttrLink={x1.attributionLink}
                 label="A"
-                onCellClick={onCellClick}
               />
               {/* x1y2 */}
               <Cell
@@ -39,7 +38,6 @@ function Grid() {
                 topImg={y2.image}
                 topAttrLink={y2.attributionLink}
                 label="B"
-                onCellClick={onCellClick}
               />
               {/* x1y3 */}
               <Cell
@@ -47,7 +45,6 @@ function Grid() {
                 topImg={y3.image}
                 topAttrLink={y3.attributionLink}
                 label="C"
-                onCellClick={onCellClick}
                 styling={borderTopRightStyling}
               />
             </div>
@@ -58,12 +55,11 @@ function Grid() {
                 leftImg={x2.image}
                 leftAttrLink={x2.attributionLink}
                 label="D"
-                onCellClick={onCellClick}
               />
               {/* x2y2 */}
-              <Cell label="E" onCellClick={onCellClick} />
+              <Cell label=" />
               {/* x2y3 */}
-              <Cell label="F" onCellClick={onCellClick} />
+              <Cell label=" />
             </div>
             <div className="AdminGrid-box-row">
               {/* x3y1 */}
@@ -72,14 +68,12 @@ function Grid() {
                 leftImg={x3.image}
                 leftAttrLink={x3.attributionLink}
                 label="G"
-                onCellClick={onCellClick}
               />
               {/* x3y2 */}
-              <Cell label="H" onCellClick={onCellClick} />
+              <Cell label=" />
               {/* x3y3 */}
               <Cell
                 label="I"
-                onCellClick={onCellClick}
                 styling={borderBottomRightStyling}
               />
             </div>

@@ -36,6 +36,9 @@ export const options = {
       grid: {
         display: false,
       },
+      ticks: {
+        precision: 0,
+      },
     },
   },
 };
@@ -57,7 +60,6 @@ function PlayerScores() {
   const scores = useSelector((state) => state.puzzle.stats.score);
 
   Object.keys(scores).forEach((score) => {
-    console.log(score, ": ", scores[score]);
     data.datasets[0].data.push(scores[score]);
   });
 

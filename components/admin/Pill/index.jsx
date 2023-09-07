@@ -18,7 +18,6 @@ function Pill({ cellLabel, movie }) {
   const dispatch = useDispatch();
 
   const onAttrLinkChange = (link) => {
-    console.log("here is the link : ", link);
     dispatch(addAnswerMovieAttrLink({ cellLabel, movie, link }));
   };
 

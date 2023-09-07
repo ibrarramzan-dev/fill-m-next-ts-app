@@ -20,8 +20,6 @@ export default function Menu() {
     (state: any) => state.admin.dashboard.isSidebarOpened
   );
 
-  console.log(isSidebarOpened);
-
   const menuRef = useRef<HTMLDivElement>(null);
   const menuListUlRef = useRef<HTMLUListElement>(null);
 

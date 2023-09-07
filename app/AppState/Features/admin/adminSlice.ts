@@ -501,8 +501,6 @@ export const adminSlice = createSlice({
     addAnswerMovieAttrLink: (state: Admin, action) => {
       const { cellLabel, movie, link } = action.payload;
 
-      console.log("link: ", link);
-
       if (cellLabel === "A") {
         return {
           ...state,

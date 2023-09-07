@@ -20,15 +20,17 @@ function SummaryMetricCell({
   const { stats, answers } = useSelector((state) => state.puzzle);
   const guesses = stats.guesses;
 
+  const notGuessed = guesses[label].notGuessed;
   const movies = _.omit(guesses[label], ["notGuessed"]);
 
   const movieRecords = Object.values(movies);
 
-  console.log(movieRecords);
   const maxCountMovie = _.maxBy(movieRecords, "count");
   const totalAnswered = _.sumBy(movieRecords, "count");
-
+  const totalWithNotAnswered = notGuessed + totalAnswered;
   const mostPopularPercent = (maxCountMovie.count / totalAnswered) * 100;
+
+  const accuracyPercent = (totalAnswered / totalWithNotAnswered) * 100;
 
   return (
     <>
@@ -47,6 +49,8 @@ function SummaryMetricCell({
               ? cellJSX(answers[label])
               : fromSection === "most-popular"
               ? cellJSX({ ...maxCountMovie, percent: mostPopularPercent })
+              : fromSection === "accuracy"
+              ? cellJSX(accuracyPercent)
               : null}
           </div>
         </div>

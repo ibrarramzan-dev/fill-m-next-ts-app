@@ -15,7 +15,6 @@ function Cell({
   leftImg,
   leftAttrLink,
   label,
-  onCellClick,
 }) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -23,9 +22,7 @@ function Cell({
     <>
       <div className="AdminCell" onClick={() => setIsOpen(true)}>
         <div className="AdminCell-box-wrapper">
-          <div className="AdminCell-box" onClick={onCellClick}>
-            {label}
-          </div>
+          <div className="AdminCell-box">{label}</div>
         </div>
 
         {leftImg && (

@@ -7,8 +7,6 @@ export async function POST(request) {
 
   connectMongoDB();
 
-  console.log("Stats ", stats);
-
   const puzzle = new Puzzle({
     date,
     labels,
@@ -42,12 +40,9 @@ export async function PUT(request) {
       guessesUpdateQuery[key] = 1;
     } else {
       const key = `stats.guesses.${label}.notGuessed`;
-      notGuessedUpdateQuery[key] = -1;
+      notGuessedUpdateQuery[key] = 1;
     }
   });
-
-  console.log(guessesUpdateQuery);
-  console.log(notGuessedUpdateQuery);
 
   await Puzzle.findOneAndUpdate(
     { _id: id },

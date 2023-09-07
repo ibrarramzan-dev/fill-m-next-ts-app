@@ -8,8 +8,6 @@ function Grid() {
     (state) => state.admin.puzzle.labels
   );
 
-  const onCellClick = () => console.log("cell clicked");
-
   const borderTopRightStyling = {
     borderTopRightRadius: "1.2rem",
   };

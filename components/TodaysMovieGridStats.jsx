@@ -6,8 +6,6 @@ function TodaysMovieGridStats() {
   let totalGames = 0;
   let totalScoreByAllPlayers = 0;
 
-  console.log(scores);
-
   Object.keys(scores).forEach((score) => {
     totalScoreByAllPlayers += score * scores[score];
     totalGames += scores[score];

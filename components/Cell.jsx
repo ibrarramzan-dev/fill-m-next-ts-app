@@ -63,8 +63,6 @@ function Cell({
       .then((res) => {
         const { results } = res.data;
 
-        console.log(results);
-
         const finalResults = [];
         results.forEach((record) => {
           const { release_date } = record;
@@ -93,8 +91,6 @@ function Cell({
   const handleChange = (newValue) => {
     console.log("handle change");
   };
-
-  console.log(imageLink);
 
   return (
     <>

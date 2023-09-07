@@ -80,8 +80,6 @@ function NewPuzzle() {
     guesses,
   };
 
-  console.log("Stats initial state: ", statsInitialState);
-
   const onPuzzleSave = () => {
     axios
       .post("https://fill-m-next-ts-app.vercel.app/api/puzzles", {
@@ -136,7 +134,6 @@ function NewPuzzle() {
     ) : null;
   };
 
-  console.log(selected);
   return (
     <section className="NewPuzzle">
       <div className="NewPuzzle-left-col">

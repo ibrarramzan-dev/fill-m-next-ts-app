@@ -3,8 +3,6 @@ import Image from "next/image";
 import SummaryMetricGrid from "./SummaryMetricGrid";
 
 const cellJSX = (movie) => {
-  console.log("Movie for cell JSX: ", movie);
-
   return (
     <div className="MostPopular-cell-wrapper">
       {isNaN(movie.percent) ? (
@@ -29,8 +27,6 @@ const cellJSX = (movie) => {
 
 function MostPopular() {
   const guesses = useSelector((state) => state.puzzle.stats.guesses);
-
-  console.log("Guesses: ", guesses);
 
   return (
     <div className="MostPopular">

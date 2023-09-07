@@ -57,9 +57,9 @@ function Grid() {
                 label="D"
               />
               {/* x2y2 */}
-              <Cell label=" />
+              <Cell label="E" />
               {/* x2y3 */}
-              <Cell label=" />
+              <Cell label="F" />
             </div>
             <div className="AdminGrid-box-row">
               {/* x3y1 */}
@@ -70,12 +70,9 @@ function Grid() {
                 label="G"
               />
               {/* x3y2 */}
-              <Cell label=" />
+              <Cell label="H" />
               {/* x3y3 */}
-              <Cell
-                label="I"
-                styling={borderBottomRightStyling}
-              />
+              <Cell label="I" styling={borderBottomRightStyling} />
             </div>
           </div>
         </div>

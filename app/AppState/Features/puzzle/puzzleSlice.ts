@@ -1,6 +1,6 @@
 "use client";
 
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 import _ from "lodash";
 
 interface LabelItemInterface {
@@ -73,6 +73,7 @@ interface PuzzleInterface {
   labels: LabelInterface;
   answers: AnswersInterface;
   cellsImages: CellImagesInterface;
+  moviesGuessed: number[];
   guesses: number;
   puzzleFinished: boolean;
   stats: StatsInterface;
@@ -164,6 +165,7 @@ const initialState: PuzzleInterface = {
       attributionLink: "",
     },
   },
+  moviesGuessed: [],
   guesses: 0,
   puzzleFinished: false,
   stats: {
@@ -189,14 +191,17 @@ export const puzzleSlice = createSlice({
     newPuzzle: (state, action) => ({
       ...action.payload,
       cellsImages: initialState.cellsImages,
+      moviesGuessed: [],
       guesses: 9,
       puzzleFinished: false,
     }),
     answerGuessed: (state, action) => {
       const { label, id, poster_path } = action.payload;
 
-      const answers: any = state.answers;
-
+      const { answers, moviesGuessed }: any = current(state);
+      console.log("State: ", current(state));
+      console.log("Answers: ", answers);
+      console.log("moviesGuessed: ", moviesGuessed);
       const foundMovie = _.find(answers[label], { id });
 
       if (foundMovie) {
@@ -210,6 +215,7 @@ export const puzzleSlice = createSlice({
               attributionLink: foundMovie.attributionLink,
             },
           },
+          moviesGuessed: [...moviesGuessed, foundMovie.id],
           guesses: state.guesses - 1,
           puzzleFinished: state.guesses - 1 === 0 ? true : false,
         };

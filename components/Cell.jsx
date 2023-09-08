@@ -19,7 +19,9 @@ function Cell({
   leftAttrLink,
   label,
 }) {
-  const { cellsImages, guesses } = useSelector((state) => state.puzzle);
+  const { cellsImages, guesses, moviesGuessed } = useSelector(
+    (state) => state.puzzle
+  );
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [value, setValue] = useState();
@@ -84,8 +86,10 @@ function Cell({
   };
 
   const handleSelect = (selectedValue) => {
-    const [id, poster_path] = selectedValue.split("~!~");
-    dispatch(answerGuessed({ label, id, poster_path }));
+    if (selectedValue !== "used") {
+      const [id, poster_path] = selectedValue.split("~!~");
+      dispatch(answerGuessed({ label, id, poster_path }));
+    }
   };
 
   const handleChange = (newValue) => {
@@ -190,9 +194,33 @@ function Cell({
                   ? (releaseYear = ` (${release_date.split("-")[0]})`)
                   : null;
 
+                let value = `${id}~!~${poster_path}`;
+
+                let movieAlreadyGuessed = false;
+
+                {
+                  moviesGuessed.includes(id.toString())
+                    ? (movieAlreadyGuessed = true)
+                    : null;
+                }
+
+                {
+                  movieAlreadyGuessed ? (value = "used") : null;
+                }
+
+                const labelJSX = (
+                  <div className="Cell-modal-select-movies-item-label-jsx">
+                    <p>
+                      {title}
+                      {releaseYear}
+                    </p>
+                    <p>{movieAlreadyGuessed ? "Already Guessed" : ""}</p>
+                  </div>
+                );
+
                 return {
-                  value: `${id}~!~${poster_path}`,
-                  label: `${title}${releaseYear}`,
+                  value: value,
+                  label: labelJSX,
                 };
               })}
             />

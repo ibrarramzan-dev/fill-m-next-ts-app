@@ -2,7 +2,6 @@ import Link from "next/link";
 import { Indie_Flower } from "next/font/google";
 import { useState, useEffect } from "react";
 import { BsTwitter } from "react-icons/bs";
-import { ImStatsBars } from "react-icons/im";
 import { BsQuestionLg } from "react-icons/bs";
 import { Modal } from "antd";
 import cn from "classnames";
@@ -32,11 +31,17 @@ function Header() {
         </div>
       </Link>
       <div className="Header-right-items">
-        <BsTwitter className="Header-right-items-icon" />
-        <ImStatsBars className="Header-right-items-icon" />
+        <Link
+          href="https://twitter.com/FillMGame"
+          target="_blank"
+          className="Header-right-items-icon"
+        >
+          <BsTwitter style={{ color: "#1ebbf5" }} />
+        </Link>
         <BsQuestionLg
           onClick={() => setIsModalOpen(true)}
           className="Header-right-items-icon"
+          style={{ color: "#535353" }}
         />
       </div>
 

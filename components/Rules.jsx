@@ -43,11 +43,13 @@ function Rules() {
         movie that won the award unless it is specified that they themselves won
         the award for being in the movie (i.e.: for Best Actor/Actress awards).
       </p>
+      <hr />
       <p>
         All Box Office data is courtesy of{" "}
         <Link href="https://www.the-numbers.com/" target="_blank">
           https://www.the-numbers.com/
         </Link>
+        .
       </p>
     </div>
   );

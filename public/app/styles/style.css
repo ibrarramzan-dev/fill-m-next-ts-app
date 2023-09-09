@@ -80,6 +80,17 @@ header .Header-right-items .Header-right-items-icon:nth-of-type(3) {
   color: #535353;
 }
 
+.Rules {
+  text-align: center;
+}
+.Rules .Rules-and-action-text b {
+  font-weight: 500;
+}
+.Rules .Rules-how-to-play-text {
+  font-size: 1.2rem;
+  color: #ee0067;
+}
+
 .Grid {
   width: 100%;
   display: flex;

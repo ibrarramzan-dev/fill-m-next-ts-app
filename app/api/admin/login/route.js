@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import connectMongoDB from "@/libs/mongodb";
-import Admin from "@/models/Admin";
+import Admin from "../../../../models/admin";
 
 export async function POST(request) {
   const { username, password } = await request.json();

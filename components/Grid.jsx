@@ -33,16 +33,16 @@ function Grid() {
       const score = _.sum(foundRecords);
 
       axios
-        .put("https://fill-m-next-ts-app.vercel.app/api/puzzles", {
-          id: _id,
-          score,
-          cellsImages,
-        })
-        // .put("http://localhost:3000/api/puzzles", {
+        // .put("https://fill-m-next-ts-app.vercel.app/api/puzzles", {
         //   id: _id,
         //   score,
         //   cellsImages,
         // })
+        .put("http://localhost:3000/api/puzzles", {
+          id: _id,
+          score,
+          cellsImages,
+        })
         .then((response) => {
           console.log(response);
         });

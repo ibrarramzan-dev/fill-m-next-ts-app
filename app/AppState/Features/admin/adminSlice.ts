@@ -47,6 +47,7 @@ export interface Admin {
     isSidebarOpened: boolean;
   };
   puzzle: PuzzleInterface;
+  auth: boolean;
 }
 
 const initLabelsKeys = {
@@ -93,6 +94,7 @@ const initialState: Admin = {
       I: [],
     },
   },
+  auth: false,
 };
 
 export const adminSlice = createSlice({
@@ -764,6 +766,14 @@ export const adminSlice = createSlice({
       ...state,
       puzzle: initialState.puzzle,
     }),
+    authenticated: (state: Admin) => ({
+      ...state,
+      auth: true,
+    }),
+    logout: (state: Admin) => ({
+      ...state,
+      auth: false,
+    }),
   },
 });
 
@@ -777,6 +787,8 @@ export const {
   addAnswerMovieAttrLink,
   deleteAnswers,
   resetPuzzle,
+  authenticated,
+  logout,
 } = adminSlice.actions;
 
 export default adminSlice.reducer;

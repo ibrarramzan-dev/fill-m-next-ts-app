@@ -89,7 +89,7 @@ export default function Menu() {
           path="/admin/new-puzzle"
         />
 
-        <MenuItem
+        {/* <MenuItem
           ref={allPuzzlesItemRef}
           icon={<UnorderedListOutlined />}
           text="All puzzles"
@@ -101,7 +101,7 @@ export default function Menu() {
           icon={<PlusOutlined />}
           text="New movie"
           path="/admin/new-movie"
-        />
+        /> */}
       </ul>
     </div>
   );

@@ -8,7 +8,10 @@ import { Avatar, Dropdown, Menu } from "antd";
 import cn from "classnames";
 import { useSelector, useDispatch } from "react-redux";
 import hamburger from "./images/menu_black_24dp.svg";
-import { toggleSidebar } from "@/app/AppState/Features/admin/adminSlice";
+import {
+  toggleSidebar,
+  logout,
+} from "@/app/AppState/Features/admin/adminSlice";
 
 const Indie_Flower_Font = Indie_Flower({
   subsets: ["latin"],
@@ -33,33 +36,12 @@ export default function Header() {
           {
             key: "1",
             label: (
-              <div className="AdminHeader-avatar-dropdown-list-item">
-                <Link target="_blank" rel="noopener noreferrer" href="#">
-                  <i className="fa-solid fa-gear Header-avatar-dropdown-icons" />
-                  Profile
-                </Link>
-              </div>
-            ),
-          },
-          {
-            key: "2",
-            label: (
-              <div className="AdminHeader-avatar-dropdown-list-item">
-                <Link target="_blank" rel="noopener noreferrer" href="#">
-                  <i className="fa-solid fa-key Header-avatar-dropdown-icons" />
-                  Change Password
-                </Link>
-              </div>
-            ),
-          },
-          {
-            key: "3",
-            label: (
-              <div className="AdminHeader-avatar-dropdown-list-item">
-                <Link target="_blank" rel="noopener noreferrer" href="#">
-                  <i className="fa-solid fa-arrow-right-from-bracket Header-avatar-dropdown-icons" />
-                  Logout
-                </Link>
+              <div
+                onClick={() => dispatch(logout())}
+                className="AdminHeader-avatar-dropdown-list-item"
+              >
+                <i className="fa-solid fa-arrow-right-from-bracket Header-avatar-dropdown-icons" />
+                Logout
               </div>
             ),
           },

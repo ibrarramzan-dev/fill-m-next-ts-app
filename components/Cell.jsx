@@ -214,7 +214,7 @@ function Cell({
                       {title}
                       {releaseYear}
                     </p>
-                    <p>{movieAlreadyGuessed ? "Already Guessed" : ""}</p>
+                    <p>{movieAlreadyGuessed ? "Already Used" : ""}</p>
                   </div>
                 );
 

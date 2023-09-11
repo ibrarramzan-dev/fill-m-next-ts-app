@@ -110,12 +110,15 @@ function Cell({
             })}
           >
             {imageLink !== "" ? (
-              <Link href={attributionLink} target="_blank">
+              <Link
+                href={attributionLink ? attributionLink : ""}
+                target="_blank"
+              >
                 <Image
                   src={`https://image.tmdb.org/t/p/original/${imageLink}`}
                   width={142}
                   height={142}
-                  alt="fdsf"
+                  alt="poster"
                 />
               </Link>
             ) : null}

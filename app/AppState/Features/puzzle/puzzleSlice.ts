@@ -212,10 +212,10 @@ export const puzzleSlice = createSlice({
           [label]: {
             id,
             image: poster_path,
-            attributionLink: foundMovie.attributionLink,
+            attributionLink: foundMovie?.attributionLink,
           },
         },
-        moviesGuessed: [...moviesGuessed, foundMovie.id],
+        moviesGuessed: [...moviesGuessed, foundMovie?.id],
         guesses: state.guesses - 1,
         puzzleFinished: state.guesses - 1 === 0 ? true : false,
       };

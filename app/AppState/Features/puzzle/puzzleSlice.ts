@@ -2,6 +2,7 @@
 
 import { createSlice, current } from "@reduxjs/toolkit";
 import _ from "lodash";
+import Cookies from "js-cookie";
 
 interface LabelItemInterface {
   label: string;
@@ -204,32 +205,64 @@ export const puzzleSlice = createSlice({
       console.log("moviesGuessed: ", moviesGuessed);
       const foundMovie = _.find(answers[label], { id });
 
-      if (foundMovie) {
-        return {
-          ...state,
-          cellsImages: {
-            ...state.cellsImages,
-            [label]: {
-              id,
-              image: poster_path,
-              attributionLink: foundMovie.attributionLink,
-            },
+      const foundMovieObj = {
+        ...state,
+        cellsImages: {
+          ...state.cellsImages,
+          [label]: {
+            id,
+            image: poster_path,
+            attributionLink: foundMovie.attributionLink,
           },
-          moviesGuessed: [...moviesGuessed, foundMovie.id],
-          guesses: state.guesses - 1,
-          puzzleFinished: state.guesses - 1 === 0 ? true : false,
-        };
+        },
+        moviesGuessed: [...moviesGuessed, foundMovie.id],
+        guesses: state.guesses - 1,
+        puzzleFinished: state.guesses - 1 === 0 ? true : false,
+      };
+
+      const notFoundMovieObj = {
+        ...state,
+        guesses: state.guesses - 1,
+        puzzleFinished: state.guesses - 1 === 0 ? true : false,
+      };
+
+      if (foundMovie) {
+        const filteredGameState = _.omit(foundMovieObj, [
+          "labels",
+          "answers",
+          "stats",
+        ]);
+
+        Cookies.set("game-state", JSON.stringify(filteredGameState), {
+          expires: 1,
+        });
+
+        return foundMovieObj;
       } else {
-        return {
-          ...state,
-          guesses: state.guesses - 1,
-          puzzleFinished: state.guesses - 1 === 0 ? true : false,
-        };
+        const filteredGameState = _.omit(foundMovieObj, [
+          "labels",
+          "answers",
+          "stats",
+        ]);
+
+        Cookies.set("game-state", JSON.stringify(filteredGameState), {
+          expires: 1,
+        });
+
+        return notFoundMovieObj;
       }
+    },
+    updatePuzzleFromCookie: (state, action) => {
+      const gameState = action.payload;
+      return {
+        ...state,
+        ...gameState,
+      };
     },
   },
 });
 
-export const { newPuzzle, answerGuessed } = puzzleSlice.actions;
+export const { newPuzzle, answerGuessed, updatePuzzleFromCookie } =
+  puzzleSlice.actions;
 
 export default puzzleSlice.reducer;

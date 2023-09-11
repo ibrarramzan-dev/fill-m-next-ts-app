@@ -10,8 +10,8 @@ function Login() {
 
   const onFinish = (values: any) => {
     axios
-      .post("https://fill-m-next-ts-app.vercel.app/api/admin/login", values)
-      // .post("http://localhost:3000/api/admin/login", values)
+      // .post("https://fill-m-next-ts-app.vercel.app/api/admin/login", values)
+      .post("http://localhost:3000/api/admin/login", values)
       .then((response) => {
         console.log("response: ", response);
         if (response.data.success) {

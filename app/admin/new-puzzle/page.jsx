@@ -81,14 +81,14 @@ function NewPuzzle() {
 
   const onPuzzleSave = () => {
     axios
-      .post("https://fill-m-next-ts-app.vercel.app/api/puzzles", {
-        ...puzzle,
-        stats: statsInitialState,
-      })
-      // .post("http://localhost:3000/api/puzzles", {
+      // .post("https://fill-m-next-ts-app.vercel.app/api/puzzles", {
       //   ...puzzle,
       //   stats: statsInitialState,
       // })
+      .post("http://localhost:3000/api/puzzles", {
+        ...puzzle,
+        stats: statsInitialState,
+      })
       .then((response) => {
         if (response.data.success) {
           dispatch(resetPuzzle());

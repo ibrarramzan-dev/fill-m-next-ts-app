@@ -7,6 +7,8 @@ import { Modal, Select } from "antd";
 import cn from "classnames";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
+import Cookies from "js-cookie";
+import _ from "lodash";
 import { FiSearch } from "react-icons/fi";
 import { answerGuessed } from "@/app/AppState/Features/puzzle/puzzleSlice";
 
@@ -19,9 +21,8 @@ function Cell({
   leftAttrLink,
   label,
 }) {
-  const { cellsImages, guesses, moviesGuessed } = useSelector(
-    (state) => state.puzzle
-  );
+  const state = useSelector((state) => state);
+  const { cellsImages, guesses, moviesGuessed } = state.puzzle;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [value, setValue] = useState();

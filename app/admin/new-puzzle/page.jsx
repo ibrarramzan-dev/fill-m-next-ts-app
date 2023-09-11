@@ -1,7 +1,6 @@
 "use client";
 
 import "react-day-picker/dist/style.css";
-import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
 import { Form, Button, Input } from "antd";
 import { useSelector, useDispatch } from "react-redux";

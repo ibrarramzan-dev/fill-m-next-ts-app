@@ -1,5 +1,6 @@
 "use client";
 
+import "react-toastify/dist/ReactToastify.css";
 import "@/public/admin/styles/style.css";
 import React from "react";
 import { useSelector } from "react-redux";

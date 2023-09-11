@@ -2,6 +2,7 @@ import React from "react";
 import { Form, Input, Button } from "antd";
 import axios from "axios";
 import { useDispatch } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
 import { authenticated } from "../../../app/AppState/Features/admin/adminSlice";
 
 function Login() {
@@ -15,8 +16,8 @@ function Login() {
         console.log("response: ", response);
         if (response.data.success) {
           dispatch(authenticated());
-          // form.resetFields();
-          // toast.success("Puzzle created!");
+        } else {
+          toast.error("Wrong credentials");
         }
       })
       .catch((error) => console.error(error));
@@ -39,6 +40,8 @@ function Login() {
           </Button>
         </Form.Item>
       </Form>
+
+      <ToastContainer />
     </div>
   );
 }

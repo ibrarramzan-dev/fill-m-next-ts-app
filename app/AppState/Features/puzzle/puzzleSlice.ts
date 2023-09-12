@@ -3,6 +3,7 @@
 import { createSlice, current } from "@reduxjs/toolkit";
 import _ from "lodash";
 import Cookies from "js-cookie";
+import moment from "moment";
 
 interface LabelItemInterface {
   label: string;
@@ -200,9 +201,6 @@ export const puzzleSlice = createSlice({
       const { label, id, poster_path } = action.payload;
 
       const { answers, moviesGuessed }: any = current(state);
-      console.log("State: ", current(state));
-      console.log("Answers: ", answers);
-      console.log("moviesGuessed: ", moviesGuessed);
       const foundMovie = _.find(answers[label], { id });
 
       const foundMovieObj = {
@@ -226,6 +224,18 @@ export const puzzleSlice = createSlice({
         puzzleFinished: state.guesses - 1 === 0 ? true : false,
       };
 
+      const date = new Date();
+
+      let month: any = date.getUTCMonth() + 1;
+      if (month.toString().length === 1) {
+        month = `0${month}`;
+      }
+
+      const localDate = moment
+        .utc(`${date.getUTCFullYear()}-${month}-${date.getUTCDate()}T23:59:59`)
+        .local()
+        .toDate();
+
       if (foundMovie) {
         const filteredGameState = _.omit(foundMovieObj, [
           "labels",
@@ -234,7 +244,7 @@ export const puzzleSlice = createSlice({
         ]);
 
         Cookies.set("game-state", JSON.stringify(filteredGameState), {
-          expires: 1,
+          expires: localDate,
         });
 
         return foundMovieObj;
@@ -246,7 +256,7 @@ export const puzzleSlice = createSlice({
         ]);
 
         Cookies.set("game-state", JSON.stringify(filteredGameState), {
-          expires: 1,
+          expires: localDate,
         });
 
         return notFoundMovieObj;

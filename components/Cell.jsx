@@ -93,10 +93,6 @@ function Cell({
     }
   };
 
-  const handleChange = (newValue) => {
-    console.log("handle change");
-  };
-
   return (
     <>
       <div onClick={onCellClick} className="Cell">
@@ -188,7 +184,6 @@ function Cell({
               filterOption={false}
               onSearch={handleSearch}
               onSelect={handleSelect}
-              onChange={handleChange}
               notFoundContent={null}
               options={(movieResults || []).map((m) => {
                 const { id, title, release_date, poster_path } = m;

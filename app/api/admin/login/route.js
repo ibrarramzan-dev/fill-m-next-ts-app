@@ -9,8 +9,6 @@ export async function POST(request) {
 
   const adminRecord = await Admin.findOne({ username, password });
 
-  console.log("Admin record: ", adminRecord);
-
   if (adminRecord) {
     return NextResponse.json(
       {

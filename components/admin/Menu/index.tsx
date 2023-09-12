@@ -1,11 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import {
-  UnorderedListOutlined,
-  PlusOutlined,
-  BorderOuterOutlined,
-} from "@ant-design/icons";
+import { BorderOuterOutlined } from "@ant-design/icons";
 import { useSelector } from "react-redux";
 import MenuItem from "./MenuItem";
 
@@ -22,15 +18,13 @@ export default function Menu() {
 
   const menuRef = useRef<HTMLDivElement>(null);
   const menuListUlRef = useRef<HTMLUListElement>(null);
-
   const newPuzzleItemRef = useRef<HTMLSpanElement>(null);
-  const allPuzzlesItemRef = useRef<HTMLSpanElement>(null);
-  const newMovieItemRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     function handleResize() {
       setWidth(window.innerWidth);
     }
+
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, [width]);
@@ -43,13 +37,7 @@ export default function Menu() {
   }
 
   if (isSidebarOpened) {
-    if (
-      menuRef.current &&
-      menuListUlRef.current &&
-      newPuzzleItemRef.current &&
-      allPuzzlesItemRef.current &&
-      newMovieItemRef.current
-    ) {
+    if (menuRef.current && menuListUlRef.current && newPuzzleItemRef.current) {
       menuRef.current.style.display = "flex";
       menuRef.current.style.justifyContent = "left";
       menuRef.current.style.paddingTop = "0";
@@ -64,18 +52,8 @@ export default function Menu() {
       menuListUlRef.current.style.border = "none";
 
       newPuzzleItemRef.current.style.display = "inline";
-
-      allPuzzlesItemRef.current.style.display = "inline";
-
-      newMovieItemRef.current.style.display = "inline";
     }
-  } else if (
-    !isSidebarOpened &&
-    menuRef.current &&
-    newPuzzleItemRef.current &&
-    allPuzzlesItemRef.current &&
-    newMovieItemRef.current
-  ) {
+  } else if (!isSidebarOpened && menuRef.current && newPuzzleItemRef.current) {
     menuRef.current.style.display = "none";
   }
 
@@ -88,20 +66,6 @@ export default function Menu() {
           text="New puzzle"
           path="/admin/new-puzzle"
         />
-
-        {/* <MenuItem
-          ref={allPuzzlesItemRef}
-          icon={<UnorderedListOutlined />}
-          text="All puzzles"
-          path="/admin/puzzles"
-        />
-
-        <MenuItem
-          ref={newMovieItemRef}
-          icon={<PlusOutlined />}
-          text="New movie"
-          path="/admin/new-movie"
-        /> */}
       </ul>
     </div>
   );

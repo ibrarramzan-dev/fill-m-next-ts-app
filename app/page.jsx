@@ -34,9 +34,7 @@ function Home() {
       if (Cookies.get("game-state")) {
         const gameState = JSON.parse(Cookies.get("game-state"));
 
-        console.log("Game state: ", gameState);
         if (gameState) {
-          console.log("uo");
           dispatch(updatePuzzleFromCookie(gameState));
         }
       }

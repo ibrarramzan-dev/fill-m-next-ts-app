@@ -64,10 +64,6 @@ function FeedMovies({ cellLabel }) {
     }
   };
 
-  const handleChange = (newValue) => {
-    console.log("handle change");
-  };
-
   return (
     <div className="FeedMovies">
       <p className="FeedMovies-heading heading">
@@ -86,7 +82,6 @@ function FeedMovies({ cellLabel }) {
           filterOption={false}
           onSearch={handleSearch}
           onSelect={handleSelect}
-          onChange={handleChange}
           notFoundContent={null}
           options={(movieResults || []).map((m) => {
             const { id, title, poster_path, release_date } = m;

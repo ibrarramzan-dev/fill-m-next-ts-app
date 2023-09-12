@@ -225,7 +225,6 @@ export const puzzleSlice = createSlice({
       };
 
       const date = new Date();
-
       let month: any = date.getUTCMonth() + 1;
       if (month.toString().length === 1) {
         month = `0${month}`;

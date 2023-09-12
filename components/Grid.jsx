@@ -1,12 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Modal } from "antd";
 import { useSelector } from "react-redux";
-import Cell from "./Cell";
-import Summary from "./Summary";
+import { Modal } from "antd";
 import _ from "lodash";
 import axios from "axios";
+import Cookies from "js-cookie";
+import moment from "moment";
+import Cell from "./Cell";
+import Summary from "./Summary";
 
 function Grid() {
   const puzzle = useSelector((state) => state.puzzle);
@@ -20,28 +22,45 @@ function Grid() {
     if (puzzleFinished === true) {
       setIsModalOpen(true);
 
-      const cellLabels = Object.keys(cellsImages);
+      const date = new Date();
+      let month = date.getUTCMonth() + 1;
+      if (month.toString().length === 1) {
+        month = `0${month}`;
+      }
 
-      const foundRecords = [];
+      const localDate = moment
+        .utc(`${date.getUTCFullYear()}-${month}-${date.getUTCDate()}T23:59:59`)
+        .local()
+        .toDate();
 
-      cellLabels.forEach((label) => {
-        if (cellsImages[label].image !== "") {
-          foundRecords.push(1);
-        }
-      });
+      if (!Cookies.get("game-finished")) {
+        Cookies.set("game-finished", true, {
+          expires: localDate,
+        });
 
-      const score = _.sum(foundRecords);
+        const cellLabels = Object.keys(cellsImages);
 
-      axios.put("https://fill-m-next-ts-app.vercel.app/api/puzzles", {
-        id: _id,
-        score,
-        cellsImages,
-      });
-      // axios.put("http://localhost:3000/api/puzzles", {
-      //   id: _id,
-      //   score,
-      //   cellsImages,
-      // });
+        const foundRecords = [];
+
+        cellLabels.forEach((label) => {
+          if (cellsImages[label].image !== "") {
+            foundRecords.push(1);
+          }
+        });
+
+        const score = _.sum(foundRecords);
+
+        axios.put("https://fill-m-next-ts-app.vercel.app/api/puzzles", {
+          id: _id,
+          score,
+          cellsImages,
+        });
+        // axios.put("http://localhost:3000/api/puzzles", {
+        //   id: _id,
+        //   score,
+        //   cellsImages,
+        // });
+      }
     }
   }, [puzzleFinished]);
 

@@ -239,7 +239,7 @@ export const puzzleSlice = createSlice({
 
         return foundMovieObj;
       } else {
-        const filteredGameState = _.omit(foundMovieObj, [
+        const filteredGameState = _.omit(notFoundMovieObj, [
           "labels",
           "answers",
           "stats",

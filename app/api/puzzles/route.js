@@ -70,5 +70,8 @@ export async function GET() {
 
   return NextResponse.json(puzzles[0], {
     status: 200,
+    headers: {
+      "Access-Control-Allow-Origin": "https://www.fill-m.com",
+    },
   });
 }

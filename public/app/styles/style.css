@@ -305,6 +305,7 @@ header .Header-right-items .Header-right-items-icon {
   font-size: 0.8rem;
   color: #3d3d3d;
   text-align: center;
+  margin-top: -0.4rem;
 }
 
 .Cell-modal-select-movies-wrapper {

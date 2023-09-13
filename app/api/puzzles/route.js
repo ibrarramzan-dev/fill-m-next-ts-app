@@ -70,6 +70,5 @@ export async function GET(request) {
 
   return NextResponse.json(puzzles[0], {
     status: 200,
-    headers: { "Access-Control-Allow-Origin": "*" },
   });
 }

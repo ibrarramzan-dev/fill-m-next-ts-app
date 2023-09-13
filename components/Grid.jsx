@@ -50,7 +50,7 @@ function Grid() {
 
         const score = _.sum(foundRecords);
 
-        axios.put("https://fill-m.com/api/puzzles", {
+        axios.put("https://www.fill-m.com/api/puzzles", {
           id: _id,
           score,
           cellsImages,

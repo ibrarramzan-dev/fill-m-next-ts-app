@@ -17,7 +17,7 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get("https://fill-m.com/api/puzzles")
+      .get("https://www.fill-m.com/api/puzzles")
       // .get("http://localhost:3000/api/puzzles")
       .then((response) => {
         delete response.data.createdAt;

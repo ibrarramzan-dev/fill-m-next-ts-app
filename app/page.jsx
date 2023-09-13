@@ -17,12 +17,7 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get("https://fill-m.com/api/puzzles", {
-        cors: {
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Headers": "Content-Type",
-        },
-      })
+      .get("https://fill-m.com/api/puzzles")
       // .get("http://localhost:3000/api/puzzles")
       .then((response) => {
         delete response.data.createdAt;

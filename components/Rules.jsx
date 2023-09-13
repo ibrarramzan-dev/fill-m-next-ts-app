@@ -51,8 +51,12 @@ function Rules() {
         .
       </p>
       <p>
-        Please submit any game feedback or ideas to fill.m.grid@gmail.com or via
-        twitter @FillMGame
+        Please submit any game feedback or ideas to{" "}
+        <Link href="mailto:fill.m.grid@gmail.com">fill.m.grid@gmail.com</Link>{" "}
+        or via twitter{" "}
+        <Link href="https://twitter.com/FillMGame" target="_blank">
+          @FillMGame
+        </Link>
       </p>
     </div>
   );

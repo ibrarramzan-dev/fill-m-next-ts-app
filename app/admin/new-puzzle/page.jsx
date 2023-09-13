@@ -81,7 +81,7 @@ function NewPuzzle() {
 
   const onPuzzleSave = () => {
     axios
-      .post("https://fill-m-next-ts-app.vercel.app/api/puzzles", {
+      .post("https://fill-m.com/api/puzzles", {
         ...puzzle,
         stats: statsInitialState,
       })

@@ -43,14 +43,16 @@ function Rules() {
         movie that won the award unless it is specified that they themselves won
         the award for being in the movie (i.e.: for Best Actor/Actress awards).
       </p>
-
       <p>
         All Box Office data is courtesy of{" "}
         <Link href="https://www.the-numbers.com/" target="_blank">
           https://www.the-numbers.com/
         </Link>
-        . Please submit any game feedback or ideas to fill.m.grid@gmail.com or
-        via twitter @FillMGame
+        .
+      </p>
+      <p>
+        Please submit any game feedback or ideas to fill.m.grid@gmail.com or via
+        twitter @FillMGame
       </p>
     </div>
   );

@@ -1,23 +1,6 @@
 import { NextResponse } from "next/server";
-import Cors from "cors";
 import connectMongoDB from "@/libs/mongodb";
 import Puzzle from "@/models/puzzle";
-
-const cors = Cors({
-  methods: ["POST", "GET", "HEAD"],
-});
-
-function runMiddleware(req, res, fn) {
-  return new Promise((resolve, reject) => {
-    fn(req, res, (result) => {
-      if (result instanceof Error) {
-        return reject(result);
-      }
-
-      return resolve(result);
-    });
-  });
-}
 
 export async function POST(request) {
   const { date, labels, answers, stats } = await request.json();
@@ -77,8 +60,7 @@ export async function PUT(request) {
   );
 }
 
-export async function GET(request, response) {
-  await runMiddleware(request, response, cors);
+export async function GET() {
   connectMongoDB();
 
   let date = new Date();

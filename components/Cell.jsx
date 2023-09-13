@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Modal, Select } from "antd";
 import cn from "classnames";
 import axios from "axios";
@@ -30,6 +30,8 @@ function Cell({
 
   const dispatch = useDispatch();
 
+  const makeAGuessSelectRef = useRef(null);
+
   const id = cellsImages[label].id;
   const imageLink = cellsImages[label].image;
   const attributionLink = cellsImages[label].attributionLink;
@@ -45,6 +47,12 @@ function Cell({
       isModalOpen && setIsModalOpen(false);
     }
   }, [guesses]);
+
+  useEffect(() => {
+    if (makeAGuessSelectRef.current) {
+      makeAGuessSelectRef.current.focus();
+    }
+  }, []);
 
   const onCellClick = () => {
     imageLink === "" && guesses > 0 && setIsModalOpen(true);
@@ -185,7 +193,8 @@ function Cell({
               onSearch={handleSearch}
               onSelect={handleSelect}
               notFoundContent={null}
-              autoFocus={true}
+              autoFocus
+              ref={makeAGuessSelectRef}
               options={(movieResults || []).map((m) => {
                 const { id, title, release_date, poster_path } = m;
                 let releaseYear = "";

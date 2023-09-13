@@ -185,6 +185,7 @@ function Cell({
               onSearch={handleSearch}
               onSelect={handleSelect}
               notFoundContent={null}
+              autoFocus
               options={(movieResults || []).map((m) => {
                 const { id, title, release_date, poster_path } = m;
                 let releaseYear = "";

@@ -49,7 +49,8 @@ function Rules() {
         <Link href="https://www.the-numbers.com/" target="_blank">
           https://www.the-numbers.com/
         </Link>
-        .
+        . Please submit any game feedback or ideas to fill.m.grid@gmail.com or
+        via twitter @FillMGame
       </p>
     </div>
   );

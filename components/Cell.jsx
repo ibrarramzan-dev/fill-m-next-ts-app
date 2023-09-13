@@ -176,6 +176,7 @@ function Cell({
         onOk={handleOk}
         onCancel={handleCancel}
         footer={false}
+        afterOpenChange={(open) => open && makeAGuessSelectRef.current?.focus()}
       >
         <>
           <p className="Cell-modal-info-text">
@@ -193,7 +194,6 @@ function Cell({
               onSearch={handleSearch}
               onSelect={handleSelect}
               notFoundContent={null}
-              autoFocus
               ref={makeAGuessSelectRef}
               options={(movieResults || []).map((m) => {
                 const { id, title, release_date, poster_path } = m;

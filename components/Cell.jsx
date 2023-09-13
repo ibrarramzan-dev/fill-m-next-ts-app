@@ -48,12 +48,6 @@ function Cell({
     }
   }, [guesses]);
 
-  useEffect(() => {
-    if (makeAGuessSelectRef.current) {
-      makeAGuessSelectRef.current.focus();
-    }
-  }, []);
-
   const onCellClick = () => {
     imageLink === "" && guesses > 0 && setIsModalOpen(true);
   };

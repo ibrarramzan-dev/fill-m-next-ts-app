@@ -163,7 +163,7 @@ function Cell({
       </div>
 
       <Modal
-        title="Make a guess"
+        title={<p className="Cell-modal-heading">Make a Guess</p>}
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}

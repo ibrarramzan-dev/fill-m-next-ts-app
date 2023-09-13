@@ -956,11 +956,10 @@ footer {
   padding: 1.6rem 0 0.45rem 0;
 }
 footer .Footer-disclaimer-wrapper {
-  display: flex;
-  justify-content: center;
+  padding: 0 10.5%;
 }
 footer .Footer-disclaimer-wrapper p {
-  width: 76%;
+  text-align: center;
   font-size: 0.8rem;
   color: #808080;
 }

@@ -1,16 +1,8 @@
 import { NextResponse } from "next/server";
-import NextCors from "nextjs-cors";
 import connectMongoDB from "@/libs/mongodb";
 import Puzzle from "@/models/puzzle";
 
 export async function POST(request) {
-  await NextCors(req, res, {
-    // Options
-    methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
-    origin: "*",
-    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-  });
-
   const { date, labels, answers, stats } = await request.json();
 
   connectMongoDB();
@@ -69,13 +61,6 @@ export async function PUT(request) {
 }
 
 export async function GET(request) {
-  await NextCors(req, null, {
-    // Options
-    methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
-    origin: "*",
-    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-  });
-
   connectMongoDB();
 
   let date = new Date();

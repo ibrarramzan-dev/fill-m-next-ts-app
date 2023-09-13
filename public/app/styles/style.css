@@ -297,6 +297,7 @@ header .Header-right-items .Header-right-items-icon {
 .Cell-modal-heading {
   text-align: center;
   font-weight: bold;
+  color: #ee0067;
 }
 
 .Cell-modal-info-text {

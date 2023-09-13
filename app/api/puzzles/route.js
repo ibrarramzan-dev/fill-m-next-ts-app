@@ -58,6 +58,7 @@ export async function PUT(request) {
       $inc: { [key]: 1, ...guessesUpdateQuery, ...notGuessedUpdateQuery },
     }
   );
+
   return NextResponse.json(
     {
       success: true,
@@ -82,5 +83,8 @@ export async function GET(request) {
 
   const puzzles = await Puzzle.find({ date });
 
-  return NextResponse.json(puzzles[0], { status: 200 });
+  return NextResponse.json(puzzles[0], {
+    status: 200,
+    headers: { "Access-Control-Allow-Origin": "*" },
+  });
 }

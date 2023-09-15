@@ -51,7 +51,7 @@ header {
 }
 header .Header-logo {
   margin-left: 0.8rem;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  box-shadow: rgba(79, 79, 79, 0.15) 1.95px 1.95px 2.6px;
   border-radius: 1.4rem;
   padding: 0.7rem 0.78rem;
 }
@@ -65,6 +65,12 @@ header .Header-right-items .Header-right-items-icon {
   cursor: pointer;
 }
 
+@media (min-width: 325px) and (max-width: 880px) {
+  .Header-logo img {
+    width: 7.6rem;
+    height: 2.2rem;
+  }
+}
 .Rules {
   text-align: center;
 }

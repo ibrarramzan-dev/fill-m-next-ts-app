@@ -31,7 +31,7 @@ function Header() {
           <Image
             src="/app/images/logo.png"
             alt="logo"
-            width="160"
+            width="155"
             height="40"
           />
         </div>

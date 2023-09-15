@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Indie_Flower } from "next/font/google";
 import { useState, useEffect } from "react";
@@ -27,7 +28,12 @@ function Header() {
     <header>
       <Link href="/">
         <div className={cn(Indie_Flower_Font.className, "Header-logo")}>
-          Fill-M
+          <Image
+            src="/app/images/logo.png"
+            alt="logo"
+            width="175"
+            height="43"
+          />
         </div>
       </Link>
       <div className="Header-right-items">
